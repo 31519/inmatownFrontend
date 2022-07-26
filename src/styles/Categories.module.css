@@ -1,0 +1,65 @@
+.container {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0px
+}
+
+.item {
+    margin: 10px 5px;
+    border: 1px solid black;
+    color: black;
+    flex-wrap: wrap;
+    cursor: pointer;
+    background-color: #181818
+}
+
+.title {
+    margin: 5px 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 600
+}
+
+.link {
+    text-decoration: none;
+}
+
+.cardContainer {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+}
+
+.card {
+    display : 'inline-block';
+    border-radius: 5px
+}
+
+.cardItem {
+    height: 120px;
+    width: 100px;
+    margin: 10px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background: #5de8ee3d
+}
+
+.cardTitle {
+    display:flex;
+    color: #2d2f2f;
+    font-size: 12px;
+    position: absolute;
+    top: 80%
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}

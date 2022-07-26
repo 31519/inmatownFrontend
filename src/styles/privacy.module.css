@@ -1,0 +1,39 @@
+.gridContent {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 20px;
+    background-color: white;
+    overflow-wrap: break-word;
+}
+
+.title {
+    font-size: 16px;
+}
+
+.gridHeader {
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: green;
+}
+
+.date {
+    opacity: 0.6;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+}
+
+.header {
+    font-size: 20px
+}
+
+.text {
+    word-break: break-word;
+    margin: 10px;
+    
+}

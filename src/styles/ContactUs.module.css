@@ -1,0 +1,199 @@
+.mainContainter {
+    min-height: 100vh
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: 500px;
+    padding: 25px;
+    margin: 10px auto 0;
+    border-top: 5px solid #ff0000;
+    box-shadow: 1px 5px 10px #c6c8c6;
+
+}
+
+.header {
+    font-size: 16px;
+    line-height: 24px;
+    padding: 5px 30px;
+    text-align: center;
+    color: #811c6c
+
+}
+
+.inputName {
+    width: 90%;
+    position: relative;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+
+}
+
+.contactIcon {
+    position: absolute;
+    font-size: 18px;
+    color: #078295;
+    border-right: 1px solid #cccccc;
+    padding: 5px
+}
+
+.textName {
+    width: 100%;
+    padding: 8px 0px 8px 10px;
+    border: 1px solid #cccccc;
+    outline: none;
+    transition: all 0.30s ease-in-out;
+    border-radius: 3px;
+
+}
+
+.radioButton {
+    margin-right: 4px
+}
+
+.radioButtonLabel {
+    margin-right: 30px
+}
+
+.textLink {
+    text-decoration: none
+}
+
+.textSignup {
+    font-size: 16px;
+    margin: 10px auto
+}
+
+.inputSubmit {
+    width: 90%;
+    position: relative;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    text-align:center;
+    justify-content: center;
+    color: white;
+    background: #078295;
+    outline: none;
+    font-size: 16px;
+    letter-spacing: 1px;
+    outline: none;
+    border:none;
+    
+}
+
+.required {
+    position: absolute;
+    right: 10px;
+    color: red
+}
+
+.textArea {
+    width: 100%;
+    padding: 8px 0px 8px 10px;
+    border: 1px solid #cccccc;
+    outline: none;
+    transition: all 0.30s ease-in-out;
+    border-radius: 3px
+}
+
+
+.success {
+    width: 90%;
+    background: rgb(148, 246, 129, 68%);
+    margin:0px auto;
+    position: relative
+}
+
+.successText {
+    font-size: 16px;
+    line-height: 20px;
+    padding:5px 30px;
+    text-align: center;
+    color: black;
+    align-items:center;
+    letter-spacing: 1.2px
+}
+
+.successClose {
+    position: absolute;
+    right: 15%;
+    color: red;
+    padding: 5px 10px;
+    font-size: 16px;
+    opacity: 0.5;
+    cursor: pointer
+}
+
+.poster {
+    height: 400px;
+    display: flex;
+    margin: 5px auto;
+    justify-content: center;
+
+}
+
+.image {
+    height: 100%;
+    object-fit: cover
+}
+
+.whatsappLink {
+    padding: 6px 10px;
+    color: white;
+    background-color: #00c176;
+    border-radius: 25px;
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    cursor:pointer
+}
+
+.whatsappLinkDiv{
+    display:flex;
+    justify-content: center;
+}
+
+.icons {
+    margin: 0px 5px
+}
+
+.textName:hover{
+    background-color: #fafafa;
+    border: 1px solid #078295
+}
+
+.textName:focus {
+    border: 1px solid #078295
+}
+
+.inputSubmit:hover {
+    color: white;
+    background: #181818
+}
+
+.textArea:hover {
+    background-color: #fafafa;
+    border: 1px solid #078295
+
+}
+.textArea:focus {
+    border: 1px solid #078295
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        width: 80%;
+    
+    }
+    .poster{
+        width: 280px;
+        padding: 25px
+    }
+  }

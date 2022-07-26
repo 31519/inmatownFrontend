@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    /* margin: 10px; */
+}
+
+.containerParent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header1 {
+    color: black;
+    font-size:30px;
+    margin: 0px
+
+}
+
+.ImageContainer {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+
+
+.image {
+    /* object-fit: cover;
+    height: auto;
+    width: 100%; */
+    width: 100%;
+    height: auto;
+    /* background: #00FFFF; */
+}
+
+.containerTwo {
+    margin: 5px;
+    overflow-wrap: break-word;
+    width: 100%
+}
+
+
+.title {
+    /* line-height: 1.5; */
+    overflow-wrap: break-word;
+    color: rgb(7, 202, 33);
+    font-size: 25px;
+    letter-spacing: 1.5px;
+}
+
+.preTag {
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-wrap: break-word;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    /* opacity: 0.8; */
+    line-height: 1.5;
+    font-size: 20px
+}
+
+.posted{
+    font-size: 15px
+}
+
+.brand {
+    margin : 0px 3px;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.state {
+    color: #727677cf;
+    font-size: 16px;
+    margin: 5px 0px
+}
+
+.stateBox {
+    color: white;
+    background-color: rgb(7, 255, 234);
+    padding: 4px;
+    display: flex;
+    width: 100px;
+    position: absolute;
+    z-index: 12;
+
+}
+
+.brand {
+    color: rgb(63, 58, 58);
+}
+
+@media screen and (max-width: 600px) {
+    .preTag{
+        font-size: 16px;
+    }
+
+
+    .ImageContainer {
+        width: 100%;
+        height: 300px;
+        position: relative;
+    }
+  }

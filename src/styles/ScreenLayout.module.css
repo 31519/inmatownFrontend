@@ -1,0 +1,44 @@
+
+
+.container {
+    width: 100%;
+    display: flex;
+
+}
+
+.mainView {
+    width: 60%;
+    min-height:300px;
+    padding: 10px
+    
+}
+
+.secondaryView {
+    width: 40%;
+    padding: 20px
+}
+
+.secondCont {
+    /* min-height:300px; */
+    /* max-height: 600px; */
+    margin-top: 5px;
+} 
+
+
+@media screen and (max-width: 600px) {
+    /* .mainView {
+      background-color: rgb(96, 96, 238);
+    } */
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .mainView {
+        width: 100%;
+        
+    }
+    
+    .secondaryView {
+        width: 100%;
+    }
+  }

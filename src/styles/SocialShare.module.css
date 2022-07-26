@@ -1,0 +1,24 @@
+.socialMediaButton {
+    width: 30px;
+    height: 30px;
+    margin: 0 5px ;
+
+}
+
+
+.share {
+    font-size: 5px
+}
+
+.container {
+    display: flex
+}
+
+.button {
+    color: rgb(27, 159, 192);
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    text-transform: lowercase
+    
+}

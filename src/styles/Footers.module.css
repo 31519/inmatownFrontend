@@ -1,0 +1,79 @@
+.container {
+    background-color: #0d1e26;
+    padding: 20px;
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+  }
+
+.list {
+    font-size: 16px;
+    padding: 10px;
+    color: white;
+    font-weight: 500;
+    text-align:start;
+    text-decoration: none;
+    transition: all .2s ease;
+
+}
+.list:hover {
+    font-size: 17px
+}
+.item {
+    margin: 10px 20px
+}
+
+.itemList {
+    margin-top: 20px
+}
+
+.title {
+    font-size : 16px;
+    padding: 5px 5px 0px 5px;
+    color: white;
+    font-weight: 700;
+    text-align: start;
+    text-decoration: none
+}
+
+.textLink {
+    text-decoration: none;
+}
+
+.breakLine {
+    background: red;
+    font-weight: 900
+}
+
+.socialIcon {
+    margin: 0px;
+    padding: 0px;
+    border-radius: 5px
+}
+.socialIcon:hover {
+    padding: 1px
+}
+
+
+.linkName {
+    color: #ced6d6;
+    font-size: 9px
+}
+
+.linkDiv {
+    display: flex
+}
+
+.linkDivList {
+    margin : 5px;
+    align-items: center;
+    text-align: center
+}

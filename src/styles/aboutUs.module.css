@@ -1,0 +1,50 @@
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.gridContent {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 20px;
+    background-color:white;
+    width: 500px;
+    text-align: center;
+    margin: 5px auto;
+
+}
+
+.title {
+    margin: 30px;
+    font-size: 30px;
+    font-weight: 600;
+    opacity: 0.8;
+}
+
+.aboutContent {
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-align: start;
+}
+
+.gridHeader {
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    color: green
+}
+
+@media screen and (max-width: 600px) {
+    .gridContent {
+        width: 100%;
+    
+    }
+  }

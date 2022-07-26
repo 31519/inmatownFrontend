@@ -1,0 +1,204 @@
+.container {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.containerParent {
+    display: flex;
+    flex-direction: column;
+}
+
+.ImageContainer {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.containerTwo {
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+}
+
+.cardHeader {
+    color: green;
+    font-weight: 800;
+}
+
+.girdToday {
+    border: 2px solid #05eb4d;
+    margin: 5px;
+    border-radius:20px;
+    background-color: green;
+
+}
+
+
+/* .headerTitle {
+
+} */
+
+.paper {
+    margin-bottom: 15px;
+}
+
+.textLink {
+    text-decoration: none;
+}
+
+.stateBox {
+    color: white;
+    background-color: rgb(7, 255, 234);
+    /* margin: 5px; */
+    display: flex;
+    width: 80px;
+    position: absolute;
+
+}
+
+.brand {
+    color: rgb(63, 58, 58);
+}
+
+.button {
+    color: white;
+    background-color: red;
+    padding: 0 4px 0 4px;
+    border-radius: 0;
+    margin: 0
+}
+
+.date {
+    font-weight: 600;
+    color: green;
+    opacity: 0.6;
+
+}
+
+.title {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 30px;
+    
+    font-weight: 700;
+    color: blue;
+    margin: 5px;
+
+}
+
+.Button {
+    display: flex;
+    flex-direction: row;
+    justify-content: "space-evently";
+
+}
+
+.preTag {
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-wrap: break-word;
+
+
+    font-weight: 600;
+    font-size: 20px;
+    opacity: 0.8;
+    line-height: 22px;
+}
+
+.brand {
+    margin: 0px 3px;
+    font-size: 16;
+
+}
+
+.startDate {
+    font-size: 12px;
+    padding: 10px 0px;
+    margin: 0px;
+    font-weight: bold;
+    color :blue
+
+}
+
+.endDate {
+    font-size: 12px;
+    padding: 10px 0px;
+    margin: 0px;
+    font-weight: bold;
+    color :red
+    
+}
+
+.detailText {
+    font-size: 20px;
+    color: #04ba0a;
+    text-decoration: underline;
+
+}
+
+.preTagDetail {
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-wrap: break-word;
+    font-weight: 500;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+
+.ImageContainer {
+    background: #efb3b6;
+}
+
+
+.state {
+    color: #727677cf;
+    font-size: 16px;
+    margin: 5px 0px
+}
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .containerParent {
+        width: 100%;
+    }
+
+    .stateBox {
+        width: 90px;
+    }
+
+    .button {
+        font-size: 10px;
+    }
+
+    .date {
+        font-size: 14px;
+        opacity: 0.7;
+        
+    }
+
+    .title {
+        font-size: 20px;
+        margin: 2px;
+        
+    }
+    .preTag{
+        font-size: 16px;
+    }
+
+    .preTagDetail {
+        
+        font-size: 14px;
+        opacity: 0.8
+    }
+    .ImageContainer {
+        width: 100%;
+        height: 300px;
+        position: relative;
+    }
+  }
