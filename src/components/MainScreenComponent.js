@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image"
 
 const MainScreenComponent = ({ datas, header,link }) => {
-  const orig = "http://localhost:8000";
+  const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   return (
     <div className={mainScreen.mainContainer}>
       <div className={mainScreen.header}>

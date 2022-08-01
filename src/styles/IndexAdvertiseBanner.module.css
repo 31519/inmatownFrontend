@@ -1,0 +1,48 @@
+.container {
+    width: 100%;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    border: 1px;
+    position: relative;
+    align-items: center;
+}
+
+.image {
+    width: 500px;
+    height:auto;
+    object-fit: cover;
+
+}
+
+.title {
+    font-size:20px;
+    font-weight: 500;
+    opacity: 0.8;
+    text-align: center;
+    padding: 0;
+    margin: 0px;
+    z-index: 222;
+    left: 30%;
+    top: 30%
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 600;
+    opacity: 0.9;
+    text-align: center;
+    padding: 0 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .title {
+        left: 15%;
+        top: 20%
+    }
+    .image {
+        height: auto;
+        width: 100%;
+        object-fit: cover;
+    }
+}

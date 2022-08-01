@@ -55,7 +55,7 @@ export const listTechs = (keyword='') => async (dispatch) => {
   try {
     dispatch({ type: TECH_LIST_REQUEST });
     const { data } = await axios.get(
-      `api/technology/list${keyword}`
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list${keyword}`
     );
 
 

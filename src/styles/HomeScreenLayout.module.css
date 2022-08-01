@@ -1,0 +1,209 @@
+.container {
+  width: 100%;
+  display: flex;
+}
+
+.mainView {
+  width: 50%;
+  min-height: 300px;
+  padding: 10px;
+}
+
+.secondaryView {
+  width: 50%;
+  padding: 20px;
+}
+
+.secondCont {
+  /* min-height:300px; */
+  /* max-height: 600px; */
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  /* .mainView {
+      background-color: rgb(96, 96, 238);
+    } */
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .mainView {
+    width: 100%;
+  }
+
+  .secondaryView {
+    width: 100%;
+  }
+}
+
+.maincontainer {
+  display: flex;
+  padding: 3px;
+  box-shadow: 1px 2px 1px #c6c8c6;
+  
+}
+
+.imageContainer {
+  width: 100px;
+  height: 80px;
+  margin: 5px;
+  position: relative;
+  /* border: 1px solid black; */
+  background: #daabd6;
+}
+
+.image {
+  object-fit: fill;
+  width: 100px;
+  height: 80px;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header1 {
+  color: black;
+  font-size: 50px;
+  margin: 0px;
+}
+
+.posted {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+
+
+.state {
+  color: #727677cf;
+  font-size: 16px;
+  margin: 1px 0px;
+}
+
+.stateBox {
+  color: white;
+  background-color: rgb(7, 255, 234);
+  margin: 5px;
+  display: flex;
+  width: 80px;
+  position: absolute;
+  z-index: 12;
+}
+
+.brand {
+  color: rgb(63, 58, 58);
+}
+
+/* @media screen and (min-width: 600px) {
+    .imageContainer {
+        width: 200px;
+        height: 80px;
+        margin: 5px;
+    }
+  } */
+
+.mainContainer {
+  box-shadow: 1px 5px 10px #c6c8c6;
+  border: 0.5px 0.5px 0px 0.5px solid rgb(197, 190, 190);
+}
+
+@media screen and (max-width: 300px) {
+}
+
+.secondcontainer {
+  display: flex;
+  padding: 3px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+.sideImageContainer {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  position: relative;
+  /* background: #00FFFF; */
+}
+
+.mainContainer {
+  box-shadow: 10px 5px 10px #c6c8c6;
+  border: 0.5px solid rgb(197, 190, 190);
+  margin-bottom: 10px;
+}
+
+.state {
+  font-size: 8px;
+}
+
+.title {
+  font-size: 12px;
+  color: rgb(16, 141, 145);
+  font-weight: 900;
+}
+.state {
+  font-size: 10px;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.header1 {
+  color: black;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.posted {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.brand {
+  margin: 0px 3px;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.state {
+  color: #727677cf;
+  font-size: 12px;
+  margin: 5px 0px;
+}
+
+.stateBox {
+  color: white;
+  background-color: rgb(7, 255, 234);
+  padding: 4px;
+  display: flex;
+  /* width: 100px; */
+  position: absolute;
+}
+
+.brand {
+  color: rgb(63, 58, 58);
+}
+
+
+.browseAll {
+  width: 100%;
+  padding: 5px;
+  background-color: rgb(8, 248, 196);
+  color: black;
+  font-size: 16px;
+  display : flex;
+  justify-content: center;
+  cursor: pointer
+
+}
+
+.browseAll:hover {
+  background-color: rgb(9, 8, 9);
+  color :white;
+
+}

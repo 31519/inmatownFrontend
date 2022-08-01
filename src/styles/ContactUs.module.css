@@ -19,7 +19,6 @@
     padding: 5px 30px;
     text-align: center;
     color: #811c6c
-
 }
 
 .inputName {
@@ -195,5 +194,21 @@
     .poster{
         width: 280px;
         padding: 25px
+    }
+    .header {
+        font-size: 12px;
+        line-height: 24px;
+        padding: 5px 5px;
+        text-align: center;
+        color: #811c6c
+    }
+    .container {
+
+        width: 100%;
+        /* padding: 25px; */
+        margin: 10px auto 0;
+        border-top: 5px solid #ff0000;
+        box-shadow: 1px 5px 10px #c6c8c6;
+    
     }
   }

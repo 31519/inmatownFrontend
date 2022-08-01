@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 import categoriesStyle from "../styles/Categories.module.css";
 
@@ -8,19 +8,19 @@ import categoriesStyle from "../styles/Categories.module.css";
 
 // const color = randomColor()
 
-
 const Categories = () => {
   const listCategory = [
-    // {
-    //   title: "Education",
-    //   link: "/education",
-    //   image: "/education.jpg",
-    // },
     {
       title: "Home",
       link: "/",
       image: "/tourisms.jpg",
     },
+    {
+      title: "Education",
+      link: "/educations",
+      image: "/education.jpg",
+    },
+
     {
       title: "News",
       link: "/news",
@@ -80,7 +80,12 @@ const Categories = () => {
               <Link className={categoriesStyle.link} href={list.link}>
                 <div className={categoriesStyle.cardItem} id="allcolor">
                   {list.image && (
-                    <Image layout='fill' className={categoriesStyle.image} src={list.image} alt="" />
+                    <Image
+                      layout="fill"
+                      className={categoriesStyle.image}
+                      src={list.image}
+                      alt=""
+                    />
                   )}
                   <h2 className={categoriesStyle.cardTitle} variant="h3">
                     {list.title}

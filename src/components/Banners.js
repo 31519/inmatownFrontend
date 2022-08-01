@@ -13,7 +13,7 @@ import Image from 'next/image'
 
 
 const Banners = () => {
-  const orig = 'http://localhost:8000'
+  const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
   const location = useRouter();
   // const myRef = useRef(null);
   // const executeScroll = () => scrollToRef(myRef);

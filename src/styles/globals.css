@@ -66,3 +66,166 @@ button {
     font-size: 16px;
   }
 }
+
+
+
+/* Pagination */
+
+
+/* .page-item {
+  display: flex;
+}
+
+
+.page-item.active .page-link {
+  background-color: #2557a7;
+  border-color: #2557a7
+
+}
+
+.page-link {
+  color: #2557a7
+}
+.page-link:hover {
+  color: #2557a7
+} */
+
+.page-item.active .page-link {
+  background-color: #2557a7;
+  border-color: #2557a7;
+  color: white
+
+}
+
+.page-item.active  {
+  background-color: #2557a7;
+  border-color: #2557a7;
+  color: white
+
+}
+.pagination {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+ul.pagination li {
+  width:50px;
+  border: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  margin: 10px
+  
+}
+
+ul.pagination li:hover {
+  background-color: #337ab7;
+  
+}
+
+ul.pagination li a {
+  text-decoration: none;
+  color: #337ab7;
+  font-size: 16px;
+  padding:  4px
+}
+
+ul.pagination li .active a {
+  color: white
+}
+
+
+ul.pagination li a:hover, 
+ul.pagination li a.active {
+  color: white;
+  /* background-color: #337ab7 */
+
+}
+
+
+.page-selection {
+  width: 48px;
+  height: 30px;
+  color: #337ab7
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px
+}
+
+ul.pagination li .active {
+  background-color: #337ab7
+}
+
+
+@media screen and (max-width: 600px) {
+  /* .pagination {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+  
+  } */
+  
+  ul.pagination li {
+    width:30px;
+    border: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: center;
+    font-size: 10px;
+    margin: 10px
+    
+  }
+  
+  ul.pagination li:hover {
+    background-color: #337ab7;
+    
+  }
+  
+  ul.pagination li a {
+    text-decoration: none;
+    color: #337ab7;
+    font-size: 10px;
+    padding:  4px
+  }
+  
+  ul.pagination li .active a {
+    color: white
+  }
+  
+  
+  ul.pagination li a:hover, 
+  ul.pagination li a.active {
+    color: white;
+    background-color: #337ab7
+  
+  }
+  
+  
+  .page-selection {
+    width: 48px;
+    height: 30px;
+    color: #337ab7
+  }
+  
+  .pagination-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px
+  }
+  
+  ul.pagination li .active {
+    background: #337ab7
+  }
+}
+
+.paginationDiv{
+  justify-content: center;
+}
+ul {
+  list-style: none;
+  padding: 0
+}

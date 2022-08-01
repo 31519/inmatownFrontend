@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    width: "80%";
+    justify-content:center;
+    align-items: center;
+    margin:10px auto;
+
+}
+
+.inputDiv {
+    margin: 10px 10px;
+    border-radius: 2px;
+    padding: 5px;
+    color: black;
+    display: flex;
+    border: 2px solid #cc93b3;
+    width: 90%;
+}
+.inputDiv:hover{
+    border: 2px solid #fb008d;
+}
+
+.formInput {
+    flex:1;
+    border: none;
+    outline: none;
+    width: 60%;
+    color:black;
+    /* letter-spacing: ; */
+}
+
+.formButton {
+    border: none;
+    outline: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 2px;
+    background: #fb008d;
+    color: white;
+}
+
+.inputDiv:hover .formInput .formButton {
+    background: 2px solid #fb008d
+}
