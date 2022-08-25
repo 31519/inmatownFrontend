@@ -1,0 +1,137 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 25%;
+    word-break: break-word;
+    word-wrap: break-word;
+    /* box-shadow: 1px 2px 1px #c6c8c6; */
+  }
+
+  .container0 {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 48%;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+  
+  .imageContianer {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    background: #dce3e3;
+  }
+
+  .imageContianer0 {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    background: #dce3e3;
+  }
+
+
+  
+
+
+
+  
+  .textContainer {
+    width: 100%;
+    word-break: break-word;
+    word-wrap: break-all;
+    padding: 0px 0px;
+  }
+  
+
+  .textContainer0 {
+    width: 100%;
+    word-break: break-word;
+    word-wrap: break-all;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+  }
+
+  
+  .mainContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+    /* box-shadow: 1px 5px 10px #c6c8c6;
+    border: 0.5px 0.5px 0px 0.5px solid rgb(197, 190, 190); */
+  }
+
+ 
+  
+  @media screen and (max-width: 600px) {
+    .container {
+      display: flex;
+      padding: 3px;
+      width:100%;
+      flex-direction: row;
+    }
+
+    .container0 {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      word-break: break-word;
+      word-wrap: break-word;
+    }
+    .mainContainer {
+      /* width: 30%; */
+      display: flex;
+      flex-direction: column;
+      /* box-shadow: 1px 5px 10px #c6c8c6;
+      border: 0.5px 0.5px 0px 0.5px solid rgb(197, 190, 190); */
+  }
+
+
+  
+
+    .imageContianer {
+      width: 40%;
+      height: 100px;
+      margin: 5px;
+      position: relative;
+      /* border: 1px solid black; */
+      background: #dce3e3;
+    }
+
+    
+    .imageContianer0 {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      /* border: 1px solid black; */
+      background: #dce3e3;
+    }
+  
+    .textContainer {
+      width: 60%;
+      word-break: break-word;
+      word-wrap: break-all;
+      display: flex;
+      flex-direction: column;
+      padding: 0px 0px;
+    }
+
+    .textContainer0 {
+      width: 100%;
+      word-break: break-word;
+      word-wrap: break-all;
+      display: flex;
+      flex-direction: column;
+      padding: 0px 0px;
+    }
+
+
+
+
+    .textDiv {
+      display: flex;
+      flex-direction: row;
+    }
+  }

@@ -9,6 +9,7 @@ import ScreenJobsLayoutDetail from "../../../components/ScreenJobsLayoutDetail";
 import HeaderLayout from "../../../components/HeaderLayout";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
+import  Categories from "../../../components/Categories";
 // COMPONENT ALL
 
 
@@ -61,6 +62,7 @@ const AdvertiseDetail = ({ jobs }) => {
   return (
     <>
     <MetaDetail title={jobs.title} description={jobs.content} ogTitle={jobs.title} ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}/>
+      <Categories/>
       <HeaderLayout />
       <ScreenJobsLayoutDetail  url={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} header1='Jobs' header2="News" header3="Advertise" datas1={jobs} datas2={listLocal} datas3={listAdvertise} link2='news' link3="advertise" />
       <FooterLayout/>

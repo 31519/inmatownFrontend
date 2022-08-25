@@ -10,6 +10,7 @@ import HeaderLayout from "../../components/HeaderLayout";
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import SearchBox from "../../components/SearchBox";
+import MostView from "../../components/MostView";
 import Pagination from "react-js-pagination";
 
 // COMPONENT ALL
@@ -88,7 +89,7 @@ const News = ({ news, count, resPerPage }) => {
       <MetaScreen title="Inmatown - Recent News" description="Inmatown - Recent News" ogTitle="Inmatown - Recent News" ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`} />
       <HeaderLayout />
       <SearchBox/>
-      <ScreenLayout  header1='News' header2="Education" header3="Jobs" datas1={news}  count={count} resPerPage={resPerPage} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/>
+      {/* <ScreenLayout  header1='News' header2="Education" header3="Jobs" datas1={news}  count={count} resPerPage={resPerPage} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
       {resPerPage < count && (
         <div className="paginationDiv">
           <Pagination
@@ -105,6 +106,7 @@ const News = ({ news, count, resPerPage }) => {
           />
         </div>
       )}
+      <MostView/>
       <FooterLayout/>
     </>
   );
@@ -120,7 +122,7 @@ export async function getServerSideProps({query}) {
   const page = query.page || ""
 
   const queryStr = `keyword=${keyword}&page=${page}`
-  const newsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/mainlist?${queryStr}`);
+  const newsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list?${queryStr}`);
   const newsData = newsApi.data;
   const { count, resPerPage, local } = newsData;
 

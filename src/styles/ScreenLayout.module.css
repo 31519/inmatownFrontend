@@ -7,16 +7,16 @@
 }
 
 .mainView {
-    width: 60%;
+    width: 100%;
     min-height:300px;
-    padding: 10px
+    /* padding: 10px */
     
 }
 
-.secondaryView {
+/* .secondaryView {
     width: 40%;
     padding: 20px
-}
+} */
 
 .secondCont {
     /* min-height:300px; */

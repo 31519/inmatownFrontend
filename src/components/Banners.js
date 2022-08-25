@@ -17,7 +17,7 @@ const Banners = () => {
   const location = useRouter();
   // const myRef = useRef(null);
   // const executeScroll = () => scrollToRef(myRef);
-  const image = "/banner.png";
+  const image = "/static/banner.png";
   const settings = {
     dots: true,
     infinite: true,
@@ -37,7 +37,6 @@ const Banners = () => {
     loading: listBannerLoading,
     banners: listBanner,
   } = bannerList;
-  console.log("data", listBanner)
 
   useEffect(() => {
     dispatch(bannerListAction());
@@ -47,16 +46,18 @@ const Banners = () => {
       {/* <div className={classes.container}>
         <img className={classes.image} src={image} alt="banner" />
       </div> */}
-      {listBanner && listBanner.length === 0 && (
+
+    
+      {/* {listBanner && listBanner.length === 0 && (
         <div className={bannerStyles.container}>
-          <Image  layout="fill"  className={bannerStyles.image} src={orig + image} alt="banner" />
+          <Image  layout="fill"  className={bannerStyles.image} src={image} alt="" />
         </div>
-      )}
+      )} */}
 
       {listBannerError ? (
-        <>
-          <Image  layout="fill" className={bannerStyles.image} src={orig + image} alt="banner" />
-        </>
+        <div className={bannerStyles.container}>
+          <Image  layout="fill" className={bannerStyles.image} src={image} alt="" />
+        </div>
       ) : (
         <Slider {...settings}>
           {listBanner.map((banner) => (
@@ -66,7 +67,7 @@ const Banners = () => {
                 className={bannerStyles.image}
                 key={banner.id}
                 src={orig + banner.image}
-                alt={banner.title}
+                alt=""
               />
             </div>
           ))}

@@ -8,58 +8,37 @@ import categoriesStyle from "../styles/Categories.module.css";
 
 // const color = randomColor()
 
-const Categories = () => {
-  const listCategory = [
-    {
-      title: "Home",
-      link: "/",
-      image: "/tourisms.jpg",
-    },
-    {
-      title: "Education",
-      link: "/educations",
-      image: "/education.jpg",
-    },
+const listCategory = [
+  {
+    title: "Home",
+    link: "/",
+    image: "/tourisms.jpg",
+  },
+  {
+    title: "Education",
+    link: "/educations",
+    image: "/education.jpg",
+  },
 
-    {
-      title: "News",
-      link: "/news",
-      image: "/news.jpg",
-    },
-    {
-      title: "Jobs",
-      link: "/jobs",
-      image: "/jobs.jpg",
-    },
-    {
-      title: "Advertise",
-      link: "/advertise",
-      image: "/advertise.jpg",
-    },
-    // {
-    //   title: "Event/Scheme",
-    //   link: "/event",
-    //   image: "/event.jpg",
-    // },
-    // {
-    //   title: "Tourisms",
-    //   link: "/tourisms",
-    //   image: "/tourisms.jpg",
-    // },
-    // {
-    //   title: "Celebrity",
-    //   link: "/celebrity"
-    // },
-    // {
-    //   title: "Resell",
-    //   link: "/resell",
-    //   image: "images/static/resell.jpg",
-    // },
-    // {
-    //   title: "Rent In My Area",
-    //   link: "/rental"
-    // },
-  ];
+  {
+    title: "News",
+    link: "/news",
+    image: "/news.jpg",
+  },
+  {
+    title: "Jobs",
+    link: "/jobs",
+    image: "/jobs.jpg",
+  },
+  {
+    title: "Advertise",
+    link: "/advertise",
+    image: "/advertise.jpg",
+  },
+];
+
+const Categories = ({category=listCategory}) => {
+
 
   // const init = () => {
   //   const items = document.getElementById('colors')
@@ -74,8 +53,8 @@ const Categories = () => {
   return (
     <>
       <div className={categoriesStyle.cardContainer}>
-        {listCategory &&
-          listCategory.map((list) => (
+        {category &&
+          category.map((list) => (
             <div className={categoriesStyle.card} key={list.title}>
               <Link className={categoriesStyle.link} href={list.link}>
                 <div className={categoriesStyle.cardItem} id="allcolor">

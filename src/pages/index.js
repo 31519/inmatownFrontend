@@ -13,6 +13,51 @@ import { jobListAction } from "../redux/actions/advertiseActions2";
 import { listTechs } from "../redux/actions/techActions";
 import HomePageLayout from "../components/HomePageLayout";
 import IndexAdvertiseBanner from "../components/IndexAdvertiseBanner";
+import BbcComponent from "../components/BbcComponent";
+import BbcText from "../components/BbcText";
+import listCategory from "../../data/category.json"
+
+
+export async function getStaticProps(context) {
+  const category =  listCategory 
+  console.log("category", category)
+
+  // const listCategory = [
+  //   {
+  //     title: "Home",
+  //     link: "/",
+  //     image: "/tourisms.jpg",
+  //   },
+  //   {
+  //     title: "Education",
+  //     link: "/educations",
+  //     image: "/education.jpg",
+  //   },
+  
+  //   {
+  //     title: "News",
+  //     link: "/news",
+  //     image: "/news.jpg",
+  //   },
+  //   {
+  //     title: "Jobs",
+  //     link: "/jobs",
+  //     image: "/jobs.jpg",
+  //   },
+  //   {
+  //     title: "Advertise",
+  //     link: "/advertise",
+  //     image: "/advertise.jpg",
+  //   },
+  // ];
+
+  return {
+    props: {
+      category:category
+    }
+  }
+}
+
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -78,10 +123,22 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico"></link>
         <title>Inmatown</title>
       </Head>
+
+
+      {/* <IndexAdvertiseBanner index={0} /> */}
+      {/* <HomePageLayout  header1='News' header2="Education" header3="Jobs" datas1={listLocal.slice(0, 2)} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
       <Banners />
-      <IndexAdvertiseBanner index={0} />
       <Categories />
-      <HomePageLayout  header1='News' header2="Education" header3="Jobs" datas1={listLocal.slice(0, 2)} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/>
+      <BbcComponent  datas={listLocal} link="news" header="Recent News" loading={listLocalLoading}/>
+      <BbcText  datas={listLocal} link="news" header="Must Read"/>
+
+      <BbcComponent  datas={listJob} link="jobs" header="Recent Jobs" loading={listJobLoading}/>
+      <BbcText  datas={listJob} link="jobs" header="Must Read"/>
+      <Banners />
+      <BbcComponent  datas={listTech} link="educations" header="Education" loading={listTech}/>
+      <BbcText  datas={listTech} link="educations" header="Must Read"/>
+      <Banners />
+      
       <IndexAdvertiseBanner index={1} />
 
       {/* <ScreenLayout header1='News' header2="Advertise" datas={listLocal} datas2={listAdvertise} /> */}

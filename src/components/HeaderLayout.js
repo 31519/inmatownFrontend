@@ -8,8 +8,8 @@ const HeaderLayout = () => {
   return (
     <>
     {/* <SideBar/> */}
+    {/* <Categories/> */}
     <Banners/>
-    <Categories/>
 
     </>
   );

@@ -1,0 +1,29 @@
+[
+      {
+        "title": "Home",
+        "link": "/",
+        "image": "/tourisms.jpg"
+      },
+      {
+        "title": "Education",
+        "link": "/educations",
+        "image": "/education.jpg"
+      },
+  
+      {
+        "title": "News",
+        "link": "/news",
+        "image": "/news.jpg"
+      },
+      {
+        "title": "Jobs",
+        "link": "/jobs",
+        "image": "/jobs.jpg"
+      },
+      {
+        "title": "Advertise",
+        "link": "/advertise",
+        "image": "/advertise.jpg"
+      }
+      
+    ]
