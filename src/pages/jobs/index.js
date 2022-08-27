@@ -26,8 +26,9 @@ const Jobs = ({ jobs, page, pages, category }) => {
   const dispatch = useDispatch();
   const metaImage = "/inmatown.png"
   const router = useRouter()
-  console.log("useRouter", router)
-  const mainUrl = process.env.PRODUCTION_URL
+
+  
+  const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL
 
   const localList = useSelector((state) => state.localList);
 
@@ -72,7 +73,7 @@ const Jobs = ({ jobs, page, pages, category }) => {
 
   return (
     <>
-      <MetaScreen title="Inmatown - Recent Jobs" description="Inmatown - Recent Jobs" ogTitle="Inmatown - Recent Jobs" ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={{metaImage}} />
+      <MetaScreen title="Inmatown - Recent Jobs" description="Inmatown - Recent Jobs" ogTitle="Inmatown - Recent Jobs" ogType="website" ogUrl={mainUrl + router.asPath} ogImage={metaImage} />
       <Banners/>
       <Categories />
       {/* <ScreenLayout  header1='Jobs' header2="News" header3="Advertise" datas1={jobs}  pages={pages} page={page} datas2={listLocal} datas3={listAdvertise}  link1='jobs' link2="news" link3="advertise"/> */}

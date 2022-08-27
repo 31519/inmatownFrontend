@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 
 const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
+    const des = description.slice(3, -3)
     return(
         <>
         <Head>
@@ -13,11 +14,11 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <link rel="icon" href="/favicon.ico"></link>
 
             <title>{title}</title>
-            <link rel="canonical" href={ogUrl} />
+            {/* <link rel="canonical" href={ogUrl} /> */}
             <meta property="og:locale" content="en_US" />
-            <meta property="og:type" content="article" />
+            <meta property="og:type" content="website" />
             <meta property="og:title" content={ogTitle} />
-            <meta property="og:description" content={description} />
+            <meta property="og:description" content={des} />
             <meta property="og:url" content={ogUrl} />
             <meta property="og:site_name" content="grnBoat" />
             {/* <meta property="article:published_time" content="2022-08-27T00:30:00+00:00" />
