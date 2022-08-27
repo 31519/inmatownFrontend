@@ -2,7 +2,11 @@ import layoutStyles from "../styles/ScreenLayout.module.css";
 import MainscreenJobsDetailComponent from "./MainscreenJobsDetailComponent"
 import MainScreenComponent from "./MainScreenComponent"
 
+
+
 const ScreenJobsLayoutDetail = ({url, datas1, datas2, datas3, header1, header2, header3,link1, link2, link3}) => {
+
+
   return (
     <div>
       

@@ -1,5 +1,7 @@
 import Head from 'next/head'
 
+
+
 const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
     return(
         <>
@@ -8,7 +10,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:type" content={ogType}/>
             {/* <meta property="og:image" content={ogImage} /> */}
             <meta charSet="utf-8"></meta>
-            {/* <link rel="icon" href="/favicon.ico"></link> */}
+            <link rel="icon" href="/favicon.ico"></link>
 
             <title>{title}</title>
             <link rel="canonical" href={ogUrl} />
@@ -17,7 +19,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:title" content={ogTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:url" content={ogUrl} />
-            <meta property="og:site_name" content="Syllad" />
+            <meta property="og:site_name" content="grnBoat" />
             {/* <meta property="article:published_time" content="2022-08-27T00:30:00+00:00" />
             <meta property="article:modified_time" content="2022-08-26T20:43:34+00:00" /> */}
             <meta property="og:image" content={ogImage}/>

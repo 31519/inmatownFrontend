@@ -20,6 +20,8 @@ const AdvertiseDetail = ({ jobs }) => {
   const router = useRouter()
   const dispatch = useDispatch();
 
+  const mainUrl = process.env.PRODUCTION_URL
+
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -61,7 +63,7 @@ const AdvertiseDetail = ({ jobs }) => {
 
   return (
     <>
-    <MetaDetail title={jobs.title} description={jobs.content} ogTitle={jobs.title} ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}/>
+    <MetaDetail title={jobs.title} description={jobs.content} ogTitle={jobs.title} ogType="website" ogUrl={mainUrl + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}/>
       <Categories/>
       <HeaderLayout />
       <ScreenJobsLayoutDetail  url={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} header1='Jobs' header2="News" header3="Advertise" datas1={jobs} datas2={listLocal} datas3={listAdvertise} link2='news' link3="advertise" />
