@@ -14,7 +14,7 @@ import  Categories from "../../../components/Categories";
 import MainscreenJobsDetailComponent from "../../../components/MainscreenJobsDetailComponent"
 import MainScreenComponent from "../../../components/MainScreenComponent"
 // COMPONENT ALL
-
+import Link from "next/link"
 
 
 
@@ -67,6 +67,9 @@ const AdvertiseDetail = ({ jobs }) => {
   return (
     <>
     <MetaDetail title={jobs.title} description={jobs.content} ogTitle={jobs.title} ogType="website" ogUrl={mainUrl + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}/>
+    <span itemprop="image" itemscope itemtype="image/jpeg"> 
+      <link itemprop="url" href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image} /> 
+    </span>
       <Categories/>
       <MainscreenJobsDetailComponent url={mainUrl} datas={jobs} header="Jobs"/>
       

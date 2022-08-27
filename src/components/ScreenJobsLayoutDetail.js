@@ -1,7 +1,7 @@
 import layoutStyles from "../styles/ScreenLayout.module.css";
 import MainscreenJobsDetailComponent from "./MainscreenJobsDetailComponent"
 import MainScreenComponent from "./MainScreenComponent"
-
+import Link from "next/link"
 
 
 const ScreenJobsLayoutDetail = ({url, datas1, datas2, datas3, header1, header2, header3,link1, link2, link3}) => {
@@ -9,6 +9,7 @@ const ScreenJobsLayoutDetail = ({url, datas1, datas2, datas3, header1, header2, 
 
   return (
     <div>
+
       
       <div className={layoutStyles.container}>
         <div className={layoutStyles.mainView}>
