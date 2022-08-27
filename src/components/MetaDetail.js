@@ -26,6 +26,8 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:image"  itemprop="image" content={ogImage}/>
             <meta property="og:image:width" content="970" />
             <meta property="og:image:height" content="567" />
+            <meta itemprop="width" content="1200"/>
+            <meta itemprop="height" content="800"/>
             <meta property="og:image:type" content="image/jpeg" />
             <meta name="author" content="grnBoat | Rise to the fullness" />
             <meta name="twitter:card" content="summary_large_image" />
