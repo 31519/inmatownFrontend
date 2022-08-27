@@ -17,7 +17,7 @@ const Banners = () => {
   const location = useRouter();
   // const myRef = useRef(null);
   // const executeScroll = () => scrollToRef(myRef);
-  const image = "/static/banner.png";
+  const img = "/static/banner.png";
   const settings = {
     dots: true,
     infinite: true,
@@ -56,7 +56,7 @@ const Banners = () => {
 
       {listBannerError ? (
         <div className={bannerStyles.container}>
-          <Image  layout="fill" className={bannerStyles.image} src={image} alt="" />
+          <Image  layout="fill" className={bannerStyles.image} src={img} alt="" />
         </div>
       ) : (
         <Slider {...settings}>

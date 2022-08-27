@@ -57,6 +57,7 @@ const Categories = ({category=listCategory}) => {
           category.map((list) => (
             <div className={categoriesStyle.card} key={list.title}>
               <Link className={categoriesStyle.link} href={list.link}>
+                <a>
                 <div className={categoriesStyle.cardItem} id="allcolor">
                   {list.image && (
                     <Image
@@ -70,6 +71,7 @@ const Categories = ({category=listCategory}) => {
                     {list.title}
                   </h2>
                 </div>
+                </a>
               </Link>
             </div>
           ))}
@@ -79,9 +81,11 @@ const Categories = ({category=listCategory}) => {
           listCategory.map((list) => (
             <div className={categoriesStyle.item} key={list.title}>
               <Link className={categoriesStyle.link} href={list.link}>
+                <a>
                 <h2 className={categoriesStyle.title} variant="h3">
                   {list.title}
                 </h2>
+                </a>
               </Link>
             </div>
           ))}

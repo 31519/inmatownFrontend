@@ -7,10 +7,6 @@ const ImageComponent = ({ img, index=1 }) => {
   const imgOrg = orig + img;
   const staticImg = "/jobs.jpg";
 
-  const handleOnError = () => {
-    console.log("imageerror");
-    setImgSrc("/static/jobs.jpg");
-  };
 
   return (
     <>

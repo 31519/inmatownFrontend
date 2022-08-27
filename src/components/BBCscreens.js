@@ -12,7 +12,7 @@ import ImageComponent from "./ImageComponent"
 import LoaderBbcComponent from "./LoaderBBCComponent/loaderBBCComponent";
 
 
-const BBCscreens = ({ datas, header, link, count, resPerPage }) => {
+const BBCscreens = ({ datas, header, link, count, staticImg="/jobs.jpg", resPerPage }) => {
 
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   const router = useRouter();
@@ -38,8 +38,6 @@ const BBCscreens = ({ datas, header, link, count, resPerPage }) => {
   };
 
 
-
-
   return (
     <Grid container className={mainScreen1.mainContainer}>
       <div className={mainScreen1.header}>
@@ -58,10 +56,22 @@ const BBCscreens = ({ datas, header, link, count, resPerPage }) => {
                 </h2>
               </div>
               <div className={mainScreen1.imageContainer}>
-                  <ImageComponent
-                    img={data.image}
-                    index={index}
+              {data.image ? (
+                  <Image
+                    className={( index == 0 ? mainScreen1.image0: mainScreen1.image)}
+                    src={orig + data.image}
+                    alt=""
+                    layout="fill"
                   />
+                ) :(
+                  <Image
+                    className={( index == 0 ? mainScreen1.image0: mainScreen1.image)}
+                    src={staticImg}
+                    alt=""
+                    layout="fill"
+                  />
+                )
+              }
               </div>
               {/*  */}
               <div className={mainScreen1.textContainer}>
