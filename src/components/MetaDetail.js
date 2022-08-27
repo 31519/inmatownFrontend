@@ -23,7 +23,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:site_name" content="grnBoat" />
             {/* <meta property="article:published_time" content="2022-08-27T00:30:00+00:00" />
             <meta property="article:modified_time" content="2022-08-26T20:43:34+00:00" /> */}
-            <meta property="og:image" content={ogImage}/>
+            <meta property="og:image"  itemprop="image" content={ogImage}/>
             <meta property="og:image:width" content="970" />
             <meta property="og:image:height" content="567" />
             <meta property="og:image:type" content="image/jpeg" />
