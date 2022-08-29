@@ -24,7 +24,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
                     className={mainJobDetailScreen.image}
                     key={datas.id}
                     src={orig + datas.image}
-                    alt={datas.title}
+                    alt=""
                   />
                 ) : (
                   <Image
@@ -32,7 +32,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
                     className={mainJobDetailScreen.image}
                     key={datas.id}
                     src="/static/jobs.jpg"
-                    alt={datas.title}
+                    alt=""
                   />
                 )}
               </div>
