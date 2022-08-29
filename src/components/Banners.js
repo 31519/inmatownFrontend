@@ -56,7 +56,7 @@ const Banners = () => {
         <div className={bannerStyles.loadingContainer}></div>
       )}
 
-      {listBanner.length === 0 ? (
+      {listBannerError ? (
         <div className={bannerStyles.container}>
           <Image
             layout="fill"
