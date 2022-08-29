@@ -31,7 +31,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
                     layout='fill'
                     className={mainJobDetailScreen.image}
                     key={datas.id}
-                    src="/jobs.jpg"
+                    src="/static/jobs.jpg"
                     alt={datas.title}
                   />
                 )}

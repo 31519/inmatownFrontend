@@ -10,12 +10,12 @@ import HeaderLayout from "../../components/HeaderLayout";
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import MostView from "../../components/MostView";
-import BbcText from "../../components/BbcText";
 import Banners from "../../components/Banners";
 import Categories from "../../components/Categories";
 import { getJobs} from "../../../lib/backendLink";
 import BBCscreens from "../../components/BBCscreens"
 import BbcComponent from "../../components/BbcComponent"
+import BbcText from "../../components/BbcText";
 
 
 // COMPONENT ALL

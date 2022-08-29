@@ -21,7 +21,7 @@
 .container{
     background: #efb3b6;
     width: 100%;
-    height: 200px;
+    height: 300px;
     display: flex;
 
 }
@@ -38,6 +38,6 @@
         height: 250px;
     }
     .container {
-        height: 120px;
+        height: 180px;
     }
   }

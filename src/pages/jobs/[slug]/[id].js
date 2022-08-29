@@ -14,7 +14,11 @@ import  Categories from "../../../components/Categories";
 import MainscreenJobsDetailComponent from "../../../components/MainscreenJobsDetailComponent"
 import MainScreenComponent from "../../../components/MainScreenComponent"
 // COMPONENT ALL
-import Link from "next/link"
+import Banners from "../../../components/Banners";
+import BbcComponent from "../../../components/BbcComponent"
+import BbcText from "../../../components/BbcText";
+import { getJobsDetail} from "../../../../lib/backendLink";
+
 
 
 
@@ -67,12 +71,18 @@ const AdvertiseDetail = ({ jobs }) => {
   return (
     <>
     <MetaDetail title={jobs.title} description={jobs.content} ogTitle={jobs.title} ogType="website" ogUrl={mainUrl + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}/>
+    <link itemprop="thumbnailUrl" href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image} />
+
     <span itemprop="image" itemscope itemtype="image/jpeg"> 
       <link itemprop="url" href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image} /> 
     </span>
+      <Banners/>
       <Categories/>
       <MainscreenJobsDetailComponent url={mainUrl} datas={jobs} header="Jobs"/>
-      
+
+      <BbcComponent  datas={listJob} link="jobs" header="Must View" loading={listJobLoading}/>
+      <BbcText  datas={listLocal} link="news" header="Recent News"/>
+      <Banners/>
       <FooterLayout/>
     </>
   );
@@ -84,13 +94,16 @@ export default AdvertiseDetail;
 
 export async function getServerSideProps({params}) {
 
-  const jobsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list/${params.id}/${params.slug}/`);
-  const jobsData = jobsApi.data;
+  // const jobsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list/${params.id}/${params.slug}/`);
+  // const jobsData = jobsApi.data;
+  const jobsDetailApi = await getJobsDetail(params);
+  // console.log("param", params)
+
 
 
   return {
     props: {
-      jobs: jobsData,
+      jobs: jobsDetailApi,
     },
   };
 }

@@ -7,13 +7,21 @@
 .containerParent {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .ImageContainer {
-    width: 100%;
-    height: 500px;
+    width: 50%;
+    height: 400px;
     position: relative;
+    background: #dce3e3;
 }
+
+.image {
+    object-fit: cover;
+    width: 50%;
+    height: 400px;
+  }
 
 .containerTwo {
     overflow-wrap: break-word;
@@ -147,9 +155,6 @@
 }
 
 
-.ImageContainer {
-    background: #efb3b6;
-}
 
 
 .state {
@@ -198,7 +203,13 @@
     }
     .ImageContainer {
         width: 100%;
-        height: 300px;
+        height: 200px;
         position: relative;
     }
+
+    .image {
+        object-fit: cover;
+        width: 100%;
+        height: 200px;
+      }
   }
