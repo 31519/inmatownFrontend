@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../redux/actions/advertiseActions";
 import { jobListAction } from "../../redux/actions/advertiseActions2";
-import axios from "axios";
-import ScreenLayout from "../../components/ScreenLayout";
-import HeaderLayout from "../../components/HeaderLayout";
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
-import SearchBox from "../../components/SearchBox";
+import Banners from "../../components/Banners";
+import Categories from "../../components/Categories";
+import { getEducations } from "../../../lib/backendLink";
+import BBCscreens from "../../components/BBCscreens";
+import BbcComponent from "../../components/BbcComponent";
+import BbcText from "../../components/BbcText";
 // COMPONENT ALL
 
-
-
 const Education = ({ education, page, pages }) => {
-
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png"
-  const router = useRouter()
+  const metaImage = "/inmatown.png";
+  const router = useRouter();
   const advertiseList = useSelector((state) => state.advertiseList);
 
   const {
@@ -26,7 +25,6 @@ const Education = ({ education, page, pages }) => {
     advertises: listAdvertise,
   } = advertiseList;
 
-
   const jobList = useSelector((state) => state.jobList);
 
   const {
@@ -34,38 +32,69 @@ const Education = ({ education, page, pages }) => {
     loading: listJobLoading,
     jobs: listJob,
   } = jobList;
-  
 
-  
   useEffect(() => {
     dispatch(advertiseListAction());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   return (
     <>
-      <MetaScreen title="Inmatown - Education" description="Inmatown - Education" ogTitle="Inmatown - Education" ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`} />
-      <HeaderLayout />
-      <SearchBox/>
-      <ScreenLayout  header1='Education' header2="Advertise" header3="Jobs" datas1={education}  pages={pages} page={page} datas2={listAdvertise} datas3={listJob} link1='educations' link2="advertise" link3="jobs"/>
-      <FooterLayout/>
+      <MetaScreen
+        title="Inmatown - Education"
+        description="Inmatown - Education"
+        ogTitle="Inmatown - Education"
+        ogType="website"
+        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+        ogImage={metaImage}
+      />
+      <Banners />
+      <Categories />
+      <BBCscreens
+        datas={education}
+        header="Education"
+        link="educations"
+        count={pages}
+        resPerPage={page}
+      />
+      <BbcComponent
+        datas={listJob}
+        link="jobs"
+        header="Must View"
+        loading={listJobLoading}
+      />
+      <BbcText datas={listJob} link="jobs" header="Jobs" />
+      <Banners />
+      <FooterLayout />
     </>
   );
 };
 
 export default Education;
 
+// export async function getServerSideProps({query}) {
+//   const keyword = query.keyword || ''
+//   const queryStr = `keyword=${keyword}`
+//   const educationApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list?${queryStr}`);
+//   const educationData = educationApi.data;
+//   const { pages, page, technology } = educationData;
 
+//   return {
+//     props: {
+//       education: technology,
+//       pages,
+//       page
+//     },
+//   };
+// }
 
-export async function getServerSideProps({query}) {
-  const keyword = query.keyword || ''
-  const queryStr = `keyword=${keyword}`
-  const educationApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list?${queryStr}`);
-  const educationData = educationApi.data;
-  const { pages, page, technology } = educationData;
+export async function getServerSideProps() {
+  const educationApi = await getEducations();
+
+  const { pages, page, technology } = educationApi;
 
   return {
     props: {
@@ -75,3 +104,4 @@ export async function getServerSideProps({query}) {
     },
   };
 }
+

@@ -1,81 +1,170 @@
-
 .container {
+  display: flex;
+  padding: 3px;
+  width: 100%;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+.imageContainer {
+  width: 30%;
+  height: 150px;
+  margin: 5px;
+  position: relative;
+  /* background: #00FFFF; */
+}
+
+  
+.textContainer {
+    width: 70%;
+    word-break: break-word;
+    word-wrap: break-all;
+    padding: 0px 0px;
+  }
+  
+
+.image {
+  object-fit: cover;
+}
+
+.mainContainer {
+  /* box-shadow: 10px 5px 10px #c6c8c6;
+    border: .5px solid rgb(197, 190, 190) */
+  border-bottom: 1px solid gray;
+}
+
+.state {
+  font-size: 8px;
+}
+
+.title {
+  font-size: 16px;
+  color: rgb(16, 141, 145);
+  font-weight: 900;
+}
+.state {
+  font-size: 10px;
+}
+.header {
+  width: 100%;
+  display: flex;
+  margin: 10px;
+}
+
+.header1 {
+  color: black;
+  font-size: 20px;
+  margin: 5px;
+}
+
+.posted {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.brand {
+  margin: 0px 3px;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.state {
+  color: #727677cf;
+  font-size: 12px;
+  margin: 5px 0px;
+}
+
+.stateBox {
+  color: white;
+  background-color: rgb(7, 255, 234);
+  padding: 4px;
+  display: flex;
+  width: 100px;
+  position: absolute;
+}
+
+.brand {
+  color: rgb(63, 58, 58);
+}
+
+@media screen and (max-width: 600px) {
+  .container {
     display: flex;
     padding: 3px;
     width: 100%;
     overflow-wrap: break-word;
-}
+  }
 
-
-.imageContainer {
-    width: 50px;
-    height: 50px;
+  .imageContainer {
+    width: 30%;
+    height: 80px;
     margin: 5px;
     position: relative;
     /* background: #00FFFF; */
-}
+  }
 
+  .image {
+    object-fit: cover;
+    width: 100px;
+    height: 50px;
+  }
 
-.mainContainer{
-    box-shadow: 10px 5px 10px #c6c8c6;
-    border: .5px solid rgb(197, 190, 190)
-}
+  .mainContainer {
+    /* box-shadow: 10px 5px 10px #c6c8c6;
+        border: .5px solid rgb(197, 190, 190) */
+    border-bottom: 1px solid gray;
+  }
 
-.state{
+  .state {
     font-size: 8px;
+  }
 
-}
-
-.title{
+  .title {
     font-size: 12px;
-    color:rgb(16, 141, 145);
+    color: rgb(16, 141, 145);
     font-weight: 900;
-    
-}
-.state{
+  }
+  .state {
     font-size: 10px;
-    
-}
-.header {
+  }
+  .header {
     width: 100%;
     display: flex;
-    justify-content: center;
-}
+  }
 
-.header1 {
+  .header1 {
     color: black;
-    font-size:20px;
-    margin: 5px
+    font-size: 20px;
+    margin: 5px;
+  }
 
-}
-
-.posted{
+  .posted {
     font-size: 10px;
-    letter-spacing:1px;
-}
+    letter-spacing: 1px;
+  }
 
-.brand {
-    margin : 0px 3px;
+  .brand {
+    margin: 0px 3px;
     font-size: 16px;
     letter-spacing: 1px;
-}
+  }
 
-.state {
+  .state {
     color: #727677cf;
     font-size: 12px;
-    margin: 5px 0px
-}
+    margin: 5px 0px;
+  }
 
-.stateBox {
+  .stateBox {
     color: white;
     background-color: rgb(7, 255, 234);
     padding: 4px;
     display: flex;
     width: 100px;
     position: absolute;
+  }
 
-}
-
-.brand {
+  .brand {
     color: rgb(63, 58, 58);
+  }
 }

@@ -1,35 +1,42 @@
 import mainScreen from "../styles/MainScreenComponent.module.css";
 import moment from "moment";
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 
-const MainScreenComponent = ({ datas, header,link }) => {
+const MainScreenComponent = ({ datas, header, link, staticImg="/jobs.jpg" }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   return (
     <div className={mainScreen.mainContainer}>
       <div className={mainScreen.header}>
-
         <h1 className={mainScreen.header1}>{header}</h1>
-        
-
       </div>
       <hr />
       {datas &&
         datas.map((data) => (
           <Link href={`/${link}/${data.slug}/${data.id}`}>
             <div className={mainScreen.container}>
-
               <div className={mainScreen.imageContainer}>
-                {data.image && (
+                {data.image ? (
                   <Image
+                    layout="fill"
+                    className={mainScreen.image}
+                    key={datas.id}
                     src={orig + data.image}
                     alt=""
-                    layout='fill'
+                    // objectFit='contain'
+                  />
+                ) : (
+                  <Image
+                    layout="fill"
+                    className={mainScreen.image}
+                    key={datas.id}
+                    src={staticImg}
+                    alt=""
                   />
                 )}
               </div>
               {/*  */}
-              <div className={mainScreen.textContainer}>
+              <div class={mainScreen.textContainer}>
                 <h4 className={mainScreen.state}>Meghalaya </h4>
                 <h2 className={mainScreen.title}>{data.title}</h2>
 

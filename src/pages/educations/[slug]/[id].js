@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { advertiseListAction } from "../../../redux/actions/advertiseActions"
+import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
-import axios from "axios";
-import ScreenLayoutDetail from "../../../components/ScreenLayoutDetail";
-import HeaderLayout from "../../../components/HeaderLayout";
+
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 // COMPONENT ALL
 
-
-
+import Categories from "../../../components/Categories";
+import Banners from "../../../components/Banners";
+import BbcComponent from "../../../components/BbcComponent";
+import BbcText from "../../../components/BbcText";
+import MainScreenComponent from "../../../components/MainScreenComponent";
+import { getEducationDetail } from "../../../../lib/backendLink";
+import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 
 const EducationDetail = ({ education }) => {
-
-  const router = useRouter()
+  const router = useRouter();
   const dispatch = useDispatch();
-
+  const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -27,9 +29,6 @@ const EducationDetail = ({ education }) => {
     loading: listAdvertiseLoading,
     advertises: listAdvertise,
   } = advertiseList;
-
-  
-
 
   const jobList = useSelector((state) => state.jobList);
 
@@ -41,42 +40,68 @@ const EducationDetail = ({ education }) => {
 
   useEffect(() => {
     dispatch(localListAction());
-  }, [dispatch,]);
-  
+  }, [dispatch]);
 
-  
   useEffect(() => {
     dispatch(advertiseListAction());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   return (
     <>
-    <MetaDetail title={education.title} description={education.content} ogTitle={education.title} ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + education.image}/>
-    
-      <HeaderLayout />
-      <ScreenLayoutDetail url={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}  header1='Education' header2="Advertise" header3="Jobs" datas1={education} datas2={listAdvertise} datas3={listJob} link2='advertise' link3="jobs" />
-      <FooterLayout/>
+      <MetaDetail
+        title={education.title}
+        description={education.content}
+        ogTitle={education.title}
+        ogType="website"
+        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+        ogImage={education.image}
+      />
+
+      <Banners />
+      <Categories />
+      <MainScreenDetailComponent url={mainUrl} datas={education} header="Education" />
+
+      <BbcComponent
+        datas={listJob}
+        link="jobs"
+        header="Must View"
+        loading={listJobLoading}
+      />
+      <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
+      <Banners />
+
+      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />
+
+      <FooterLayout />
     </>
   );
 };
 
 export default EducationDetail;
 
+// export async function getServerSideProps({params}) {
+
+//   const educationApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list/${params.id}/${params.slug}/`);
+//   const educationData = educationApi.data;
+
+//   return {
+//     props: {
+//       education: educationData,
+//     },
+//   };
+// }
 
 
-export async function getServerSideProps({params}) {
-
-  const educationApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list/${params.id}/${params.slug}/`);
-  const educationData = educationApi.data;
+export async function getServerSideProps({ params }) {
+  const educationApi = await getEducationDetail(params);
 
   return {
     props: {
-      education: educationData,
+      education: educationApi,
     },
   };
 }
-

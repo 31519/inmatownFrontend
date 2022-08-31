@@ -31,7 +31,7 @@ const MainScreenDetailComponent = ({ url, datas, header, }) => {
                         className={mainDetailScreen.image}
                         key={datas.id}
                         src={orig + datas.image}
-                        alt={datas.title}
+                        alt=""
                         // objectFit='contain'
                       />
                     ) : (

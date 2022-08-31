@@ -1,24 +1,26 @@
 import React, { useEffect } from "react";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { advertiseListAction } from "../../../redux/actions/advertiseActions"
+import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
-import axios from "axios";
-import ScreenLayoutDetail from "../../../components/ScreenLayoutDetail";
-import HeaderLayout from "../../../components/HeaderLayout";
+
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
+import Banners from "../../../components/Banners";
+import BbcComponent from "../../../components/BbcComponent";
+import BbcText from "../../../components/BbcText";
+import { getNewsDetail } from "../../../../lib/backendLink";
+import MainScreenComponent from "../../../components/MainScreenComponent";
+import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
+import Categories from "../../../components/Categories";
+
 // COMPONENT ALL
 
-
-
-
 const NewsDetail = ({ news }) => {
-
-  const router = useRouter()
+  const router = useRouter();
   const dispatch = useDispatch();
-
+  const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -27,9 +29,6 @@ const NewsDetail = ({ news }) => {
     loading: listAdvertiseLoading,
     advertises: listAdvertise,
   } = advertiseList;
-
-  
-
 
   const jobList = useSelector((state) => state.jobList);
 
@@ -41,44 +40,66 @@ const NewsDetail = ({ news }) => {
 
   useEffect(() => {
     dispatch(localListAction());
-  }, [dispatch,]);
-  
+  }, [dispatch]);
 
-  
   useEffect(() => {
     dispatch(advertiseListAction());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   return (
     <>
-    <MetaDetail title={news.title} description={news.content} ogTitle={news.title} ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}/>
-    
-      <HeaderLayout />
-      <ScreenLayoutDetail url={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}  header1='News' header2="Advertise" header3="Jobs" datas1={news} datas2={listAdvertise} datas3={listJob} link2='advertise' link3="jobs" />
-      <FooterLayout/>
+      <MetaDetail
+        title={news.title}
+        description={news.content}
+        ogTitle={news.title}
+        ogType="website"
+        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+        ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}
+      />
+      <Banners />
+      <Categories />
+      <MainScreenDetailComponent url={mainUrl} datas={news} header="News" />
+
+      <BbcComponent
+        datas={listJob}
+        link="jobs"
+        header="Must View"
+        loading={listJobLoading}
+      />
+      <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
+      <Banners />
+
+      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />
+      <FooterLayout />
     </>
   );
 };
 
 export default NewsDetail;
 
+// export async function getServerSideProps({ params }) {
+//   const newsApi = await axios.get(
+//     `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list/${params.id}/${params.slug}/`
+//   );
+//   const newsData = newsApi.data;
 
+//   return {
+//     props: {
+//       news: newsData,
+//     },
+//   };
+// }
 
-export async function getServerSideProps({params}) {
-
-  const newsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list/${params.id}/${params.slug}/`);
-  const newsData = newsApi.data;
-  // const { pages, page, local } = newsData;
-  // console.log("page", pages)
+export async function getServerSideProps({ params }) {
+  const newsApi = await getNewsDetail(params);
 
   return {
     props: {
-      news: newsData,
+      news: newsApi,
     },
   };
 }
-

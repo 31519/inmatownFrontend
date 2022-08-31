@@ -60,6 +60,7 @@ const BBCscreens = ({ datas, header, link, count, staticImg="/jobs.jpg", resPerP
                   <Image
                     className={( index == 0 ? mainScreen1.image0: mainScreen1.image)}
                     src={orig + data.image}
+                    key={data.id}
                     alt=""
                     layout="fill"
                   />

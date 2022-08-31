@@ -1,48 +1,48 @@
 import React, { useEffect } from "react";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../redux/actions/advertiseActions";
 import { jobListAction } from "../../redux/actions/advertiseActions2";
 import { listTechs } from "../../redux/actions/techActions";
-import axios from "axios";
-import ScreenLayout from "../../components/ScreenLayout";
-import HeaderLayout from "../../components/HeaderLayout";
+
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import SearchBox from "../../components/SearchBox";
 import MostView from "../../components/MostView";
 import Pagination from "react-js-pagination";
+import BBCscreens from "../../components/BBCscreens";
+import BbcComponent from "../../components/BbcComponent";
+import BbcText from "../../components/BbcText";
+import Banners from "../../components/Banners";
+import Categories from "../../components/Categories";
+import { getNews } from "../../../lib/backendLink";
 
 // COMPONENT ALL
 
-
-
-const News = ({ news, count, resPerPage }) => {
-
+const News = ({ news, page, pages }) => {
   const router = useRouter();
 
-  let { page = 1, keyword } = router.query;
-  page = Number(page)
+  // let { page = 1, keyword } = router.query;
+  // page = Number(page);
 
   let queryParams;
-  if(typeof window != 'undefined') {
-    queryParams = new URLSearchParams(window.location.search)
-
+  if (typeof window != "undefined") {
+    queryParams = new URLSearchParams(window.location.search);
   }
 
   const handlePageClick = (currentPage) => {
-    if(queryParams.has('page')) {
-      queryParams.set('page', currentPage);
+    if (queryParams.has("page")) {
+      queryParams.set("page", currentPage);
     } else {
-      queryParams.append('page', currentPage)
+      queryParams.append("page", currentPage);
     }
     router.push({
-      search: queryParams.toString()
-    })
+      search: queryParams.toString(),
+    });
   };
 
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png"
+  const metaImage = "/inmatown.png";
   // const router = useRouter()
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -52,7 +52,6 @@ const News = ({ news, count, resPerPage }) => {
     advertises: listAdvertise,
   } = advertiseList;
 
-
   const jobList = useSelector((state) => state.jobList);
 
   const {
@@ -61,7 +60,6 @@ const News = ({ news, count, resPerPage }) => {
     jobs: listJob,
   } = jobList;
 
-
   const techList = useSelector((state) => state.techList);
 
   const {
@@ -69,16 +67,14 @@ const News = ({ news, count, resPerPage }) => {
     loading: techListLoading,
     techs: listTech,
   } = techList;
-  
 
-  
   useEffect(() => {
     dispatch(advertiseListAction());
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(listTechs());
@@ -86,11 +82,37 @@ const News = ({ news, count, resPerPage }) => {
 
   return (
     <>
-      <MetaScreen title="Inmatown - Recent News" description="Inmatown - Recent News" ogTitle="Inmatown - Recent News" ogType="website" ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath} ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`} />
-      <HeaderLayout />
-      <SearchBox/>
+      <MetaScreen
+        title="Inmatown - Recent News"
+        description="Inmatown - Recent News"
+        ogTitle="Inmatown - Recent News"
+        ogType="website"
+        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+        ogImage={metaImage}
+      />
+
+      <Banners />
+      <Categories />
+      <BBCscreens
+        datas={news}
+        header="Recent News"
+        link="news"
+        count={pages}
+        resPerPage={page}
+      />
+      <BbcComponent
+        datas={listJob}
+        link="jobs"
+        header="Must View"
+        loading={listJobLoading}
+      />
+      <BbcText datas={listJob} link="jobs" header="Jobs" />
+      <Banners />
+
+      {/* <SearchBox/> */}
       {/* <ScreenLayout  header1='News' header2="Education" header3="Jobs" datas1={news}  count={count} resPerPage={resPerPage} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
-      {resPerPage < count && (
+
+      {/* {resPerPage < count && (
         <div className="paginationDiv">
           <Pagination
             activePage={page}
@@ -105,32 +127,45 @@ const News = ({ news, count, resPerPage }) => {
             linkClass="page-link"
           />
         </div>
-      )}
-      <MostView/>
-      <FooterLayout/>
+      )} */}
+      <FooterLayout />
     </>
   );
 };
 
 export default News;
 
+// export async function getServerSideProps({ query }) {
+//   const keyword = query.keyword || "";
+//   const page = query.page || "";
 
+//   const queryStr = `keyword=${keyword}&page=${page}`;
+//   const newsApi = await axios.get(
+//     `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list?${queryStr}`
+//   );
+//   const newsData = newsApi.data;
+//   const { count, resPerPage, local } = newsData;
 
-export async function getServerSideProps({query}) {
+//   return {
+//     props: {
+//       news: local,
+//       count: count,
+//       resPerPage: resPerPage,
+//     },
+//   };
+// }
 
-  const keyword = query.keyword || ''
-  const page = query.page || ""
+export async function getServerSideProps() {
+  const newsApi = await getNews();
 
-  const queryStr = `keyword=${keyword}&page=${page}`
-  const newsApi = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list?${queryStr}`);
-  const newsData = newsApi.data;
-  const { count, resPerPage, local } = newsData;
+  const { pages, page, local } = newsApi;
 
   return {
     props: {
       news: local,
-      count:count,
-      resPerPage:resPerPage
+      pages,
+      page,
     },
   };
 }
+
