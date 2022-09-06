@@ -50,7 +50,7 @@
 .title {
     /* line-height: 1.5; */
     overflow-wrap: break-word;
-    color: rgb(7, 202, 33);
+    color: #040404;
     font-size: 25px;
     letter-spacing: 1.5px;
 }
@@ -67,7 +67,7 @@
 }
 
 .posted{
-    font-size: 15px
+    font-size: 10px
 }
 
 .brand {
@@ -78,7 +78,7 @@
 
 .state {
     color: #727677cf;
-    font-size: 16px;
+    font-size: 10px;
     margin: 5px 0px
 }
 
