@@ -264,7 +264,7 @@ const SideBar = () => {
       <div className={style.logo}>
           <Link className={style.text_link} href="/">
             {logoImage ? (
-              <img className={style.image_log} src={logoImage} alt="inmatown" />
+              <img className={style.imageLogo} src={logoImage} alt="inmatown" />
             ) : (
               <h2
                 className={style.navbar-logo}
