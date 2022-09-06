@@ -15,7 +15,7 @@
 .indexNumber {
     font-size: 25px ;
     font-weight: bold;
-    color:#13ff00;
+    color:#f00;
 }
 
 
@@ -72,14 +72,14 @@
 }
 
 .title {
-  color: black;
+  color: #5d5d5e;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 18px;
   letter-spacing: 1px;
   margin: 0px;
   line-height: 25px;
   font: bold;
-  font-weight: initial;
+  font-weight: 600;
 }
 
 .title:hover {
@@ -120,7 +120,7 @@
  .indexNumber {
      font-size: 25px ;
      font-weight: bold;
-     color: #13ff00;
+     color: #f00;
  }
 
   .mainContainer {
@@ -132,14 +132,14 @@
   }
 
   .title {
-    color: black;
+    color: #5d5d5e;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
     font-size: 15px;
     letter-spacing: 1px;
     margin: 0px;
     line-height: 20px;
     font: bold;
-    font-weight: initial;
+    font-weight: 600;
   }
 
   .textContainer {
