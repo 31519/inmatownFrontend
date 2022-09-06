@@ -16,6 +16,7 @@ import { getAdvertiseDetail } from "../../../../lib/backendLink";
 import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
+import SideBar from "../../../components/SideBar";
 
 // COMPONENT ALL
 
@@ -72,7 +73,7 @@ const AdvertiseDetail = ({ advertise }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + advertise.image}
       />
-
+      <SideBar/>
       <Banners />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={advertise} header="Advertise" />

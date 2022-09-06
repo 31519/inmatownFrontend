@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
-
+import SideBar from "../../../components/SideBar";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import Banners from "../../../components/Banners";
@@ -60,6 +60,7 @@ const NewsDetail = ({ news }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}
       />
+      <SideBar/>
       <Banners />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={news} header="News" />

@@ -14,6 +14,7 @@ import BBCscreens from "../../components/BBCscreens";
 import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
 import Banners from "../../components/Banners";
+import SideBar from "../../components/SideBar";
 import Categories from "../../components/Categories";
 import { getNews } from "../../../lib/backendLink";
 
@@ -90,7 +91,7 @@ const News = ({ news, page, pages }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}
       />
-
+      <SideBar/>
       <Banners />
       <Categories />
       <BBCscreens

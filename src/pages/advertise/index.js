@@ -11,6 +11,7 @@ import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
 import Banners from "../../components/Banners";
 import Categories from "../../components/Categories";
+import SideBar from "../../components/SideBar";
 import { getAdvertise } from "../../../lib/backendLink";
 
 const Advertise = ({ advertise, page, pages }) => {
@@ -53,7 +54,7 @@ const Advertise = ({ advertise, page, pages }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`}
       />
-
+      <SideBar/>
       <Banners />
       <Categories />
       <BBCscreens

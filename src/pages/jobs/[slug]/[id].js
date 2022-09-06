@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
+import SideBar from "../../../components/SideBar";
 
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
@@ -81,6 +82,7 @@ const AdvertiseDetail = ({ jobs }) => {
           href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}
         />
       </span> */}
+      <SideBar/>
       <Banners />
       <Categories />
       <MainscreenJobsDetailComponent url={mainUrl} datas={jobs} header="Jobs" />

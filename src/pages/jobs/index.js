@@ -7,6 +7,7 @@ import { jobListAction } from "../../redux/actions/advertiseActions2";
 
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
+import SideBar from "../../components/SideBar";
 import Banners from "../../components/Banners";
 import Categories from "../../components/Categories";
 import { getJobs } from "../../../lib/backendLink";
@@ -69,6 +70,7 @@ const Jobs = ({ jobs, page, pages, category }) => {
         ogUrl={mainUrl + router.asPath}
         ogImage={metaImage}
       />
+      <SideBar/>
       <Banners />
       <Categories />
       <BBCscreens

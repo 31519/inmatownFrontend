@@ -11,6 +11,7 @@ import { getEducations } from "../../../lib/backendLink";
 import BBCscreens from "../../components/BBCscreens";
 import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
+import SideBar from "../../components/SideBar";
 // COMPONENT ALL
 
 const Education = ({ education, page, pages }) => {
@@ -51,6 +52,7 @@ const Education = ({ education, page, pages }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}
       />
+      <SideBar/>
       <Banners />
       <Categories />
       <BBCscreens

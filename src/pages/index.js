@@ -15,6 +15,7 @@ import HomePageLayout from "../components/HomePageLayout";
 import IndexAdvertiseBanner from "../components/IndexAdvertiseBanner";
 import BbcComponent from "../components/BbcComponent";
 import BbcText from "../components/BbcText";
+import SideBar from "../components/SideBar";
 import listCategory from "../../data/category.json"
 
 
@@ -123,6 +124,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico"></link>
         <title>Inmatown</title>
       </Head>
+      <SideBar/>
 
 
       {/* <IndexAdvertiseBanner index={0} /> */}

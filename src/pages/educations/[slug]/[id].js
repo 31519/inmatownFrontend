@@ -16,6 +16,7 @@ import BbcText from "../../../components/BbcText";
 import MainScreenComponent from "../../../components/MainScreenComponent";
 import { getEducationDetail } from "../../../../lib/backendLink";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
+import SideBar from "../../../components/SideBar";
 
 const EducationDetail = ({ education }) => {
   const router = useRouter();
@@ -60,7 +61,7 @@ const EducationDetail = ({ education }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={education.image}
       />
-
+      <SideBar/>
       <Banners />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={education} header="Education" />
