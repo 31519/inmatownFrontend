@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 // import { userDetailActions } from "../actions/userActions";
 
-const logoImage = "images/inmatownLogo2.png";
+const logoImage = "/inmatown.png";
 
 const listCategory = [
 
