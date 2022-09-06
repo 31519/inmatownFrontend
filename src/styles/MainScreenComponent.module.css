@@ -64,6 +64,7 @@
 .posted {
   font-size: 10px;
   letter-spacing: 1px;
+  color: #a9aea9
 }
 
 .brand {
@@ -73,7 +74,7 @@
 }
 
 .state {
-  color: #727677cf;
+  color: #b0b1b1cf;
   font-size: 10px;
   margin: 5px 0px;
 }
@@ -129,7 +130,7 @@
     margin: 0px;
     line-height: 20px;
     font: bold;
-    font-size: 15px;
+    font-size: 18px;
     color: #5d5d5e;
     font-weight: 600;
   }
@@ -150,6 +151,7 @@
   .posted {
     font-size: 10px;
     letter-spacing: 1px;
+    color:#a9aea9
   }
 
   .brand {
