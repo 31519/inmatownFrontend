@@ -132,6 +132,7 @@
     display: flex;
     margin: 5px auto;
     justify-content: center;
+    display:none;
 
 }
 
@@ -193,7 +194,8 @@
     }
     .poster{
         width: 280px;
-        padding: 25px
+        padding: 25px;
+        display: none;
     }
     .header {
         font-size: 12px;

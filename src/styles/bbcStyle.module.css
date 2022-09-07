@@ -145,12 +145,12 @@
   }
 
   .button {
-    border-radius: 5px;
+    border-radius: 0px;
     color: rgb(245, 245, 245);
     font-family: inherit;
     letter-spacing: 0.5px;
     margin: 8px 0px;
-    background: rgb(12, 204, 28);
+    background: #c0c6c1;
     font-weight: 900;
     box-shadow: none;
     border: none;
