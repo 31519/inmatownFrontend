@@ -13,6 +13,7 @@ import MainScreenComponent from "../../../components/MainScreenComponent"
 import MainscreenJobsDetailComponent from "../../../components/MainscreenJobsDetailComponent";
 // COMPONENT ALL
 import Banners from "../../../components/Banners";
+import StaticBanner from "../../../components/StaticBanner";
 import BbcComponent from "../../../components/BbcComponent";
 import BbcText from "../../../components/BbcText";
 import { getJobsDetail } from "../../../../lib/backendLink";
@@ -83,7 +84,7 @@ const AdvertiseDetail = ({ jobs }) => {
         />
       </span> */}
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <MainscreenJobsDetailComponent url={mainUrl} datas={jobs} header="Jobs" />
 

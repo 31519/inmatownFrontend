@@ -8,6 +8,7 @@ import SideBar from "../../../components/SideBar";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import Banners from "../../../components/Banners";
+import StaticBanner from "../../../components/StaticBanner";
 import BbcComponent from "../../../components/BbcComponent";
 import BbcText from "../../../components/BbcText";
 import { getNewsDetail } from "../../../../lib/backendLink";
@@ -61,7 +62,7 @@ const NewsDetail = ({ news }) => {
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={news} header="News" />
 

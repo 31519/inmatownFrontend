@@ -9,6 +9,7 @@ import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import SideBar from "../../components/SideBar";
 import Banners from "../../components/Banners";
+import StaticBanner from "../../components/StaticBanner";
 import Categories from "../../components/Categories";
 import { getJobs } from "../../../lib/backendLink";
 import BBCscreens from "../../components/BBCscreens";
@@ -71,7 +72,7 @@ const Jobs = ({ jobs, page, pages, category }) => {
         ogImage={metaImage}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <BBCscreens
         datas={jobs}

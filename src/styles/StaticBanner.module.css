@@ -1,0 +1,25 @@
+
+
+  
+  .container{
+      background: #e6e2e2;
+      width: 100%;
+      display: flex;
+  
+  }
+  
+  .image {
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+  
+  }
+  
+  @media screen and (max-width: 600px) {
+      .image {
+          height: auto;
+      }
+      .container {
+      }
+
+    }

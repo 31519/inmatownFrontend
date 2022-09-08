@@ -10,6 +10,7 @@ import BBCscreens from "../../components/BBCscreens";
 import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
 import Banners from "../../components/Banners";
+import StaticBanner from "../../components/StaticBanner";
 import Categories from "../../components/Categories";
 import SideBar from "../../components/SideBar";
 import { getAdvertise } from "../../../lib/backendLink";
@@ -55,7 +56,7 @@ const Advertise = ({ advertise, page, pages }) => {
         ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <BBCscreens
         datas={advertise}

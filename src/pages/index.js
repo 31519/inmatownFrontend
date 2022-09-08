@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ScreenLayout from "../components/ScreenLayout";
 import FooterLayout from "../components/FooterLayout";
 import Banners from "../components/Banners";
+import StaticBanner from "../components/StaticBanner";
 import Categories from "../components/Categories";
 import Link from "next/link";
 import Head from "next/head";
@@ -129,7 +130,7 @@ export default function HomePage() {
 
       {/* <IndexAdvertiseBanner index={0} /> */}
       {/* <HomePageLayout  header1='News' header2="Education" header3="Jobs" datas1={listLocal.slice(0, 2)} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
-      <Banners />
+      <StaticBanner />
       <Categories />
       <BbcComponent  datas={listLocal} link="news" header="Recent News" loading={listLocalLoading}/>
       <BbcText  datas={listLocal} link="news" header="Must Read"/>

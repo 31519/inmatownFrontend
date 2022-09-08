@@ -6,6 +6,7 @@ import { jobListAction } from "../../redux/actions/advertiseActions2";
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import Banners from "../../components/Banners";
+import StaticBanner from "../../components/StaticBanner";
 import Categories from "../../components/Categories";
 import { getEducations } from "../../../lib/backendLink";
 import BBCscreens from "../../components/BBCscreens";
@@ -53,7 +54,7 @@ const Education = ({ education, page, pages }) => {
         ogImage={metaImage}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <BBCscreens
         datas={education}

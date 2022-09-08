@@ -10,6 +10,7 @@ import HeaderLayout from "../../../components/HeaderLayout";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import Banners from "../../../components/Banners";
+import StaticBanner from "../../../components/StaticBanner";
 import BbcComponent from "../../../components/BbcComponent";
 import BbcText from "../../../components/BbcText";
 import { getAdvertiseDetail } from "../../../../lib/backendLink";
@@ -74,7 +75,7 @@ const AdvertiseDetail = ({ advertise }) => {
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + advertise.image}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={advertise} header="Advertise" />
 

@@ -11,6 +11,7 @@ import MetaDetail from "../../../components/MetaDetail";
 
 import Categories from "../../../components/Categories";
 import Banners from "../../../components/Banners";
+import StaticBanner from "../../../components/StaticBanner";
 import BbcComponent from "../../../components/BbcComponent";
 import BbcText from "../../../components/BbcText";
 import MainScreenComponent from "../../../components/MainScreenComponent";
@@ -62,7 +63,7 @@ const EducationDetail = ({ education }) => {
         ogImage={education.image}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <MainScreenDetailComponent url={mainUrl} datas={education} header="Education" />
 

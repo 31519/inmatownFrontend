@@ -14,6 +14,7 @@ import BBCscreens from "../../components/BBCscreens";
 import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
 import Banners from "../../components/Banners";
+import StaticBanner from "../../components/StaticBanner";
 import SideBar from "../../components/SideBar";
 import Categories from "../../components/Categories";
 import { getNews } from "../../../lib/backendLink";
@@ -92,7 +93,7 @@ const News = ({ news, page, pages }) => {
         ogImage={metaImage}
       />
       <SideBar/>
-      <Banners />
+      <StaticBanner />
       <Categories />
       <BBCscreens
         datas={news}
