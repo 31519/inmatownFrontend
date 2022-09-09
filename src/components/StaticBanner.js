@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 // const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop);
 import bannerStyles from "../styles/StaticBanner.module.css";
 import Image from "next/image";
-const img = "/static/banner2.jpg"
+const img = "/static/banner3.jpg"
 
 const StaticBanner = () => {
   return (
