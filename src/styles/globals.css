@@ -5,9 +5,32 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
   /* background: green; */
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  /* font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace; */
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
   /* background: rgb(48, 47, 47) */
+}
+
+:root {
+  --roboto400: 'Roboto', sans-serif;
+  /* --roboto500:  */
+  --titleList: 20px;
+  --titleListColor: #000000;
+  --titleListFont: 700;
+  --titleListMobile: 18px;
+  --titleLetterSpacing: 2px;
+  --titleLineHeight: 25px;
+  --detailTitleSize: 40px;
+  --detailTitleLinHeight: 40px;
+  --categoryFontSize: 16px;
+  --titleListFontWeight: 700;
+  --contentFontWeight: 300;
+  --contentColor:#2b2a2a;
+  --contentFontSize: 18px;
+  --contentFontSizeMobile: 16px
+
 }
 
 a {
@@ -92,7 +115,7 @@ margin: 1px 0px;
 
 @media screen and (max-width: 600px) {
   p {
-    font-size: 16px;
+    font-size: 20px;
   }
   .content p {
     font-size: 10px;

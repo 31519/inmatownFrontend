@@ -50,24 +50,32 @@
 .title {
     /* line-height: 1.5; */
     overflow-wrap: break-word;
-    color: #040404;
-    font-size: 25px;
-    letter-spacing: 1.5px;
+    font-family: var(--roboto400);
+    letter-spacing: var(--titleLetterSpacing);
+    margin: 0px;
+    line-height: var(--detailTitleLinHeight);
+    font-size: var(--titleList);
+    color: var(--titleListColor);
+    font-weight: var(--titleListFont);
 }
 
 .preTag {
-    white-space: pre-wrap;
-    overflow-x: auto;
-    word-wrap: break-word;
-    font-weight: 900;
-    letter-spacing: 1.5px;
-    /* opacity: 0.8; */
-    line-height: 1.5;
-    font-size: 20px
+    overflow-wrap: break-word;
+    font-family: var(--roboto400);
+    letter-spacing: 1px;
+    margin: 0px;
+    line-height: 20px;
+    font-size: var(--contentFontSize);
+    color: var(--titleListColor);
+
+    font-weight:var(--contentFontWeight);
+
+    
 }
 
 .posted{
-    font-size: 10px
+    font-size: 10px;
+    padding: 15px 0px
 }
 
 .brand {
@@ -98,8 +106,28 @@
 }
 
 @media screen and (max-width: 600px) {
+
+    .title {
+        /* line-height: 1.5; */
+        overflow-wrap: break-word;
+        font-family: var(--roboto400);
+        letter-spacing: var(--titleLetterSpacing);
+        margin: 0px;
+        line-height: var(--detailTitleLinHeight);
+        font-size: var(--detailTitleSize);
+        color: var(--titleListColor);
+        font-weight: var(--titleListFont);
+    }
     .preTag{
-        font-size: 16px;
+        overflow-wrap: break-word;
+        font-family: var(--roboto400);
+        letter-spacing: 1px;
+        margin: 0px;
+        line-height: 20px;
+        font-size: var(--contentFontSizeMobile);
+        color: var(--titleListColor);
+    
+        font-weight:var(--contentFontWeight);
     }
 
 
