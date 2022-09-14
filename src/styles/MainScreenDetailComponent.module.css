@@ -61,14 +61,17 @@
 
 .preTag {
     overflow-wrap: break-word;
-    font-family: var(--roboto400);
+    white-space: pre-wrap;
+    overflow-x: auto;
+    word-wrap: break-word;
+    /* font-family: var(--roboto400);
     letter-spacing: 1px;
     margin: 0px;
     line-height: 20px;
     font-size: var(--contentFontSize);
     color: var(--titleListColor);
 
-    font-weight:var(--contentFontWeight);
+    font-weight:var(--contentFontWeight); */
 
     
 }
@@ -120,14 +123,17 @@
     }
     .preTag{
         overflow-wrap: break-word;
-        font-family: var(--roboto400);
+        white-space: pre-wrap;
+        overflow-x: auto;
+        word-wrap: break-word;
+        /* font-family: var(--roboto400);
         letter-spacing: 1px;
         margin: 0px;
         line-height: 20px;
         font-size: var(--contentFontSizeMobile);
         color: var(--titleListColor);
     
-        font-weight:var(--contentFontWeight);
+        font-weight:var(--contentFontWeight); */
     }
 
 

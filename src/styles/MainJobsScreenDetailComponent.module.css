@@ -87,11 +87,13 @@
 .title {
     overflow-wrap: break-word;
     word-break: break-word;
-    font-size: 30px;
     
     font-weight: 700;
     color: blue;
     margin: 5px;
+    font-size: var(--detailTitleSize);
+    line-height: 40px;
+    letter-spacing: 3px;
 
 }
 
@@ -190,6 +192,9 @@
     .title {
         font-size: 20px;
         margin: 2px;
+        font-size: var(--detailTitleSizeMobile);
+        line-height: 35px;
+        letter-spacing: 2px;
         
     }
     .preTag{

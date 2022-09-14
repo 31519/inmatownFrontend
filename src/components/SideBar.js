@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 // import { userDetailActions } from "../actions/userActions";
 
-const logoImage = "/inmatown.png";
+const logoImage = "/static/logo.png";
 
 const listCategory = [
 
@@ -99,7 +99,6 @@ const SideBar = () => {
     // console.log(sidebar, "sidebar")
     // console.log("hi")
     setSidebar(true)
-    console.log("sidebar open", sidebar)
   };
 
   const close = () => {
@@ -113,14 +112,12 @@ const SideBar = () => {
     // }
 
     setSidebar(false)
-    console.log("sidebar close", sidebar)
   };
 
   // UserDetail useEffect
   useEffect(() => {
 
     setSidebar(false)
-    console.log("sidbar useEffect", sidebar)
 
     {
       userInfo && userInfo.id && dispatch(userDetailActions(userInfo.id));
