@@ -116,7 +116,7 @@
         font-family: var(--roboto400);
         letter-spacing: var(--titleLetterSpacing);
         margin: 0px;
-        line-height: var(--detailTitleLinHeight);
+        line-height: var(--detailTitleLineHeight);
         font-size: var(--detailTitleSize);
         color: var(--titleListColor);
         font-weight: var(--titleListFont);

@@ -18,7 +18,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 // import { userDetailActions } from "../actions/userActions";
 
-const logoImage = "/static/logo.png";
+const logoImage = "/static/logo3.png";
 
 const listCategory = [
 

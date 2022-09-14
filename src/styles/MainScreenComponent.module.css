@@ -41,7 +41,7 @@
   font-family: var(--roboto400);
   letter-spacing: 1px;
   margin: 0px;
-  line-height: 20px;
+  line-height: var(--titleLineHeight);
   font-size: var(--titleList);
   color: var(--titleListColor);
   font-weight: var(--titleListFont);
@@ -127,7 +127,7 @@
     font-family: var(--roboto400);
     letter-spacing: 1px;
     margin: 0px;
-    line-height: 20px;
+    line-height: var(--titleLineHeight);
     font-size: var(--titleListMobile);
     color: var(--titleListColor);
     font-weight: var(--titleListFont);

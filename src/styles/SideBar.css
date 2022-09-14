@@ -1,102 +1,93 @@
 * {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    /* background: #e44e82b6; */
-}
- 
-.nav{
-    height: 50px;
-    background: #181818;
-    box-sizing: border-box;
-    font-family: "Helvetica";
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index:10;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  /* background: #e44e82b6; */
 }
 
-.logo{
-    margin: 5px 10px
+.nav {
+  height: 50px;
+  background: #181818;
+  box-sizing: border-box;
+  font-family: "Helvetica";
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
 
+.logo {
+  margin: 5px 10px;
 }
 
 .image_log {
-    width:120px;
-     height:50px;
-     object-fit: "cover";
-    }
+  width: 200px;
+  height: 50px;
+  object-fit: "cover";
+}
 
 .sidebar {
-    position: fixed;
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    top: 0;
-    background: #191c24;
-    z-index: 99;
-    transition: all .5s ease;
-    overflow-y: scroll;
-    
-
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  top: 0;
+  background: #191c24;
+  z-index: 99;
+  transition: all 0.5s ease;
+  overflow-y: scroll;
 }
 
-.sidebar header{
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    font-family: "Helvetica Neue";
-    background: #191c24;
-    user-select: none;
-
+.sidebar header {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  background: #191c24;
+  user-select: none;
 }
 
-
-.listContainer{
-    display: block;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 20px;
-    color: white;
-    padding-left: 40px;
-    box-sizing: border-box; 
-    transition: .4s;
-    /* overflow: scroll; */
-
+.listContainer {
+  display: block;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  transition: 0.4s;
+  /* overflow: scroll; */
 }
 /* ul{
     overflow-y: scroll;
     border: 1px solid green
 } */
-.list{
-    align-items: center;
-    display: flex;
-    color: #6c7293;
-    transition: .4s;
-
+.list {
+  align-items: center;
+  display: flex;
+  color: #6c7293;
+  transition: 0.4s;
 }
-.list:hover{
-    padding-left:10px ;
-    color:rgb(0, 224, 255)
+.list:hover {
+  padding-left: 10px;
+  color: rgb(0, 224, 255);
 }
-.list h4{
-    padding-left:10px;
-
+.list h4 {
+  padding-left: 10px;
 }
-.link{
-    align-items: center;
-    text-decoration: none;
+.link {
+  align-items: center;
+  text-decoration: none;
 }
-.sidebar ul span{
-    padding-left:10px
-
+.sidebar ul span {
+  padding-left: 10px;
 }
 
 /* .listContainer:hover .list {
@@ -104,48 +95,42 @@
     color: rgb(0, 224, 255)
 } */
 
-
-#check{
-    display: none;
-
+#check {
+  display: none;
 }
-#checkClose{
-    display: none;
-
+#checkClose {
+  display: none;
 }
-label #btn, label #cancel {
-    position: absolute;
-    cursor: pointer;
-    background: inherit;
-
-
+label #btn,
+label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background: inherit;
 }
 
-label #btn{
-    left: 4px;
-    top: -5px;
-    font-size: 35px;
-    color:#fcfcfc;
-    margin: 5px;
-    padding: 5px;
-    transition: all .5s;
+label #btn {
+  left: 4px;
+  top: -5px;
+  font-size: 35px;
+  color: #fcfcfc;
+  margin: 5px;
+  padding: 5px;
+  transition: all 0.5s;
 }
 
+label #cancel {
+  z-index: 111;
+  left: -195px;
+  top: 2px;
+  font-size: 30px;
+  color: #fcfcfc;
+  margin: 5px;
+  padding: 5px;
+  position: fixed;
+  transition: all 0.5s ease;
+}
 
-
- label #cancel{
-     z-index: 111;
-     left: -195px;
-     top:2px;
-     font-size:30px;
-     color:#fcfcfc;
-     margin: 5px;
-     padding: 5px;
-     position: fixed;
-     transition: all .5s ease;
- }
-
- /* #check:checked ~ .sidebar{
+/* #check:checked ~ .sidebar{
      left: 0;
  }
  
@@ -161,61 +146,60 @@ label #btn{
     left: 195px;
 } */
 
-.profile_img{
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    border-radius:100%;
-    margin: auto;
+.profile_img {
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: auto;
 }
-.profile_img img{
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius:100%
-}
-
-.dashboard_email .dashboard_edit .icon_text .icon_text{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-
+.profile_img img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 100%;
 }
 
-.dashboard_email h3{
-    font-size:16px;
-    margin:5px;
-    color: #00d25b;
-    font-family: "Helvetica Neue";
+.dashboard_email .dashboard_edit .icon_text .icon_text {
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
-.dashboard_edit h3{
-    font-size:16px;
-    margin:5px;
-    color: rgb(0, 224, 255);
-    font-family: "Helvetica Neue";
+.dashboard_email h3 {
+  font-size: 16px;
+  margin: 5px;
+  color: #00d25b;
+  font-family: "Helvetica Neue";
 }
 
-.logout h3{
-    font-size:16px;
-    margin:5px;
-    color: rgb(206, 13, 200);
-    font-family: "Helvetica Neue";
+.dashboard_edit h3 {
+  font-size: 16px;
+  margin: 5px;
+  color: rgb(0, 224, 255);
+  font-family: "Helvetica Neue";
 }
-.login h3{
-    font-size:16px;
-    margin:5px;
-    color: rgb(0, 224, 255);
-    font-family: "Helvetica Neue";
+
+.logout h3 {
+  font-size: 16px;
+  margin: 5px;
+  color: rgb(206, 13, 200);
+  font-family: "Helvetica Neue";
+}
+.login h3 {
+  font-size: 16px;
+  margin: 5px;
+  color: rgb(0, 224, 255);
+  font-family: "Helvetica Neue";
 }
 .text_link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.dashboard h3{
-    font-size:16px;
-    margin:5px;
-    color: rgb(0, 224, 255);
-    font-family: "Helvetica";
+.dashboard h3 {
+  font-size: 16px;
+  margin: 5px;
+  color: rgb(0, 224, 255);
+  font-family: "Helvetica";
 }

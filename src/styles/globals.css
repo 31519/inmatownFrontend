@@ -26,11 +26,11 @@ body {
   --titleListFont: 700;
   --titleListMobile: 20px;
   --titleLetterSpacing: 2px;
-  --titleLineHeight: 25px;
+  --titleLineHeight: 1.3;
 
   --detailTitleSize: 40px;
   --detailTitleSizeMobile: 30px;
-  --detailTitleLinHeight: 40px;
+  --detailTitleLineHeight: 1.3;
   --categoryFontSize: 16px;
   --titleListFontWeight: 700;
 

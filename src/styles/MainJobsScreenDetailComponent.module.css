@@ -92,7 +92,7 @@
     color: blue;
     margin: 5px;
     font-size: var(--detailTitleSize);
-    line-height: 40px;
+    line-height: var(--titleLineHeight);
     letter-spacing: 3px;
 
 }
@@ -113,7 +113,7 @@
     font-weight: 600;
     font-size: 20px;
     opacity: 0.8;
-    line-height: 22px;
+    line-height: var(--titleLineHeight);
 }
 
 .brand {
@@ -193,7 +193,7 @@
         font-size: 20px;
         margin: 2px;
         font-size: var(--detailTitleSizeMobile);
-        line-height: 35px;
+        line-height: var(--titleLineHeight);
         letter-spacing: 2px;
         
     }
