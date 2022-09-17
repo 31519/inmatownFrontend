@@ -15,7 +15,7 @@ import BbcText from "../../components/BbcText";
 import SideBar from "../../components/SideBar";
 // COMPONENT ALL
 
-const Education = ({ education, page, pages }) => {
+const Education = ({ education, count, resPerPage }) => {
   const dispatch = useDispatch();
   const metaImage = "/inmatown.png";
   const router = useRouter();
@@ -60,8 +60,8 @@ const Education = ({ education, page, pages }) => {
         datas={education}
         header="Education"
         link="educations"
-        count={pages}
-        resPerPage={page}
+        count={count}
+        resPerPage={resPerPage}
       />
       <BbcComponent
         datas={listJob}
@@ -94,16 +94,22 @@ export default Education;
 //   };
 // }
 
-export async function getServerSideProps() {
-  const educationApi = await getEducations();
+export async function getServerSideProps({query}) {
 
-  const { pages, page, technology } = educationApi;
+  const keyword = query.keyword || ""
+  const page =  query.page || 1
+  const queryStr = `keyword=${keyword}&page=${page}`
+
+
+  const educationApi = await getEducations(queryStr);
+
+  const { resPerPage, count, technology } = educationApi;
 
   return {
     props: {
       education: technology,
-      pages,
-      page
+      resPerPage,
+      count
     },
   };
 }

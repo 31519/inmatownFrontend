@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../redux/actions/advertiseActions";
@@ -7,7 +7,7 @@ import { listTechs } from "../../redux/actions/techActions";
 
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
-import SearchBox from "../../components/SearchBox";
+
 import MostView from "../../components/MostView";
 import Pagination from "react-js-pagination";
 import BBCscreens from "../../components/BBCscreens";
@@ -18,14 +18,20 @@ import StaticBanner from "../../components/StaticBanner";
 import SideBar from "../../components/SideBar";
 import Categories from "../../components/Categories";
 import { getNews } from "../../../lib/backendLink";
+import graphqlApiBackend from "../../../lib/graphqlApiBackend";
+
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 // COMPONENT ALL
 
-const News = ({ news, page, pages }) => {
-  const router = useRouter();
+const News = ({ news, resPerPage, count }) => {
+  // const initialState = news;
+  // const [news, setNews] = useState('');
 
-  // let { page = 1, keyword } = router.query;
-  // page = Number(page);
+  // console.log("initialState", initialState)
+  // console.log("initialState2", newsss)
+
+  const router = useRouter();
 
   let queryParams;
   if (typeof window != "undefined") {
@@ -67,7 +73,7 @@ const News = ({ news, page, pages }) => {
   const {
     error: techListError,
     loading: techListLoading,
-    techs: listTech,
+    techs: newss,
   } = techList;
 
   useEffect(() => {
@@ -92,16 +98,11 @@ const News = ({ news, page, pages }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}
       />
-      <SideBar/>
+      <SideBar  />
       <StaticBanner />
       <Categories />
-      <BBCscreens
-        datas={news}
-        header="Recent News"
-        link="news"
-        count={pages}
-        resPerPage={page}
-      />
+      
+      <BBCscreens datas={news} resPerPage={resPerPage} count={count} header="Recent News" link="news" />
       <BbcComponent
         datas={listJob}
         link="jobs"
@@ -157,17 +158,53 @@ export default News;
 //   };
 // }
 
-export async function getServerSideProps() {
-  const newsApi = await getNews();
+export async function getServerSideProps({query}) {
 
-  const { pages, page, local } = newsApi;
+  const keyword = query.keyword || ""
+  const page =  query.page || 1
+  const queryStr = `keyword=${keyword}&page=${page}`
+
+  const newsApi = await getNews(queryStr);
+
+  const { resPerPage, count, local } = newsApi;
 
   return {
     props: {
       news: local,
-      pages,
-      page,
+      resPerPage,
+      count,
     },
   };
 }
 
+// export async function getServerSideProps() {
+//   const client = new ApolloClient({
+//     uri: "http://localhost:8000/graphql/",
+//     cache: new InMemoryCache(),
+//   });
+
+//   const { data } = await client.query({
+//     query: gql`
+//       query {
+//         allNews {
+//           edges {
+//             node {
+//               title
+//               content
+//               id
+//               slug
+//               image
+//               createdAt
+//             }
+//           }
+//         }
+//       }
+//     `,
+//   });
+
+//   return {
+//     props: {
+//       newsData: data.allNews.edges,
+//     },
+//   };
+// }

@@ -91,6 +91,19 @@
   color: rgb(63, 58, 58);
 }
 
+.browseAll {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.browseAllText {
+  font-size: 16px;
+  color: blue;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
   .container {
     display: flex;

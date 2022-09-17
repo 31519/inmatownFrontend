@@ -16,12 +16,16 @@ import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
 
+
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
+
 // COMPONENT ALL
 
 const NewsDetail = ({ news }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
+
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -64,7 +68,7 @@ const NewsDetail = ({ news }) => {
       <SideBar/>
       <StaticBanner />
       <Categories />
-      <MainScreenDetailComponent url={mainUrl} datas={news} header="News" />
+      <MainScreenDetailComponent url={mainUrl} link="news" datas={news} header="News" />
 
       <BbcComponent
         datas={listJob}
@@ -105,3 +109,33 @@ export async function getServerSideProps({ params }) {
     },
   };
 }
+
+
+// export async function getServerSideProps({params}) {
+
+
+//   const client = new ApolloClient({
+//     uri: "http://localhost:8000/graphql/",
+//     cache: new InMemoryCache(),
+//   });
+
+//   const { data } = await client.query({
+    
+//       query: gql`
+//         query (id:${params.id} {
+//           newsDetail {
+//             title
+//             content
+//             image
+//             id
+//             createdAt
+//         }
+//       `,
+//     });
+
+// return {
+//   props: {
+//     news: data.newsDetail,
+//   },
+// };
+// }

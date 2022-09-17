@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {useRouter} from "next/router"
 import searchBox from "../styles/searchBox.module.css";
+// import gra from "../../lib/graphqlApi"
 
 
 
@@ -11,11 +12,12 @@ const SearchBox = () => {
   const router = useRouter()
 
 
-  const searchHandler = (e) => {
+  const searchHandler = async (e) => {
     e.preventDefault();
     if (keyword) {
-      let searchQuery = `${router.pathname}?keyword=${keyword}`;
+      let searchQuery = `${router.pathname}/?keyword=${keyword}`
       router.push(searchQuery)
+
     } else {
       router.push(`${router.pathname}`)
     }
@@ -23,7 +25,7 @@ const SearchBox = () => {
 
   return (
     <div className={searchBox.container}>
-      {/* <form className={searchBox.formContainer} onSubmit={searchHandler}> */}
+      <form className={searchBox.formContainer} onSubmit={searchHandler}>
         <div className={searchBox.inputDiv}>
           <input
             className={searchBox.formInput}
@@ -33,11 +35,11 @@ const SearchBox = () => {
             placeholder="what you are looking for ?"
           />
           
-          <button className={searchBox.formButton} onClick={searchHandler} type="submit">
+          <button className={searchBox.formButton}  type="submit">
             Search
           </button>
         </div>
-      {/* </form> */}
+      </form>
     </div>
   );
 };

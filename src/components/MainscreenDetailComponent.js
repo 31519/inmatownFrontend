@@ -4,8 +4,11 @@ import SocialShare from "./SocialShare";
 import parse from "html-react-parser";
 import Image from "next/image"
 
-const MainScreenDetailComponent = ({ url, datas, header, }) => {
+const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
+
+
+
   return (
     <div className={mainDetailScreen.mainContainer}>
       <div className={mainDetailScreen.header}>
@@ -72,7 +75,7 @@ const MainScreenDetailComponent = ({ url, datas, header, }) => {
 
                   <div className={mainDetailScreen.Buttom}>
                     <div className={mainDetailScreen.socialShare}>
-                      <SocialShare  url={url}/>
+                      <SocialShare  url={link} datas={datas}/>
                     </div>
                   </div>
                 </div>

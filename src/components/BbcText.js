@@ -28,10 +28,13 @@ const BbcText = ({ datas, header, link }) => {
               className={bbcText.container}
             >
               <div className={bbcText.indexContainer}>
-                <h1 className={bbcText.indexNumber}>{index + 1}</h1>
+                <div className={bbcText.indexContainerNumber}>
+                  <h1 className={bbcText.indexNumber}>{index + 1}</h1>
+                </div>
+                <div className={bbcText.arrowLeft}></div>
               </div>
-              <div className={bbcText.arrowLeft}></div>
               <div className={bbcText.textContainer}>
+                <h2 className={bbcText.title}>{data.title}</h2>
                 <p className={bbcText.posted}>
                   Posted{" "}
                   {moment
@@ -40,12 +43,17 @@ const BbcText = ({ datas, header, link }) => {
                     .startOf("second")
                     .fromNow()}
                 </p>
-                <h2 className={bbcText.title}>{data.title}</h2>
                 {/* <button className={bbcText.button}>Read More</button> */}
               </div>
             </Grid>
           </Link>
         ))}
+
+      <div className={bbcText.browseAll}>
+        <Link href={link}>
+          <p className={bbcText.browseAllText}>Browse all...</p>
+        </Link>
+      </div>
     </Grid>
   );
 };

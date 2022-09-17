@@ -86,7 +86,7 @@ const AdvertiseDetail = ({ jobs }) => {
       <SideBar/>
       <StaticBanner />
       <Categories />
-      <MainscreenJobsDetailComponent url={mainUrl} datas={jobs} header="Jobs" />
+      <MainscreenJobsDetailComponent url="jobs" datas={jobs} header="Jobs" />
 
       <BbcComponent
         datas={listJob}

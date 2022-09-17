@@ -15,7 +15,7 @@ import Categories from "../../components/Categories";
 import SideBar from "../../components/SideBar";
 import { getAdvertise } from "../../../lib/backendLink";
 
-const Advertise = ({ advertise, page, pages }) => {
+const Advertise = ({ advertise, count, resPerPage }) => {
   const dispatch = useDispatch();
   const metaImage = "/inmatown.png";
   const router = useRouter();
@@ -62,8 +62,8 @@ const Advertise = ({ advertise, page, pages }) => {
         datas={advertise}
         header="Recent Advertise"
         link="advertise"
-        count={pages}
-        resPerPage={page}
+        count={count}
+        resPerPage={resPerPage}
       />
       <BbcComponent
         datas={listJob}
@@ -99,16 +99,21 @@ export default Advertise;
 //   };
 // }
 
-export async function getServerSideProps() {
-  const advertiseApi = await getAdvertise();
+export async function getServerSideProps({query}) {
 
-  const { pages, page, advertise } = advertiseApi;
+  const keyword = query.keyword || ""
+  const page =  query.page || 1
+  const queryStr = `keyword=${keyword}&page=${page}`
+
+  const advertiseApi = await getAdvertise(queryStr);
+
+  const { resPerPage, count, advertisement } = advertiseApi;
 
   return {
     props: {
-      advertise: advertise,
-      pages,
-      page,
+      advertise: advertisement,
+      resPerPage,
+      count,
     },
   };
 }

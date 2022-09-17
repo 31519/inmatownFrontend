@@ -16,7 +16,17 @@ import {
 } from 'next-share';
 
 
-const SocialShare = ({ url }) => {
+const SocialShare = ({ url, datas }) => {
+
+  const title = datas.title
+
+  const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL
+
+  const urlShare = `${frontendUrl}/${url}/${datas.slug}/${datas.id}`
+
+  console.log("url", urlShare)
+
+
   return (
     <div className={shareStyle.container}>
       <Button
@@ -29,25 +39,28 @@ const SocialShare = ({ url }) => {
 
       <TwitterShareButton
         url={url}
-        quote={"CampersTribe - World is yours to explore"}
+        quote={title}
         className={shareStyle.socialContainer}
       >
         <TwitterIcon className={shareStyle.socialMediaButton} />
       </TwitterShareButton>
       <TelegramShareButton
         url={url}
+        title={title}
       >
         <TelegramIcon className={shareStyle.socialMediaButton} />
       </TelegramShareButton>
       <FacebookShareButton
         // url={`${process.env.REACT_APP_PORT}/#/${item.redirect}/${item.id}/${item.slug}`}
         url={url}
+        title={title}
       >
         <FacebookIcon className={shareStyle.socialMediaButton} />
       </FacebookShareButton>
 
       <WhatsappShareButton
         url={url}
+        title={title}
       >
         <WhatsappIcon className={shareStyle.socialMediaButton} />
       </WhatsappShareButton>

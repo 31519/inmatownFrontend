@@ -18,7 +18,7 @@ import BbcText from "../../components/BbcText";
 
 // COMPONENT ALL
 
-const Jobs = ({ jobs, page, pages, category }) => {
+const Jobs = ({ jobs, count,resPerPage  }) => {
   const dispatch = useDispatch();
   const metaImage = "/inmatown.png";
   const router = useRouter();
@@ -78,8 +78,8 @@ const Jobs = ({ jobs, page, pages, category }) => {
         datas={jobs}
         header="Recent Jobs"
         link="jobs"
-        count={pages}
-        resPerPage={page}
+        count={count}
+        resPerPage={resPerPage}
       />
       <BbcComponent
         datas={listJob}
@@ -96,16 +96,20 @@ const Jobs = ({ jobs, page, pages, category }) => {
 
 export default Jobs;
 
-export async function getServerSideProps() {
-  const jobsApi = await getJobs();
+export async function getServerSideProps({query}) {
+  const keyword = query.keyword || ""
+  const page =  query.page || 1
+  const queryStr = `keyword=${keyword}&page=${page}`
 
-  const { pages, page, jobs } = jobsApi;
+  const jobsApi = await getJobs(queryStr);
+
+  const { resPerPage, count, jobs } = jobsApi;
 
   return {
     props: {
       jobs: jobs,
-      pages,
-      page,
+      resPerPage,
+      count,
     },
   };
 }

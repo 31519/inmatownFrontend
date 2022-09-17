@@ -3,7 +3,12 @@ import moment from "moment";
 import Link from "next/link";
 import Image from "next/image";
 
-const MainScreenComponent = ({ datas, header, link, staticImg="/jobs.jpg" }) => {
+const MainScreenComponent = ({
+  datas,
+  header,
+  link,
+  staticImg = "/jobs.jpg",
+}) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   return (
     <div className={mainScreen.mainContainer}>
@@ -55,6 +60,11 @@ const MainScreenComponent = ({ datas, header, link, staticImg="/jobs.jpg" }) => 
             </div>
           </Link>
         ))}
+      <div className={mainScreen.browseAll}>
+        <Link href={link}>
+          <p className={mainScreen.browseAllText}>Browse all...</p>
+        </Link>
+      </div>
     </div>
   );
 };
