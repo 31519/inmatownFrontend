@@ -88,13 +88,14 @@ const AdvertiseDetail = ({ jobs }) => {
       <Categories />
       <MainscreenJobsDetailComponent url="jobs" datas={jobs} header="Jobs" />
 
+      <BbcText datas={listLocal} link="news" header="Recent News" />
+      
       <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
       />
-      <BbcText datas={listLocal} link="news" header="Recent News" />
       <Banners />
       <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs"/>
       <FooterLayout />

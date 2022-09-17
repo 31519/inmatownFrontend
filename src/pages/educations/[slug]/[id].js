@@ -67,13 +67,14 @@ const EducationDetail = ({ education }) => {
       <Categories />
       <MainScreenDetailComponent url={mainUrl} link="educations" datas={education} header="Education" />
 
+      <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
+      
       <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
       />
-      <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
       <Banners />
 
       <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />
