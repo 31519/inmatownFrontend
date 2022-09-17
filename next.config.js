@@ -22,6 +22,6 @@ module.exports = {
   module.exports = {
     // reactStrictMode=true,
     images: {
-      domains: ['localhost'],
+      domains: ['localhost', 'https://inmatown.com'],
     },
   }
