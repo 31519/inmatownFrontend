@@ -38,28 +38,28 @@ const SocialShare = ({ url, datas }) => {
       </Button>
 
       <TwitterShareButton
-        url={`${url}`}
+        url={`${urlShare}`}
         quote={title}
         className={shareStyle.socialContainer}
       >
         <TwitterIcon className={shareStyle.socialMediaButton} />
       </TwitterShareButton>
       <TelegramShareButton
-        url={`${url}`}
+        url={`${urlShare}`}
         title={title}
       >
         <TelegramIcon className={shareStyle.socialMediaButton} />
       </TelegramShareButton>
       <FacebookShareButton
         // url={`${process.env.REACT_APP_PORT}/#/${item.redirect}/${item.id}/${item.slug}`}
-        url={`${url}`}
+        url={`${urlShare}`}
         title={title}
       >
         <FacebookIcon className={shareStyle.socialMediaButton} />
       </FacebookShareButton>
 
       <WhatsappShareButton
-        url={`${url}`}
+        url={`${urlShare}`}
         title={title}
       >
         <WhatsappIcon className={shareStyle.socialMediaButton} />
