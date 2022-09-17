@@ -67,7 +67,7 @@ const BBCscreens = ({
                     />
                   )}
                 </div>
-                <h3>{data.image}</h3>
+                
                 
                 <h3>{orig + data.image}</h3>
                 {/*  */}

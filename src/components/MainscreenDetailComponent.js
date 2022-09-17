@@ -49,7 +49,7 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                       />
                     )}
                   </div>
-                  <h2>{orig + datas.image}</h2>
+                  
                 </div>
                 <div>
                   <h2 className={mainDetailScreen.state}>MEGHALAYA</h2>
