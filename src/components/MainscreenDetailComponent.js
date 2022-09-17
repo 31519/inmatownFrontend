@@ -7,6 +7,8 @@ import Image from "next/image"
 const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
 
+  console.log("image", datas.image)
+
 
 
   return (
@@ -47,6 +49,7 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                       />
                     )}
                   </div>
+                  <h2>{orig + datas.image}</h2>
                 </div>
                 <div>
                   <h2 className={mainDetailScreen.state}>MEGHALAYA</h2>

@@ -60,7 +60,7 @@ const SocialShare = ({ url, datas }) => {
 
       <WhatsappShareButton
         url={`${urlShare}`}
-        title={title}
+        // title={title}
       >
         <WhatsappIcon className={shareStyle.socialMediaButton} />
       </WhatsappShareButton>

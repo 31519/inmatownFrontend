@@ -140,7 +140,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
       )}
       <div className={mainJobDetailScreen.Buttom}>
         <div className={mainJobDetailScreen.socialShare}>
-          <SocialShare url={url} />
+          <SocialShare url={url} datas={datas}/>
         </div>
       </div>
     </>

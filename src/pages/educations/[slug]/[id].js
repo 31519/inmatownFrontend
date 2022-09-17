@@ -65,7 +65,7 @@ const EducationDetail = ({ education }) => {
       <SideBar/>
       <StaticBanner />
       <Categories />
-      <MainScreenDetailComponent url={mainUrl} datas={education} header="Education" />
+      <MainScreenDetailComponent url={mainUrl} link="educations" datas={education} header="Education" />
 
       <BbcComponent
         datas={listJob}
