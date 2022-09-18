@@ -65,13 +65,14 @@ const Advertise = ({ advertise, count, resPerPage }) => {
         count={count}
         resPerPage={resPerPage}
       />
+      <BbcText datas={listLocal} link="news" header="News" />
+      
       <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
       />
-      <BbcText datas={listLocal} link="news" header="News" />
       <Banners />
 
       <FooterLayout />

@@ -63,13 +63,14 @@ const Education = ({ education, count, resPerPage }) => {
         count={count}
         resPerPage={resPerPage}
       />
+      <BbcText datas={listJob} link="jobs" header="Jobs" />
+      
       <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
       />
-      <BbcText datas={listJob} link="jobs" header="Jobs" />
       <Banners />
       <FooterLayout />
     </>
