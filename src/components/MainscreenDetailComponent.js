@@ -7,7 +7,7 @@ import Image from "next/image"
 const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
 
-  console.log("image", datas.image)
+  
 
 
 
