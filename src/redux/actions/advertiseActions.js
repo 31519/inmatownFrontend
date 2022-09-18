@@ -1259,6 +1259,7 @@ export const localUserListAction = () => async (dispatch, getState) => {
 }
 
 
+
 export const localDetailAction = (id, slug) => async (dispatch) => {
     try{
         dispatch({ type: LOCAL_DETAIL_REQUEST });

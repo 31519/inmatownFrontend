@@ -7,11 +7,9 @@ import Theme from "../components/Theme";
 import Error from "next/error";
 // import {wrapper} from '../redux/store'
 import store from "../redux/store";
-
-
+import Script from "next/script";
 import Router from "next/router";
 import nProgress from "nprogress";
-
 
 Router.events.on("routeChangeStart", nProgress.start);
 Router.events.on("routeChangeError", nProgress.done);
@@ -30,13 +28,29 @@ function MyApp({ Component, pageProps }) {
   //   );
   // }
   return (
-    <ThemeProvider theme={Theme}>
-      <Provider store={store}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Provider>
-    </ThemeProvider>
+    <>
+      <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=G-PY5JB3D19S"
+      ></Script>
+
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-PY5JB3D19S');
+    `}
+      </Script>
+
+      <ThemeProvider theme={Theme}>
+        <Provider store={store}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Provider>
+      </ThemeProvider>
+    </>
   );
 }
 
