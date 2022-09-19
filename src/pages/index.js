@@ -1,10 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ScreenLayout from "../components/ScreenLayout";
-import FooterLayout from "../components/FooterLayout";
 import Banners from "../components/Banners";
-import StaticBanner from "../components/StaticBanner";
-import Categories from "../components/Categories";
 import Link from "next/link";
 import Head from "next/head";
 // import { localListAction } from "../actions/advertiseActions";
@@ -17,12 +14,14 @@ import IndexAdvertiseBanner from "../components/IndexAdvertiseBanner";
 import BbcComponent from "../components/BbcComponent";
 import BbcText from "../components/BbcText";
 import SideBar from "../components/SideBar";
+import StaticBanner from "../components/StaticBanner";
+import FooterLayout from "../components/FooterLayout";
+import Categories from "../components/Categories";
 import listCategory from "../../data/category.json"
 
 
 export async function getStaticProps(context) {
   const category =  listCategory 
-  console.log("category", category)
 
   // const listCategory = [
   //   {
@@ -122,7 +121,7 @@ export default function HomePage() {
         ></meta>
         <meta name="description" content="Home page of inmatown"></meta>
         <meta charSet="utf-8"></meta>
-        <link rel="icon" href="/favicon.ico"></link>
+        <link rel="icon" href="/favicon.png"></link>
         <title>Inmatown</title>
       </Head>
       <SideBar/>

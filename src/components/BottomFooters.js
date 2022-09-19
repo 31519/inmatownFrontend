@@ -2,11 +2,8 @@ import React from "react";
 import Link from "next/link";
 import footerStyles from "../styles/Footers.module.css";
 import { Grid } from "@mui/material";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-
+import MediaIcon from "./MediaIcon"
 
 const BottomFooters = () => {
   return (
@@ -23,48 +20,14 @@ const BottomFooters = () => {
             <a className={footerStyles.list} href="mailto:inmatown@gmail.com">
               inmatown@gmail.com
             </a>
-            <Link
-              className={footerStyles.textLink}
-              href="/privacy-policy"
-            >
+            <Link className={footerStyles.textLink} href="/privacy-policy">
               <h2 className={footerStyles.list}>Privacy Policy</h2>
             </Link>
             <Link className={footerStyles.textLink} href="/aboutUs">
               <h2 className={footerStyles.list}>About Us</h2>
             </Link>
             <h2 className={footerStyles.list}>Connect with us on</h2>
-            <div className={footerStyles.linkDiv}>
-              <div className={footerStyles.linkDivList}>
-                <a
-                  className={footerStyles.list}
-                  href="https://wa.me/9366993068"
-                  target="_blank"
-                >
-                  <WhatsAppIcon className={footerStyles.socialIcon} />
-                </a>
-                {/* <p className={footerStyles.linkName}>memelander</p> */}
-              </div>
-              <div className={footerStyles.linkDivList}>
-                <a
-                  className={footerStyles.list}
-                  href="https://www.instagram.com/inmatown/"
-                  target="_blank"
-                >
-                  <InstagramIcon className={footerStyles.socialIcon} />
-                </a>
-                {/* <p className={footerStyles.linkName}>memelander</p> */}
-              </div>
-              <div className={footerStyles.linkDivList}>
-                <a
-                  className={footerStyles.list}
-                  href="http://www.facebook.com/memelanderofficial/"
-                  target="_blank"
-                >
-                  <FacebookIcon className={footerStyles.socialIcon} />
-                </a>
-                {/* <p className={footerStyles.linkName}>memelander</p> */}
-              </div>
-            </div>
+            <MediaIcon/>
           </div>
         </div>
 
@@ -97,7 +60,6 @@ const BottomFooters = () => {
             <h2 className={footerStyles.list}>Created by: Stardust</h2>
           </div>
         </div>
-       
       </div>
     </div>
   );

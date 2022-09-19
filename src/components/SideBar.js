@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Link from 'next/link'
+import Link from "next/link";
 // import { profileDetailActions } from "../actions/userActions";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 // import { userLogoutActions } from "../actions/userActions";
@@ -16,12 +16,12 @@ import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import MediaIcon from "./MediaIcon";
 // import { userDetailActions } from "../actions/userActions";
 
 const logoImage = "/static/logo3.png";
 
 const listCategory = [
-
   {
     title: "Home",
     link: "/",
@@ -48,16 +48,16 @@ const listCategory = [
     link: "/advertise",
     icon: <FeaturedVideoIcon />,
   },
-  // {
-  //   title: "Event/Scheme",
-  //   link: "/event",
-  //   icon: <EventIcon />,
-  // },
-  // {
-  //   title: "Tourisms",
-  //   link: "/tourisms",
-  //   icon: <LandscapeIcon />,
-  // },
+  {
+    title: "About us",
+    link: "/aboutUs",
+    icon: <EventIcon />,
+  },
+  {
+    title: "Privacy",
+    link: "/privacy-policy",
+    icon: <LandscapeIcon />,
+  },
   // {
   //   title: "Resell",
   //   link: "/resell",
@@ -71,8 +71,7 @@ const listCategory = [
 ];
 
 const SideBar = () => {
-
-  const [sidebar, setSidebar] = useState(false)
+  const [sidebar, setSidebar] = useState(false);
   const userDefaultImage = "images/default/userDefaultImage.png";
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -86,7 +85,6 @@ const SideBar = () => {
     error: errorUser,
   } = userDetail;
 
-
   const open = () => {
     // var checkBox = document.querySelector(".check").checked;
     // var cancelBtn = document.querySelector(".cancel");
@@ -98,7 +96,7 @@ const SideBar = () => {
     // menuBtn.style.cssText = "left: 250px; opacity: 0; pointer-events:none ";
     // console.log(sidebar, "sidebar")
     // console.log("hi")
-    setSidebar(true)
+    setSidebar(true);
   };
 
   const close = () => {
@@ -111,57 +109,44 @@ const SideBar = () => {
     //   cancelBtn.style.cssText = "left: -195px";
     // }
 
-    setSidebar(false)
+    setSidebar(false);
   };
 
   // UserDetail useEffect
   useEffect(() => {
-
-    setSidebar(false)
+    setSidebar(false);
 
     {
       userInfo && userInfo.id && dispatch(userDetailActions(userInfo.id));
     }
 
+    const logoutHandler = () => {
+      if (window.confirm("Are You Sure You Want To Logout ")) {
+        dispatch(userLogoutActions());
+      }
+    };
 
+    // document.addEventListener("click", function (evt) {
+    //   var navBar = document.getElementById("check"),
+    //     targetEl = evt.target;
+    //   do {
+    //     if (targetEl === navBar) {
+    //       open();
+    //       return;
+    //     }
+    //     targetEl = targetEl.parentNode;
+    //   } while (targetEl);
+    //     close();
+    // });
 
-
-  const logoutHandler = () => {
-    if (window.confirm("Are You Sure You Want To Logout ")) {
-      dispatch(userLogoutActions());
-    }
-  };
-
-
-
-  // document.addEventListener("click", function (evt) {
-  //   var navBar = document.getElementById("check"),
-  //     targetEl = evt.target;
-  //   do {
-  //     if (targetEl === navBar) {
-  //       open();
-  //       return;
-  //     }
-  //     targetEl = targetEl.parentNode;
-  //   } while (targetEl);
-  //     close();
-  // });
-
-  document.addEventListener("scroll", function (event) {
-    var scrollId = document.getElementById("check"),
-      scrollTarget = event.target;
-    {
-      scrollTarget !== scrollId && close();
-    }
-
-  });
-
-}, [dispatch, userInfo]);
-
-
-
-
-
+    document.addEventListener("scroll", function (event) {
+      var scrollId = document.getElementById("check"),
+        scrollTarget = event.target;
+      {
+        scrollTarget !== scrollId && close();
+      }
+    });
+  }, [dispatch, userInfo]);
 
   return (
     <>
@@ -174,15 +159,24 @@ const SideBar = () => {
               <MenuIcon />
             </div>
           </label>
-          <input type="checkbox"  className={style.checkClose} />
+          <input type="checkbox" className={style.checkClose} />
           <label for="checkClose" className={style.label}>
-            <div className={(sidebar===true? style.cancelOpen: style.cancelClose)} onClick={close}>
+            <div
+              className={
+                sidebar === true ? style.cancelOpen : style.cancelClose
+              }
+              onClick={close}
+            >
               {" "}
               <CloseIcon />
             </div>
           </label>
-          <div className={( sidebar===true ? style.sidebarOpen: style.sidebarClose)} >
-          {/* <div className={style.sidebarClose} > */}
+          <div
+            className={
+              sidebar === true ? style.sidebarOpen : style.sidebarClose
+            }
+          >
+            {/* <div className={style.sidebarClose} > */}
             <header className={style.header}>
               {/* {userInfo && (
                 <>
@@ -243,11 +237,17 @@ const SideBar = () => {
                 </Link>
               )} */}
             </header>
+            
+            <MediaIcon />
             <div className={style.listContainer}>
               <ul>
                 {listCategory &&
                   listCategory.map((list) => (
-                    <Link key={list.title} className={style.link} href={list.link}>
+                    <Link
+                      key={list.title}
+                      className={style.link}
+                      href={list.link}
+                    >
                       <li className={style.list} onClick={close}>
                         {list.icon} <h4 className={style.h4}>{list.title}</h4>
                       </li>
@@ -258,14 +258,14 @@ const SideBar = () => {
           </div>
         </div>
 
-      <div className={style.logo}>
+        <div className={style.logo}>
           <Link className={style.text_link} href="/">
             {logoImage ? (
               <img className={style.imageLogo} src={logoImage} alt="inmatown" />
             ) : (
               <h2
-                className={style.navbar-logo}
-                style={{ padding: "0px", margin: "0px", color:"white" }}
+                className={style.navbar - logo}
+                style={{ padding: "0px", margin: "0px", color: "white" }}
               >
                 INMATOWN
               </h2>
