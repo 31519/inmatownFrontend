@@ -157,6 +157,7 @@ export default News;
 //       resPerPage: resPerPage,
 //     },
 //   };
+
 // }
 
 export async function getServerSideProps({query}) {
@@ -166,6 +167,7 @@ export async function getServerSideProps({query}) {
   const queryStr = `keyword=${keyword}&page=${page}`
 
   const newsApi = await getNews(queryStr);
+  // console.log("newsApi", newsApi)
 
   const { resPerPage, count, local } = newsApi;
 
