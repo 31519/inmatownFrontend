@@ -18,6 +18,9 @@ import StaticBanner from "../components/StaticBanner";
 import FooterLayout from "../components/FooterLayout";
 import Categories from "../components/Categories";
 import listCategory from "../../data/category.json"
+// import graphqlApiBackend from "../../../lib/graphqlApiBackend";
+
+// import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 
 export async function getStaticProps(context) {
@@ -148,3 +151,39 @@ export default function HomePage() {
     </div>
   );
 }
+
+
+
+// export async function getServerSideProps() {
+//   const client = new ApolloClient({
+//     uri: "http://localhost:8000/graphql/",
+//     cache: new InMemoryCache(),
+//   });
+
+//   const { data } = await client.query({
+//     query: gql`
+//       query {
+//         allNews {
+//           edges {
+//             node {
+//               title
+//               content
+//               id
+//               slug
+//               image
+//               createdAt
+//             }
+//           }
+//         }
+//       }
+//     `,
+//   });
+
+//   console.log("ql", data)
+
+//   return {
+//     props: {
+//       newsData: data.allNews.edges,
+//     },
+//   };
+// }
