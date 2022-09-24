@@ -13,7 +13,7 @@ const MetaDetail = ({title, description="this is the test data", ogTitle, ogType
             <meta property="og:type" content={ogType}/>
             {/* <meta property="og:image" content={ogImage} /> */}
             <meta charSet="utf-8"></meta>
-            <link rel="icon" href="/favicon.ico"></link>
+            <link rel="icon" href="/favicon.png"></link>
 
             <title>{title}</title>
             {/* <link rel="canonical" href={ogUrl} /> */}
@@ -22,7 +22,7 @@ const MetaDetail = ({title, description="this is the test data", ogTitle, ogType
             <meta property="og:title" content={ogTitle} />
             <meta property="og:description" content={des} />
             <meta property="og:url" content={ogUrl} />
-            <meta property="og:site_name" content="grnBoat" />
+            <meta property="og:site_name" content="CRfeeds" />
             {/* <meta property="article:published_time" content="2022-08-27T00:30:00+00:00" />
             <meta property="article:modified_time" content="2022-08-26T20:43:34+00:00" /> */}
             <meta property="og:image"  itemprop="image" content={ogImage}/>
@@ -31,7 +31,7 @@ const MetaDetail = ({title, description="this is the test data", ogTitle, ogType
             <meta itemprop="width" content="1200"/>
             <meta itemprop="height" content="800"/>
             <meta property="og:image:type" content="image/jpeg" />
-            <meta name="author" content="grnBoat | Rise to the fullness" />
+            <meta name="author" content="CRfeeds | Rise to the fullness" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:label1" content="Written by" />
             <meta name="twitter:data1" content="grnBoat | Rise to the fullness"  />

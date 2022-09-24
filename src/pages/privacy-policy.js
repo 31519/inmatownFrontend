@@ -23,10 +23,10 @@ const PrivacyPolicy = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <meta name="description" content="Inmatown - privacy"></meta>
+        <meta name="description" content="CRfeeds - privacy"></meta>
         <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.png"></link>
-        <title>Inmatown - Privacy</title>
+        <title>CRfeeds - Privacy</title>
       </Head>
       <SideBar />
 
@@ -40,7 +40,7 @@ const PrivacyPolicy = () => {
         <Grid spacing={2} className={PrivacyStyle.gridContent} container>
           <Grid spacing={1} item xs={12} sm={3} lg={3} md={3}></Grid>
 
-          <Grid spacing={1} item xs={12} sm={6} lg={6} md={6}>
+          <Grid spacing={1} item xs={12} sm={12} lg={12} md={12}>
             <Grid style={{ margin: "10px" }} item>
               <p className={PrivacyStyle.text}>
                 At inmatown, accessible from www.inmatown.com, one of our main

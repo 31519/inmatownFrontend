@@ -20,7 +20,7 @@ import BbcText from "../../components/BbcText";
 
 const Jobs = ({ jobs, count,resPerPage  }) => {
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png";
+  const metaImage = "/favicon.png";
   const router = useRouter();
 
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
@@ -64,9 +64,9 @@ const Jobs = ({ jobs, count,resPerPage  }) => {
   return (
     <>
       <MetaScreen
-        title="Inmatown - Recent Jobs"
-        description="Inmatown - Recent Jobs"
-        ogTitle="Inmatown - Recent Jobs"
+        title="CRfeeds - Recent Jobs"
+        description="CRfeeds - Recent Jobs"
+        ogTitle="CRfeeds - Recent Jobs"
         ogType="website"
         ogUrl={mainUrl + router.asPath}
         ogImage={metaImage}

@@ -44,7 +44,7 @@ export default function Document() {
           rel="stylesheet"
         ></link>
 
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+        {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta> */}
       </Head>
       <body>
         <Main />

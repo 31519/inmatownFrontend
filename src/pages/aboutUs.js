@@ -22,10 +22,10 @@ const aboutUs = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <meta name="description" content="Inmatown - about us"></meta>
+        <meta name="description" content="CRfeeds - about us"></meta>
         <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.png"></link>
-        <title>Inmatown - About Us</title>
+        <title>CRfeeds - About Us</title>
       </Head>
       <SideBar />
 

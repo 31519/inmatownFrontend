@@ -12,7 +12,7 @@ const MetaScreen = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:url" content={ogUrl} />
             <meta property="og:image" itemprop="image"  content={logoImage} />
             <meta charSet="utf-8"></meta>
-            <link rel="icon" href="/favicon.ico"></link>
+            <link rel="icon" href="/favicon.png"></link>
             <title>{title}</title>
 
         </Head>

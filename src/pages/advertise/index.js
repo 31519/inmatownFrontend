@@ -17,7 +17,7 @@ import { getAdvertise } from "../../../lib/backendLink";
 
 const Advertise = ({ advertise, count, resPerPage }) => {
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png";
+  const metaImage = "/favicon.png";
   const router = useRouter();
   // const URL = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
 
@@ -48,9 +48,9 @@ const Advertise = ({ advertise, count, resPerPage }) => {
   return (
     <>
       <MetaScreen
-        title="Inmatown - Recent Advertise"
-        description="Inmatown - Recent Advertise"
-        ogTitle="Inmatown - Recent Advertise"
+        title="CRfeeds - Recent Advertise"
+        description="CRfeeds - Recent Advertise"
+        ogTitle="CRfeeds - Recent Advertise"
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}` + `${metaImage}`}

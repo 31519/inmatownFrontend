@@ -122,10 +122,10 @@ export default function HomePage() {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <meta name="description" content="Home page of inmatown"></meta>
+        <meta name="description" content="CRfeeds - To carry the realist information about Jobs, News, and many more"></meta>
         <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.png"></link>
-        <title>Inmatown</title>
+        <title>CRfeeds -- Rise To The Fullness</title>
       </Head>
       <SideBar/>
 

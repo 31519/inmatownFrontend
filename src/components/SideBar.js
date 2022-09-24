@@ -19,7 +19,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import MediaIcon from "./MediaIcon";
 // import { userDetailActions } from "../actions/userActions";
 
-const logoImage = "/static/logo3.png";
+const logoImage = "/static/logo.png";
 
 const listCategory = [
   {

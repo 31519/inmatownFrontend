@@ -50,7 +50,7 @@ const News = ({ news, resPerPage, count }) => {
   };
 
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png";
+  const metaImage = "/favicon.png";
   // const router = useRouter()
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -91,9 +91,9 @@ const News = ({ news, resPerPage, count }) => {
   return (
     <>
       <MetaScreen
-        title="Inmatown - Recent News"
-        description="Inmatown - Recent News"
-        ogTitle="Inmatown - Recent News"
+        title="CRfeeds - Recent News"
+        description="CRfeeds - Recent News"
+        ogTitle="CRfeeds - Recent News"
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}

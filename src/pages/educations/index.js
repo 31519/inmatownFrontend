@@ -17,7 +17,7 @@ import SideBar from "../../components/SideBar";
 
 const Education = ({ education, count, resPerPage }) => {
   const dispatch = useDispatch();
-  const metaImage = "/inmatown.png";
+  const metaImage = "/favicon.png";
   const router = useRouter();
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -46,9 +46,9 @@ const Education = ({ education, count, resPerPage }) => {
   return (
     <>
       <MetaScreen
-        title="Inmatown - Education"
-        description="Inmatown - Education"
-        ogTitle="Inmatown - Education"
+        title="CRfeeds - Education"
+        description="CRfeeds - Education"
+        ogTitle="CRfeeds - Education"
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}
