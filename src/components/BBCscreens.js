@@ -34,7 +34,7 @@ const BBCscreens = ({
           <h1 className={mainScreen1.header1}>{header}</h1>
           <hr />
         </div>
-        {datas.length === 0 && <LoaderBbcComponent datas={datas} />}
+        {datas && datas.length === 0 && <LoaderBbcComponent datas={datas} />}
         {/* <hr /> */}
         {datas &&
           datas.map((data, index) => (

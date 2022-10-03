@@ -3,6 +3,10 @@ import {
   TECH_LIST_SUCCESS,
   TECH_LIST_FAIL,
 
+  TECH_LISTMAIN_REQUEST,
+  TECH_LISTMAIN_SUCCESS,
+  TECH_LISTMAIN_FAIL,
+
   HEALTH_LIST_REQUEST,
   HEALTH_LIST_SUCCESS,
   HEALTH_LIST_FAIL,
@@ -14,9 +18,6 @@ import {
   BUSINESS_LIST_REQUEST,
   BUSINESS_LIST_SUCCESS,
   BUSINESS_LIST_FAIL,
-  
-
-
 
   TECH_DETAIL_REQUEST,
   TECH_DETAIL_SUCCESS,
@@ -31,10 +32,6 @@ import {
   SCIENCE_DETAIL_SUCCESS,
   SCIENCE_DETAIL_FAIL,
 
-
-
-  
-  
   CREATE_TECH_REQUEST,
   CREATE_TECH_SUCCESS,
   CREATE_TECH_FAIL,
@@ -67,6 +64,26 @@ export const techListReducer = (state = { techs: [] }, action) => {
       };
 
     case TECH_LIST_FAIL:
+      return { loading: false, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const techListMainReducer = (state = { techs: [] }, action) => {
+  switch (action.type) {
+    case TECH_LISTMAIN_REQUEST:
+      return { loading: true, techs: [] };
+    case TECH_LISTMAIN_SUCCESS:
+      return {
+        loading: false,
+        education: action.payload.technology,
+        count: action.payload.count,
+        resPerPage: action.payload.resPerPage,
+      };
+
+    case TECH_LISTMAIN_FAIL:
       return { loading: false, error: action.payload };
 
     default:

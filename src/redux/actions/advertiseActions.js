@@ -3,6 +3,10 @@ import {
     ADVERTISE_LIST_SUCCESS,
     ADVERTISE_LIST_FAIL,
 
+    ADVERTISE_LISTMAIN_REQUEST,
+    ADVERTISE_LISTMAIN_SUCCESS,
+    ADVERTISE_LISTMAIN_FAIL,
+
     ALL_ADVERTISE_LIST_REQUEST,
     ALL_ADVERTISE_LIST_SUCCESS,
     ALL_ADVERTISE_LIST_FAIL,
@@ -152,6 +156,10 @@ import {
     LOCAL_LIST_SUCCESS,
     LOCAL_LIST_FAIL,
 
+    LOCAL_LISTMAIN_REQUEST,
+    LOCAL_LISTMAIN_SUCCESS,
+    LOCAL_LISTMAIN_FAIL,
+
     LOCAL_USER_LIST_REQUEST,
     LOCAL_USER_LIST_SUCCESS,
     LOCAL_USER_LIST_FAIL,
@@ -227,6 +235,26 @@ export const advertiseListAction = (keyword = '') => async (dispatch) => {
     }
 }
 
+export const advertiseListMainAction = (keyword) => async (dispatch) => {
+    try{
+        dispatch({ type: ADVERTISE_LISTMAIN_REQUEST });
+        const { data } = await axios.get(
+            `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/advertisement/mainlist?${keyword}`
+        );
+        dispatch({
+            type: ADVERTISE_LISTMAIN_SUCCESS,
+            payload: data,
+        })
+    } catch (error) {
+        dispatch({
+            type: ADVERTISE_LISTMAIN_FAIL,
+            payload:
+              error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+    })
+    }
+}
 
 export const allAdvertiseListAction = (keyword = '') => async (dispatch) => {
     try{
@@ -1217,6 +1245,27 @@ export const localListAction = (keyword="") => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: LOCAL_LIST_FAIL,
+            payload:
+              error.response && error.response.data.detail
+                ? error.response.data.detail
+                : error.message,
+    })
+    }
+}
+
+export const localListMainAction = (keyword="") => async (dispatch, getState) => {
+    try{
+        dispatch({ type: LOCAL_LISTMAIN_REQUEST });
+        const { data } = await axios.get(
+            `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/mainlist?${keyword}`
+        );
+        dispatch({
+            type: LOCAL_LISTMAIN_SUCCESS,
+            payload: data,
+        })
+    } catch (error) {
+        dispatch({
+            type: LOCAL_LISTMAIN_FAIL,
             payload:
               error.response && error.response.data.detail
                 ? error.response.data.detail

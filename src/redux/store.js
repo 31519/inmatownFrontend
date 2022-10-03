@@ -3,6 +3,7 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import {
     techListReducer,
+    techListMainReducer,
     healthListReducer,
     businessListReducer,
     scienceListReducer,
@@ -33,6 +34,7 @@ import {
 
 import {
     advertiseListReducer,
+    advertiseListMainReducer,
     allAdvertiseListReducer,
     advertiseUserListReducer,
     advertiseDetailReducer,
@@ -76,6 +78,7 @@ import {
 
     // MEME PORTION
     localListReducer,
+    localListMainReducer,
     localUserListReducer,
     localDetailReducer,
     localCreateReducer,
@@ -124,6 +127,7 @@ import {
 
     // JOBS PORTION
     jobListReducer,
+    jobListMainReducer,
     jobUserListReducer,
     jobDetailReducer,
     jobCreateReducer,
@@ -144,7 +148,10 @@ const reducer = combineReducers({
 
     // BANNER PORTION
     bannerList:   bannerListReducer,
+
     techList: techListReducer,
+    techListMain: techListMainReducer,
+
     healthList: healthListReducer,
     businessList: businessListReducer,
     scienceList: scienceListReducer,
@@ -173,6 +180,8 @@ const reducer = combineReducers({
     profileUpdate: profileUpdateReducer,
 
     advertiseList:advertiseListReducer,
+    advertiseListMain:advertiseListMainReducer,
+
     allAdvertiseList: allAdvertiseListReducer,
     advertiseUserList:advertiseUserListReducer,
     advertiseDetail:advertiseDetailReducer,
@@ -214,6 +223,7 @@ const reducer = combineReducers({
 
     // LOCAL PORTION
     localList:   localListReducer,
+    localListMain:   localListMainReducer,
     localUserList:   localUserListReducer,
     localDetail: localDetailReducer,
     localUpdate: localUpdateReducer,
@@ -256,6 +266,7 @@ const reducer = combineReducers({
 
     // JOB PORTION
     jobList:   jobListReducer,
+    jobListMain:   jobListMainReducer,
     jobUserList:   jobUserListReducer,
     jobDetail: jobDetailReducer,
     jobUpdate: jobUpdateReducer,

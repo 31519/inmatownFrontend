@@ -3,6 +3,10 @@ import {
   TECH_LIST_SUCCESS,
   TECH_LIST_FAIL,
 
+  TECH_LISTMAIN_REQUEST,
+  TECH_LISTMAIN_SUCCESS,
+  TECH_LISTMAIN_FAIL,
+
   HEALTH_LIST_REQUEST,
   HEALTH_LIST_SUCCESS,
   HEALTH_LIST_FAIL,
@@ -55,7 +59,7 @@ export const listTechs = (keyword='') => async (dispatch) => {
   try {
     dispatch({ type: TECH_LIST_REQUEST });
     const { data } = await axios.get(
-      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list${keyword}`
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list?${keyword}`
     );
 
 
@@ -66,6 +70,29 @@ export const listTechs = (keyword='') => async (dispatch) => {
   } catch (error) {
     dispatch({
       type: TECH_LIST_FAIL,
+      payload:
+        error.response && error.response.data.detail
+          ? error.response.data.detail
+          : error.message,
+    });
+  }
+};
+
+export const listTechsMain = (keyword='') => async (dispatch) => {
+  try {
+    dispatch({ type: TECH_LISTMAIN_REQUEST });
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/mainlist?${keyword}`
+    );
+
+
+    dispatch({
+      type: TECH_LISTMAIN_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: TECH_LISTMAIN_FAIL,
       payload:
         error.response && error.response.data.detail
           ? error.response.data.detail

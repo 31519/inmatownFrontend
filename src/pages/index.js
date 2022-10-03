@@ -17,27 +17,26 @@ import SideBar from "../components/SideBar";
 import StaticBanner from "../components/StaticBanner";
 import FooterLayout from "../components/FooterLayout";
 import Categories from "../components/Categories";
-import listCategory from "../../data/category.json"
+import listCategory from "../../data/category.json";
 // import graphqlApiBackend from "../../../lib/graphqlApiBackend";
 
 // import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
-
 export async function getStaticProps(context) {
-  const category =  listCategory 
+  const category = listCategory;
 
   // const listCategory = [
   //   {
-  //     title: "Home",
-  //     link: "/",
-  //     image: "/tourisms.jpg",
+  //     title: "Home this is the test for home ",
+  //     description: "this is the description for lorem ipsoum this is the description for lorem ipsoum this is the description for lorem ipsoum this is the description for lorem ipsoum ",
+  //     date: "Jun 21, 2021",
   //   },
   //   {
   //     title: "Education",
   //     link: "/educations",
   //     image: "/education.jpg",
   //   },
-  
+
   //   {
   //     title: "News",
   //     link: "/news",
@@ -57,11 +56,10 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      category:category
-    }
-  }
+      category: category,
+    },
+  };
 }
-
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -91,7 +89,6 @@ export default function HomePage() {
     jobs: listJob,
   } = jobList;
 
-
   const techList = useSelector((state) => state.techList);
 
   const {
@@ -110,7 +107,7 @@ export default function HomePage() {
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch, ]);
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(listTechs());
@@ -122,28 +119,45 @@ export default function HomePage() {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <meta name="description" content="CRfeeds - To carry the realist information about Jobs, News, and many more"></meta>
+        <meta
+          name="description"
+          content="CRfeeds - To carry the realist information about Jobs, News, and many more"
+        ></meta>
         <meta charSet="utf-8"></meta>
         <link rel="icon" href="/favicon.png"></link>
         <title>CRfeeds -- Rise To The Fullness</title>
       </Head>
-      <SideBar/>
-
+      <SideBar />
 
       {/* <IndexAdvertiseBanner index={0} /> */}
       {/* <HomePageLayout  header1='News' header2="Education" header3="Jobs" datas1={listLocal.slice(0, 2)} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
       <StaticBanner />
       <Categories />
-      <BbcComponent  datas={listLocal} link="news" header="Recent News" loading={listLocalLoading}/>
-      <BbcText  datas={listLocal} link="news" header="Must Read"/>
+      <BbcComponent
+        datas={listLocal}
+        link="news"
+        header="Recent News"
+        loading={listLocalLoading}
+      />
+      <BbcText datas={listLocal} link="news" header="Must Read" />
 
-      <BbcComponent  datas={listJob} link="jobs" header="Recent Jobs" loading={listJobLoading}/>
-      <BbcText  datas={listJob} link="jobs" header="Must Read"/>
+      <BbcComponent
+        datas={listJob}
+        link="jobs"
+        header="Recent Jobs"
+        loading={listJobLoading}
+      />
+      <BbcText datas={listJob} link="jobs" header="Must Read" />
       <Banners />
-      <BbcComponent  datas={listTech} link="educations" header="Education" loading={listTech}/>
-      <BbcText  datas={listTech} link="educations" header="Must Read"/>
+      <BbcComponent
+        datas={listTech}
+        link="educations"
+        header="Education"
+        loading={listTech}
+      />
+      <BbcText datas={listTech} link="educations" header="Must Read" />
       <Banners />
-      
+
       <IndexAdvertiseBanner index={1} />
 
       {/* <ScreenLayout header1='News' header2="Advertise" datas={listLocal} datas2={listAdvertise} /> */}
@@ -151,8 +165,6 @@ export default function HomePage() {
     </div>
   );
 }
-
-
 
 // export async function getServerSideProps() {
 //   const client = new ApolloClient({

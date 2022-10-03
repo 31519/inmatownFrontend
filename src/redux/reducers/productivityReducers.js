@@ -3,6 +3,10 @@ import {
     ADVERTISE_LIST_SUCCESS,
     ADVERTISE_LIST_FAIL,
 
+    ADVERTISE_LISTMAIN_REQUEST,
+    ADVERTISE_LISTMAIN_SUCCESS,
+    ADVERTISE_LISTMAIN_FAIL,
+
     ALL_ADVERTISE_LIST_REQUEST,
     ALL_ADVERTISE_LIST_SUCCESS,
     ALL_ADVERTISE_LIST_FAIL,
@@ -151,6 +155,10 @@ import {
     LOCAL_LIST_SUCCESS,
     LOCAL_LIST_FAIL,
 
+    LOCAL_LISTMAIN_REQUEST,
+    LOCAL_LISTMAIN_SUCCESS,
+    LOCAL_LISTMAIN_FAIL,
+
     LOCAL_USER_LIST_REQUEST,
     LOCAL_USER_LIST_SUCCESS,
     LOCAL_USER_LIST_FAIL,
@@ -221,6 +229,27 @@ export const advertiseListReducer = (state = {advertises: []}, action) => {
             };
 
         case ADVERTISE_LIST_FAIL:
+            return {loading:false, error: action.payload}
+
+        default:
+            return state;
+    }
+}
+
+export const advertiseListMainReducer = (state = {advertises: []}, action) => {
+    switch (action.type) {
+        case ADVERTISE_LISTMAIN_REQUEST:
+            return { loading: true, advertises:[]};
+        
+        case ADVERTISE_LISTMAIN_SUCCESS:
+            return {
+                loading: false,
+                advertisement: action.payload.advertisement,
+                count: action.payload.count,
+                resPerPage: action.payload.resPerPage,
+            };
+
+        case ADVERTISE_LISTMAIN_FAIL:
             return {loading:false, error: action.payload}
 
         default:
@@ -919,6 +948,27 @@ export const localListReducer = (state = {locals: []}, action) => {
             };
 
         case LOCAL_LIST_FAIL:
+            return {loading:false, error: action.payload}
+
+        default:
+            return state;
+    }
+}
+
+export const localListMainReducer = (state = {locals: []}, action) => {
+    switch (action.type) {
+        case LOCAL_LISTMAIN_REQUEST:
+            return { loading: true, locals:[]};
+        
+        case LOCAL_LISTMAIN_SUCCESS:
+            return {
+                loading: false,
+                locals: action.payload.local,
+                count: action.payload.count,
+                resPerPage: action.payload.resPerPage,
+            };
+
+        case LOCAL_LISTMAIN_FAIL:
             return {loading:false, error: action.payload}
 
         default:

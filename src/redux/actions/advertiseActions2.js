@@ -28,11 +28,9 @@ import {
   RESELLER_LIST_REQUEST,
   RESELLER_LIST_SUCCESS,
   RESELLER_LIST_FAIL,
-
   ALL_RESELLER_LIST_REQUEST,
   ALL_RESELLER_LIST_SUCCESS,
   ALL_RESELLER_LIST_FAIL,
-
   RESELLER_USER_LIST_REQUEST,
   RESELLER_USER_LIST_SUCCESS,
   RESELLER_USER_LIST_FAIL,
@@ -79,6 +77,9 @@ import {
   JOBS_LIST_REQUEST,
   JOBS_LIST_SUCCESS,
   JOBS_LIST_FAIL,
+  JOBS_LISTMAIN_REQUEST,
+  JOBS_LISTMAIN_SUCCESS,
+  JOBS_LISTMAIN_FAIL,
   JOBS_USER_LIST_REQUEST,
   JOBS_USER_LIST_SUCCESS,
   JOBS_USER_LIST_FAIL,
@@ -298,7 +299,7 @@ export const resellerListAction =
     }
   };
 
-  export const allResellerListAction =
+export const allResellerListAction =
   (keyword = "") =>
   async (dispatch) => {
     try {
@@ -659,7 +660,9 @@ export const jobListAction =
   async (dispatch) => {
     try {
       dispatch({ type: JOBS_LIST_REQUEST });
-      const { data } = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list${keyword}`);
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list${keyword}`
+      );
       dispatch({
         type: JOBS_LIST_SUCCESS,
         payload: data,
@@ -667,6 +670,29 @@ export const jobListAction =
     } catch (error) {
       dispatch({
         type: JOBS_LIST_FAIL,
+        payload:
+          error.response && error.response.data.detail
+            ? error.response.data.detail
+            : error.message,
+      });
+    }
+  };
+
+export const jobListMainAction =
+  (keyword = "") =>
+  async (dispatch) => {
+    try {
+      dispatch({ type: JOBS_LISTMAIN_REQUEST });
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/mainlist/?${keyword}`
+      );
+      dispatch({
+        type: JOBS_LISTMAIN_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: JOBS_LISTMAIN_FAIL,
         payload:
           error.response && error.response.data.detail
             ? error.response.data.detail
@@ -689,7 +715,10 @@ export const jobUserListAction = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/user-list/`, config);
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/user-list/`,
+      config
+    );
     dispatch({
       type: JOBS_USER_LIST_SUCCESS,
       payload: data,
@@ -708,7 +737,9 @@ export const jobUserListAction = () => async (dispatch, getState) => {
 export const jobDetailAction = (id, slug) => async (dispatch) => {
   try {
     dispatch({ type: JOBS_DETAIL_REQUEST });
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list/${id}/${slug}`);
+    const { data } = await axios.get(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/list/${id}/${slug}`
+    );
     dispatch({
       type: JOBS_DETAIL_SUCCESS,
       payload: data,
@@ -739,7 +770,11 @@ export const jobCreateAction = () => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/create/`, {}, config);
+    const { data } = await axios.post(
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/jobs/create/`,
+      {},
+      config
+    );
 
     dispatch({
       type: JOBS_CREATE_SUCCESS,

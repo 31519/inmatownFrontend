@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { advertiseListAction } from "../../redux/actions/advertiseActions";
+import { advertiseListAction, localListMainAction } from "../../redux/actions/advertiseActions";
 import { jobListAction } from "../../redux/actions/advertiseActions2";
 import { listTechs } from "../../redux/actions/techActions";
 
@@ -24,34 +24,14 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 // COMPONENT ALL
 
-const News = ({ news, resPerPage, count }) => {
-  // const initialState = news;
-  // const [news, setNews] = useState('');
-
-  // console.log("initialState", initialState)
-  // console.log("initialState2", newsss)
-
+const News = () => {
   const router = useRouter();
-
-  let queryParams;
-  if (typeof window != "undefined") {
-    queryParams = new URLSearchParams(window.location.search);
-  }
-
-  const handlePageClick = (currentPage) => {
-    if (queryParams.has("page")) {
-      queryParams.set("page", currentPage);
-    } else {
-      queryParams.append("page", currentPage);
-    }
-    router.push({
-      search: queryParams.toString(),
-    });
-  };
+  const keywords = router.query.keyword || "";
+  const page = router.query.page || 1;
+  const keyword = `keyword=${keywords}&page=${page}`;
 
   const dispatch = useDispatch();
   const metaImage = "/favicon.png";
-  // const router = useRouter()
   const advertiseList = useSelector((state) => state.advertiseList);
 
   const {
@@ -76,6 +56,21 @@ const News = ({ news, resPerPage, count }) => {
     techs: newss,
   } = techList;
 
+
+  const newsList = useSelector((state) => state.localListMain);
+
+  const {
+    error: mainNewsListError,
+    loading: mainNewsListLoading,
+    locals: news,
+    count,
+    resPerPage
+  } = newsList;
+
+  useEffect(() => {
+    dispatch(localListMainAction(keyword));
+  }, [dispatch, keyword]);
+
   useEffect(() => {
     dispatch(advertiseListAction());
   }, [dispatch]);
@@ -98,13 +93,13 @@ const News = ({ news, resPerPage, count }) => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={metaImage}
       />
-      <SideBar  />
+      <SideBar />
       <StaticBanner />
       <Categories />
-      
+
       <BBCscreens datas={news} resPerPage={resPerPage} count={count} header="Recent News" link="news" />
       <BbcText datas={listJob} link="jobs" header="Jobs" />
-      
+
       <BbcComponent
         datas={listJob}
         link="jobs"
@@ -113,25 +108,6 @@ const News = ({ news, resPerPage, count }) => {
       />
       <Banners />
 
-      {/* <SearchBox/> */}
-      {/* <ScreenLayout  header1='News' header2="Education" header3="Jobs" datas1={news}  count={count} resPerPage={resPerPage} datas2={listTech} datas3={listJob} link1='news' link2="educations" link3="jobs"/> */}
-
-      {/* {resPerPage < count && (
-        <div className="paginationDiv">
-          <Pagination
-            activePage={page}
-            itemsCountPerPage={resPerPage}
-            totalItemsCount={count}
-            onChange={handlePageClick}
-            nextPageText={"Next"}
-            prevPageText={"Prev"}
-            firstPageText={"First"}
-            lastPageText={"Last"}
-            itemClass="page-item"
-            linkClass="page-link"
-          />
-        </div>
-      )} */}
       <FooterLayout />
     </>
   );
@@ -139,7 +115,7 @@ const News = ({ news, resPerPage, count }) => {
 
 export default News;
 
-// export async function getServerSideProps({ query }) {
+// export async function getStaticProps({ query }) {
 //   const keyword = query.keyword || "";
 //   const page = query.page || "";
 
@@ -157,28 +133,26 @@ export default News;
 //       resPerPage: resPerPage,
 //     },
 //   };
-
 // }
 
-export async function getServerSideProps({query}) {
+// export async function getServerSideProps({query}) {
 
-  const keyword = query.keyword || ""
-  const page =  query.page || 1
-  const queryStr = `keyword=${keyword}&page=${page}`
+//   const keyword = query.keyword || ""
+//   const page =  query.page || 1
+//   const queryStr = `keyword=${keyword}&page=${page}`
 
-  const newsApi = await getNews(queryStr);
-  // console.log("newsApi", newsApi)
+//   const newsApi = await getNews(queryStr);
 
-  const { resPerPage, count, local } = newsApi;
+//   const { resPerPage, count, local } = newsApi;
 
-  return {
-    props: {
-      news: local,
-      resPerPage,
-      count,
-    },
-  };
-}
+//   return {
+//     props: {
+//       news: local,
+//       resPerPage,
+//       count,
+//     },
+//   };
+// }
 
 // export async function getServerSideProps() {
 //   const client = new ApolloClient({
@@ -210,4 +184,25 @@ export async function getServerSideProps({query}) {
 //       newsData: data.allNews.edges,
 //     },
 //   };
+// }
+
+// export async function getServerSideProps({ query }) {
+//   const keyword = query.keyword || "";
+//   const page = query.page || "";
+
+//   const queryStr = `keyword=${keyword}&page=${page}`;
+//   const newsApi = await axios.get(
+//     `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list?${queryStr}`
+//   );
+//   const newsData = newsApi.data;
+//   const { count, resPerPage, local } = newsData;
+
+//   return {
+//     props: {
+//       news: local,
+//       count: count,
+//       resPerPage: resPerPage,
+//     },
+//   };
+
 // }

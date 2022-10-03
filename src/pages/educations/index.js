@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../redux/actions/advertiseActions";
 import { jobListAction } from "../../redux/actions/advertiseActions2";
+import { listTechsMain } from "../../redux/actions/techActions";
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
 import Banners from "../../components/Banners";
@@ -15,10 +16,14 @@ import BbcText from "../../components/BbcText";
 import SideBar from "../../components/SideBar";
 // COMPONENT ALL
 
-const Education = ({ education, count, resPerPage }) => {
+const Education = () => {
+  const router = useRouter();
+  const keywords = router.query.keyword || "";
+  const page = router.query.page || 1;
+  const keyword = `keyword=${keywords}&page=${page}`;
+  
   const dispatch = useDispatch();
   const metaImage = "/favicon.png";
-  const router = useRouter();
   const advertiseList = useSelector((state) => state.advertiseList);
 
   const {
@@ -34,6 +39,20 @@ const Education = ({ education, count, resPerPage }) => {
     loading: listJobLoading,
     jobs: listJob,
   } = jobList;
+
+  const techList = useSelector((state) => state.techListMain);
+
+  const {
+    error: mainTechListError,
+    loading: mainTechListLoading,
+    education,
+    count,
+    resPerPage
+  } = techList;
+
+  useEffect(() => {
+    dispatch(listTechsMain(keyword));
+  }, [dispatch, keyword]);
 
   useEffect(() => {
     dispatch(advertiseListAction());
@@ -95,23 +114,23 @@ export default Education;
 //   };
 // }
 
-export async function getServerSideProps({query}) {
+// export async function getServerSideProps({query}) {
 
-  const keyword = query.keyword || ""
-  const page =  query.page || 1
-  const queryStr = `keyword=${keyword}&page=${page}`
+//   const keyword = query.keyword || ""
+//   const page =  query.page || 1
+//   const queryStr = `keyword=${keyword}&page=${page}`
 
 
-  const educationApi = await getEducations(queryStr);
+//   const educationApi = await getEducations(queryStr);
 
-  const { resPerPage, count, technology } = educationApi;
+//   const { resPerPage, count, technology } = educationApi;
 
-  return {
-    props: {
-      education: technology,
-      resPerPage,
-      count
-    },
-  };
-}
+//   return {
+//     props: {
+//       education: technology,
+//       resPerPage,
+//       count
+//     },
+//   };
+// }
 

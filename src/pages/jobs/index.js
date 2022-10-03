@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { localListAction } from "../../redux/actions/advertiseActions";
 import { advertiseListAction } from "../../redux/actions/advertiseActions";
-import { jobListAction } from "../../redux/actions/advertiseActions2";
+import { jobListMainAction } from "../../redux/actions/advertiseActions2";
 
 import FooterLayout from "../../components/FooterLayout";
 import MetaScreen from "../../components/MetaScreen";
@@ -18,10 +18,15 @@ import BbcText from "../../components/BbcText";
 
 // COMPONENT ALL
 
-const Jobs = ({ jobs, count,resPerPage  }) => {
+const Jobs = () => {
+  const router = useRouter();
+  const keywords = router.query.keyword || "";
+  const page = router.query.page || 1;
+  const keyword = `keyword=${keywords}&page=${page}`;
+
   const dispatch = useDispatch();
   const metaImage = "/favicon.png";
-  const router = useRouter();
+
 
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
 
@@ -41,17 +46,19 @@ const Jobs = ({ jobs, count,resPerPage  }) => {
     advertises: listAdvertise,
   } = advertiseList;
 
-  const jobList = useSelector((state) => state.jobList);
+  const jobsList = useSelector((state) => state.jobListMain);
 
   const {
-    error: listJobError,
-    loading: listJobLoading,
-    jobs: listJob,
-  } = jobList;
+    error: mainJobsListError,
+    loading: mainJobsListLoading,
+    jobs,
+    count,
+    resPerPage
+  } = jobsList;
 
   useEffect(() => {
-    dispatch(jobListAction());
-  }, [dispatch]);
+    dispatch(jobListMainAction(keyword));
+  }, [dispatch, keyword]);
 
   useEffect(() => {
     dispatch(localListAction());
@@ -81,13 +88,13 @@ const Jobs = ({ jobs, count,resPerPage  }) => {
         count={count}
         resPerPage={resPerPage}
       />
-      <BbcText datas={jobs} link="jobs" header="Jobs" />
+      <BbcText datas={listLocal} link="news" header="Recent News" />
       
       <BbcComponent
-        datas={listJob}
+        datas={jobs}
         link="jobs"
         header="Must View"
-        loading={listJobLoading}
+        loading={mainJobsListLoading}
       />
       <Banners />
       <FooterLayout />
@@ -97,20 +104,20 @@ const Jobs = ({ jobs, count,resPerPage  }) => {
 
 export default Jobs;
 
-export async function getServerSideProps({query}) {
-  const keyword = query.keyword || ""
-  const page =  query.page || 1
-  const queryStr = `keyword=${keyword}&page=${page}`
+// export async function getServerSideProps({query}) {
+//   const keyword = query.keyword || ""
+//   const page =  query.page || 1
+//   const queryStr = `keyword=${keyword}&page=${page}`
 
-  const jobsApi = await getJobs(queryStr);
+//   const jobsApi = await getJobs(queryStr);
 
-  const { resPerPage, count, jobs } = jobsApi;
+//   const { resPerPage, count, jobs } = jobsApi;
 
-  return {
-    props: {
-      jobs: jobs,
-      resPerPage,
-      count,
-    },
-  };
-}
+//   return {
+//     props: {
+//       jobs: jobs,
+//       resPerPage,
+//       count,
+//     },
+//   };
+// }

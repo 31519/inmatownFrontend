@@ -93,6 +93,10 @@ import {
    JOBS_LIST_SUCCESS,
    JOBS_LIST_FAIL,
 
+   JOBS_LISTMAIN_REQUEST,
+   JOBS_LISTMAIN_SUCCESS,
+   JOBS_LISTMAIN_FAIL,
+
    JOBS_USER_LIST_REQUEST,
    JOBS_USER_LIST_SUCCESS,
    JOBS_USER_LIST_FAIL,
@@ -548,6 +552,27 @@ export const jobListReducer = (state = {jobs: []}, action) => {
             };
 
         case JOBS_LIST_FAIL:
+            return {loading:false, error: action.payload}
+
+        default:
+            return state;
+    }
+}
+
+export const jobListMainReducer = (state = {jobs: []}, action) => {
+    switch (action.type) {
+        case JOBS_LISTMAIN_REQUEST:
+            return { loading: true, jobs:[]};
+        
+        case JOBS_LISTMAIN_SUCCESS:
+            return {
+                loading: false,
+                jobs: action.payload.jobs,
+                count: action.payload.count,
+                resPerPage: action.payload.resPerPage,
+            };
+
+        case JOBS_LISTMAIN_FAIL:
             return {loading:false, error: action.payload}
 
         default:
