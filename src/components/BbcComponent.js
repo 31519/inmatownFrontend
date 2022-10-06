@@ -70,7 +70,7 @@ const BbcComponent = ({
                     .fromNow()}
                 </p>
 
-                <h2 className={bbcStyle.title}>{data.title}</h2>
+                <h2 className={bbcStyle.title}>{data.title.slice(0, 100)}...</h2>
                 <button className={bbcStyle.button}>Read More</button>
                 {/* </div> */}
               </div>

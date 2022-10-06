@@ -81,7 +81,7 @@ const BBCscreens = ({
                       .fromNow()}
                   </p>
                   {/* <h4 className={mainScreen1.state}>Meghalaya </h4> */}
-                  <h2 className={mainScreen1.title}>{data.title}</h2>
+                  <h2 className={mainScreen1.title}>{data.title.slice(0, 100)}...</h2>
                   {/* {data.content && (
                     <pre  className={mainScreen1.content}>
                       {parse(data.content.slice(0, 70))}<span>...</span>

@@ -43,7 +43,7 @@ const MainScreenComponent = ({
               {/*  */}
               <div class={mainScreen.textContainer}>
                 <h4 className={mainScreen.state}>Meghalaya </h4>
-                <h2 className={mainScreen.title}>{data.title}</h2>
+                <h2 className={mainScreen.title}>{data.title.slice(0, 100)}...</h2>
 
                 <p className={mainScreen.posted}>
                   Posted{" "}
