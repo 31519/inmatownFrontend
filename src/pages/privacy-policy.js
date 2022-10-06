@@ -284,11 +284,8 @@ const PrivacyPolicy = () => {
           <Grid spacing={1} item xs={12} sm={3} lg={3} md={3}></Grid>
         </Grid>
       </div>
-      <Banners />
-      <StaticBanner />
-
       
-
+      <StaticBanner />
       <FooterLayout />
     </>
   );

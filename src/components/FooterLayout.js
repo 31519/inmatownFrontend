@@ -7,7 +7,7 @@ const FooterLayout = () => {
 
   return (
     <>
-    <ContactUs/>
+    {/* <ContactUs/> */}
     <IndexAdvertiseBanner index={2} />
     <BottomFooters/>
 

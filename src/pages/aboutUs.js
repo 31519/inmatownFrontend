@@ -33,9 +33,7 @@ const aboutUs = () => {
       <Categories />
       <div className="techlist">
         <Grid className={AboutusStyle.gridHeader} container item>
-          {/* <Button >
-            Back
-          </Button> */}
+
         </Grid>
 
         <div spacing={2} className={AboutusStyle.gridContent} container>
@@ -66,11 +64,8 @@ const aboutUs = () => {
           </div>
         </div>
       </div>
-      <Banners />
+
       <StaticBanner />
-
-
-
       <FooterLayout />
     </>
   );
