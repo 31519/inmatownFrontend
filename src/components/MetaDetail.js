@@ -34,7 +34,7 @@ const MetaDetail = ({title, description="this is the test data", ogTitle, ogType
             <meta name="author" content="CRfeeds | Rise to the fullness" />
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:label1" content="Written by" />
-            <meta name="twitter:data1" content="grnBoat | Rise to the fullness"  />
+            <meta name="twitter:data1" content="CRfeeds | Rise to the fullness"  />
             {/* <meta name="twitter:label2" content="Est. reading time" />
             <meta name="twitter:data2" content="1 minute" /> */}
 

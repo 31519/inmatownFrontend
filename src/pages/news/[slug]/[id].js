@@ -72,12 +72,12 @@ const NewsDetail = ({ news }) => {
 
       <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
       
-      <BbcComponent
+      {/* <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
-      />
+      /> */}
       <Banners />
 
       <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />

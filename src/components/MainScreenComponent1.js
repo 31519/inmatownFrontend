@@ -42,7 +42,7 @@ const MainScreenComponent1 = ({ datas, header, link, count, resPerPage }) => {
             <div className={mainScreen1.container}>
               <div className={mainScreen1.stateBox}>
                 <h2 className={mainScreen1.brand} variant="p">
-                  Inmatown
+                CRfeeds
                 </h2>
               </div>
               <div className={mainScreen1.imageContainer}>

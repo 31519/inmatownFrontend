@@ -14,7 +14,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
             <div className={mainJobDetailScreen.containerOne}>
               <div className={mainJobDetailScreen.stateBox}>
                 <h2 className={mainJobDetailScreen.brand} variant="p">
-                  Inmatown
+                  CRfeeds
                 </h2>
               </div>
               <div className={mainJobDetailScreen.ImageContainer}>
@@ -42,7 +42,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
             </div>
 
             <div className={mainJobDetailScreen.containerTwo}>
-              <h3
+              {/* <h3
                 variant="h6"
                 color="primary"
                 className={mainJobDetailScreen.date}
@@ -56,7 +56,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
               </h2>
               <h2 className={mainJobDetailScreen.endDate}>
                 End Date: {datas.startDate && datas.endDate.split("T", 1)}
-              </h2>
+              </h2> */}
 
               <hr />
 

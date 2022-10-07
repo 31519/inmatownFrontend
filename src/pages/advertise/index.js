@@ -85,12 +85,12 @@ const Advertise = () => {
       />
       <BbcText datas={listLocal} link="news" header="News" />
       
-      <BbcComponent
+      {/* <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
-      />
+      /> */}
       <Banners />
 
       <FooterLayout />

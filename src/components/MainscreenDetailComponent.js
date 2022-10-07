@@ -26,7 +26,7 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                 <div className={mainDetailScreen.containerOne}>
                   <div className={mainDetailScreen.stateBox}>
                     <h2 className={mainDetailScreen.brand} variant="p">
-                      Inmatown
+                    CRfeeds
                     </h2>
                   </div>
                   <div className={mainDetailScreen.ImageContainer}>

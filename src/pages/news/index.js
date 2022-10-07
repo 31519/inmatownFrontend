@@ -99,13 +99,13 @@ const News = () => {
 
       <BBCscreens datas={news} resPerPage={resPerPage} count={count} header="Recent News" link="news" />
       <BbcText datas={listJob} link="jobs" header="Jobs" />
-
+{/* 
       <BbcComponent
         datas={listJob}
         link="jobs"
         header="Must View"
         loading={listJobLoading}
-      />
+      /> */}
       <Banners />
 
       <FooterLayout />

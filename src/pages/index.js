@@ -139,7 +139,8 @@ export default function HomePage() {
         header="Recent News"
         loading={listLocalLoading}
       />
-      <BbcText datas={listLocal} link="news" header="Must Read" />
+      <BbcText datas={listTech} link="educations" header="Education" />
+
 
       <BbcComponent
         datas={listJob}
@@ -147,7 +148,8 @@ export default function HomePage() {
         header="Recent Jobs"
         loading={listJobLoading}
       />
-      <BbcText datas={listJob} link="jobs" header="Must Read" />
+      <BbcText datas={listLocal} link="news" header="News" />
+      
       <Banners />
       <BbcComponent
         datas={listTech}
@@ -155,7 +157,7 @@ export default function HomePage() {
         header="Education"
         loading={listTech}
       />
-      <BbcText datas={listTech} link="educations" header="Must Read" />
+      <BbcText datas={listJob} link="jobs" header="Jobs" />
       <Banners />
 
       <IndexAdvertiseBanner index={1} />

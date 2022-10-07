@@ -90,12 +90,12 @@ const Jobs = () => {
       />
       <BbcText datas={listLocal} link="news" header="Recent News" />
       
-      <BbcComponent
+      {/* <BbcComponent
         datas={jobs}
         link="jobs"
         header="Must View"
         loading={mainJobsListLoading}
-      />
+      /> */}
       <Banners />
       <FooterLayout />
     </>

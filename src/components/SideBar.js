@@ -58,6 +58,11 @@ const listCategory = [
     link: "/privacy-policy",
     icon: <LandscapeIcon />,
   },
+  {
+    title: "Terms and Conditions",
+    link: "/termsandcondition",
+    icon: <LandscapeIcon />,
+  },
   // {
   //   title: "Resell",
   //   link: "/resell",
@@ -267,7 +272,7 @@ const SideBar = () => {
                 className={style.navbar - logo}
                 style={{ padding: "0px", margin: "0px", color: "white" }}
               >
-                INMATOWN
+                CRfeeds
               </h2>
             )}
           </Link>
