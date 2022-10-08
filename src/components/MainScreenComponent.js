@@ -61,7 +61,7 @@ const MainScreenComponent = ({
           </Link>
         ))}
       <div className={mainScreen.browseAll}>
-        <Link href={link}>
+        <Link href={`/${link}`}>
           <p className={mainScreen.browseAllText}>Browse all...</p>
         </Link>
       </div>

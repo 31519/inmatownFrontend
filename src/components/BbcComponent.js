@@ -79,7 +79,8 @@ const BbcComponent = ({
         ))}
 
       <div className={bbcStyle.browseAll}>
-        <Link href={link}>
+        <Link href={`/${link}`}ckear
+        >
           <p className={bbcStyle.browseAllText}>Browse all...</p>
         </Link>
       </div>

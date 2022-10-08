@@ -60,7 +60,7 @@ const EducationDetail = ({ education }) => {
         ogTitle={education.title}
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
-        ogImage={education.image}
+        ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}
       />
       <SideBar/>
       <StaticBanner />

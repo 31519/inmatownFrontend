@@ -50,7 +50,7 @@ const BbcText = ({ datas, header, link }) => {
         ))}
 
       <div className={bbcText.browseAll}>
-        <Link href={link}>
+        <Link href={`/${link}`}>
           <p className={bbcText.browseAllText}>Browse all...</p>
         </Link>
       </div>
