@@ -26,6 +26,9 @@ function Termsandcondition() {
         <link rel="icon" href="/favicon.png"></link>
         <title>CRfeeds - Terms and Conditions</title>
       </Head>
+      <SideBar/>
+      <StaticBanner />
+      <Categories />
       <h2>
         <strong>Terms and Conditions</strong>
       </h2>
@@ -345,6 +348,7 @@ function Termsandcondition() {
         are provided free of charge, we will not be liable for any loss or
         damage of any nature.
       </p>
+      <FooterLayout />
     </div>
   );
 }
