@@ -18,6 +18,7 @@ import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
 import SideBar from "../../../components/SideBar";
+import { getAdvertise } from "../../../../lib/backendLink";
 
 // COMPONENT ALL
 
@@ -110,12 +111,26 @@ export default AdvertiseDetail;
 //   };
 // }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const advertiseApi = await getAdvertiseDetail(params);
 
   return {
     props: {
       advertise: advertiseApi,
     },
+    revalidate: 10,
   };
+}
+
+export const  getStaticPaths = async() => {
+  const advertiseApi = await getAdvertise();
+  const { resPerPage, count, advertisement } = advertiseApi;
+
+  return {
+      paths: advertisement.map((advertise) => ({
+        params: { slug:advertise.slug, id:advertise.id.toString() }
+      })),
+       
+      fallback: 'blocking'
+  }
 }

@@ -5,7 +5,7 @@ import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
 import SideBar from "../../../components/SideBar";
-
+import { getJobs } from "../../../../lib/backendLink";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import Categories from "../../../components/Categories";
@@ -105,12 +105,27 @@ const AdvertiseDetail = ({ jobs }) => {
 
 export default AdvertiseDetail;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const jobsDetailApi = await getJobsDetail(params);
 
   return {
     props: {
       jobs: jobsDetailApi,
     },
+    revalidate: 10,
   };
 }
+
+export const  getStaticPaths = async() => {
+  const jobsDetailApi = await getJobs();
+  const { resPerPage, count, jobs } = jobsDetailApi;
+
+  return {
+      paths: jobs.map((job) => ({
+        params: { slug:job.slug, id:job.id.toString() }
+      })),
+       
+      fallback: 'blocking'
+  }
+}
+

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
 import { jobListAction } from "../../../redux/actions/advertiseActions2";
-
+import { getEducations } from "../../../../lib/backendLink";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 // COMPONENT ALL
@@ -99,12 +99,29 @@ export default EducationDetail;
 // }
 
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const educationApi = await getEducationDetail(params);
 
   return {
     props: {
       education: educationApi,
     },
+    revalidate: 10,
   };
+}
+
+
+
+
+export const  getStaticPaths = async() => {
+  const educationApi = await getEducations();
+  const { pages, page, technology } = educationApi;
+
+  return {
+      paths: technology.map((education) => ({
+        params: { slug:education.slug, id:education.id.toString() }
+      })),
+       
+      fallback: 'blocking'
+  }
 }

@@ -15,7 +15,7 @@ import { getNewsDetail } from "../../../../lib/backendLink";
 import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
-
+import { getNews } from "../../../../lib/backendLink";
 
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
@@ -102,15 +102,30 @@ export default NewsDetail;
 //   };
 // }
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   const newsApi = await getNewsDetail(params);
 
   return {
     props: {
       news: newsApi,
     },
+    revalidate: 10,
   };
 }
+
+export const  getStaticPaths = async() => {
+  const newsApi = await getNews();
+  const { resPerPage, count, local } = newsApi;
+
+  return {
+      paths: local.map((news) => ({
+        params: { slug:news.slug, id:news.id.toString() }
+      })),
+       
+      fallback: 'blocking'
+  }
+}
+
 
 
 // export async function getServerSideProps({params}) {
