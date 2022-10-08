@@ -4,7 +4,7 @@ import Head from 'next/head'
 
 const MetaDetail = ({title, description="this is the test data", ogTitle, ogType, ogUrl, ogImage}) => {
     
-    const des = description.slice(3, -3);
+    const des = description;
         
     return(
         <>

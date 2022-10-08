@@ -56,7 +56,7 @@ const EducationDetail = ({ education }) => {
     <>
       <MetaDetail
         title={education.title}
-        description={education.content}
+        description={education.metadesc}
         ogTitle={education.title}
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}

@@ -42,7 +42,7 @@ const BBCscreens = ({
               <div className={mainScreen1.container}>
                 <div className={mainScreen1.stateBox}>
                   <h2 className={mainScreen1.brand} variant="p">
-                    Inmatown
+                    CRfeeds
                   </h2>
                 </div>
                 <div className={mainScreen1.imageContainer}>
@@ -88,7 +88,7 @@ const BBCscreens = ({
                       </pre>
                   )} */}
                   <h2 className={mainScreen1.content}>
-                    {data.content.slice(3, 70)}....
+                    {data.metadesc}
                   </h2>
 
                   <button className={mainScreen1.button}>Read More</button>

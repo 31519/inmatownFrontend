@@ -3,11 +3,14 @@ import moment from "moment";
 import SocialShare from "./SocialShare";
 import parse from "html-react-parser";
 import Image from "next/image"
+import { RichTextRenderer } from "@webiny/react-rich-text-renderer";
 
 const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
 
-  
+  function createMarkup(c) {
+    return { __html: c };
+}  
 
 
 
@@ -71,9 +74,10 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                     {datas.title}
                   </h3>
                   <hr />
-                  {datas.content && (
+                  {datas.content && <div dangerouslySetInnerHTML={createMarkup(datas.content)} />}
+                  {/* {datas.content && (
                     <pre className={mainDetailScreen.preTag} >{parse(datas.content)}</pre>
-                  )}
+                  )} */}
                   <hr />
 
                   <div className={mainDetailScreen.Buttom}>

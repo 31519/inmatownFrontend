@@ -68,7 +68,7 @@ const AdvertiseDetail = ({ advertise }) => {
     <>
       <MetaDetail
         title={advertise.title}
-        description={advertise.content}
+        description={advertise.metadesc}
         ogTitle={advertise.title}
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}

@@ -66,7 +66,7 @@ const AdvertiseDetail = ({ jobs }) => {
     <>
       <MetaDetail
         title={jobs.title}
-        description={jobs.content}
+        description={jobs.metadesc}
         ogTitle={jobs.title}
         ogType="website"
         ogUrl={mainUrl + router.asPath}
