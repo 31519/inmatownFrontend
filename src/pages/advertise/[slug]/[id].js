@@ -19,13 +19,27 @@ import MainScreenDetailComponent from "../../../components/MainscreenDetailCompo
 import Categories from "../../../components/Categories";
 import SideBar from "../../../components/SideBar";
 import { getAdvertise } from "../../../../lib/backendLink";
+import { advertiseDetailAction } from "../../../redux/actions/advertiseActions";
 
 // COMPONENT ALL
 
-const AdvertiseDetail = ({ advertise }) => {
+const AdvertiseDetail = () => {
   const router = useRouter();
+  const {slug, id} = router.query
   const dispatch = useDispatch();
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
+
+  const advertiseDetail = useSelector((state) => state.advertiseDetail);
+
+  const {
+    error: detailAdvertiseError,
+    loading: detailAdvertiseLoading,
+    advertise: advertise,
+  } = advertiseDetail;
+
+  useEffect(() => {
+    dispatch(advertiseDetailAction(id, slug));
+  }, [dispatch, id, slug]);
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -111,26 +125,26 @@ export default AdvertiseDetail;
 //   };
 // }
 
-export async function getStaticProps({ params }) {
-  const advertiseApi = await getAdvertiseDetail(params);
+// export async function getStaticProps({ params }) {
+//   const advertiseApi = await getAdvertiseDetail(params);
 
-  return {
-    props: {
-      advertise: advertiseApi,
-    },
-    revalidate: 10,
-  };
-}
+//   return {
+//     props: {
+//       advertise: advertiseApi,
+//     },
+//     revalidate: 10,
+//   };
+// }
 
-export const  getStaticPaths = async() => {
-  const advertiseApi = await getAdvertise();
-  const { resPerPage, count, advertisement } = advertiseApi;
+// export const  getStaticPaths = async() => {
+//   const advertiseApi = await getAdvertise();
+//   const { resPerPage, count, advertisement } = advertiseApi;
 
-  return {
-      paths: advertisement.map((advertise) => ({
-        params: { slug:advertise.slug, id:advertise.id.toString() }
-      })),
+//   return {
+//       paths: advertisement.map((advertise) => ({
+//         params: { slug:advertise.slug, id:advertise.id.toString() }
+//       })),
        
-      fallback: 'blocking'
-  }
-}
+//       fallback: 'blocking'
+//   }
+// }
