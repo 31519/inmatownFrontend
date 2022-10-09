@@ -75,7 +75,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
                 </pre>
               )}
 
-              {/* {datas.jobsDetail && (
+              {datas.jobsDetail && (
                 <div className={mainJobDetailScreen.datasContainer}>
                   {datas.jobsDetail.map((detail, index) => (
                     <>
@@ -133,7 +133,7 @@ const MainScreenJobsDetailComponent = ({ url, datas, header }) => {
                     </>
                   ))}
                 </div>
-              )} */}
+              )}
             </div>
           </div>
         </div>
