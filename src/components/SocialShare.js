@@ -13,19 +13,14 @@ import {
   WhatsappIcon,
   TelegramIcon,
   TwitterIcon,
-} from 'next-share';
-
+} from "next-share";
 
 const SocialShare = ({ url, datas }) => {
+  const title = datas.title;
 
-  const title = datas.title
+  const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL;
 
-  const frontendUrl = process.env.NEXT_PUBLIC_FRONTEND_URL
-
-  const urlShare = `${frontendUrl}/${url}/${datas.slug}/${datas.id}`
-
-  console.log("url", urlShare)
-
+  const urlShare = `${frontendUrl}/${url}/${datas.slug}/${datas.id}`;
 
   return (
     <div className={shareStyle.container}>
@@ -44,10 +39,7 @@ const SocialShare = ({ url, datas }) => {
       >
         <TwitterIcon className={shareStyle.socialMediaButton} />
       </TwitterShareButton>
-      <TelegramShareButton
-        url={`${urlShare}`}
-        title={title}
-      >
+      <TelegramShareButton url={`${urlShare}`} title={title}>
         <TelegramIcon className={shareStyle.socialMediaButton} />
       </TelegramShareButton>
       <FacebookShareButton
@@ -64,6 +56,16 @@ const SocialShare = ({ url, datas }) => {
       >
         <WhatsappIcon className={shareStyle.socialMediaButton} />
       </WhatsappShareButton>
+      <a
+        className={shareStyle.atag}
+        href={`//api.whatsapp.com/send?text=${urlShare}`}
+        rel="nofollor"
+        data-action="share/whatsapp/share"
+      >
+        <span>
+          <WhatsappIcon className={shareStyle.socialMediaButton} />
+        </span>
+      </a>
     </div>
   );
 };
