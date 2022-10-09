@@ -16,15 +16,25 @@ import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
 import { getNews } from "../../../../lib/backendLink";
+import { localDetailAction } from "../../../redux/actions/advertiseActions";
 
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 // COMPONENT ALL
 
-const NewsDetail = ({ news }) => {
+const NewsDetail = () => {
   const router = useRouter();
+  const {slug, id} = router.query
+  console.log("query",router.query)
   const dispatch = useDispatch();
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
+
+  const localDetail = useSelector((state) => state.localDetail);
+
+  const {
+    error: detailLocalError,
+    loading: detailLocalLoading,
+    local: news,
+  } = localDetail;
 
 
   const advertiseList = useSelector((state) => state.advertiseList);
@@ -42,6 +52,10 @@ const NewsDetail = ({ news }) => {
     loading: listJobLoading,
     jobs: listJob,
   } = jobList;
+
+  useEffect(() => {
+    dispatch(localDetailAction(id, slug));
+  }, [dispatch, id, slug]);
 
   useEffect(() => {
     dispatch(localListAction());
@@ -72,13 +86,7 @@ const NewsDetail = ({ news }) => {
       <MainScreenDetailComponent url={mainUrl} link="news" datas={news} header="News" />
 
       <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
-      
-      {/* <BbcComponent
-        datas={listJob}
-        link="jobs"
-        header="Must View"
-        loading={listJobLoading}
-      /> */}
+
       <Banners />
 
       <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />
@@ -89,42 +97,30 @@ const NewsDetail = ({ news }) => {
 
 export default NewsDetail;
 
-// export async function getServerSideProps({ params }) {
-//   const newsApi = await axios.get(
-//     `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/localnews/list/${params.id}/${params.slug}/`
-//   );
-//   const newsData = newsApi.data;
+
+// export async function getStaticProps({ params }) {
+//   const newsApi = await getNewsDetail(params);
 
 //   return {
 //     props: {
-//       news: newsData,
+//       news: newsApi,
 //     },
+//     revalidate: 10,
 //   };
 // }
 
-export async function getStaticProps({ params }) {
-  const newsApi = await getNewsDetail(params);
+// export const  getStaticPaths = async() => {
+//   const newsApi = await getNews();
+//   const { resPerPage, count, local } = newsApi;
 
-  return {
-    props: {
-      news: newsApi,
-    },
-    revalidate: 10,
-  };
-}
-
-export const  getStaticPaths = async() => {
-  const newsApi = await getNews();
-  const { resPerPage, count, local } = newsApi;
-
-  return {
-      paths: local.map((news) => ({
-        params: { slug:news.slug, id:news.id.toString() }
-      })),
+//   return {
+//       paths: local.map((news) => ({
+//         params: { slug:news.slug, id:news.id.toString() }
+//       })),
        
-      fallback: 'blocking'
-  }
-}
+//       fallback: 'blocking'
+//   }
+// }
 
 
 
