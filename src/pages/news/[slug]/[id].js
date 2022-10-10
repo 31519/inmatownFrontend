@@ -71,8 +71,6 @@ const NewsDetail = () => {
 
   return (
     <>
-    {news && (
-
       <MetaDetail
         title={news.title}
         description={news.metadesc}
@@ -81,7 +79,6 @@ const NewsDetail = () => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + news.image}
       />
-    )}
       
       <SideBar/>
       <StaticBanner />

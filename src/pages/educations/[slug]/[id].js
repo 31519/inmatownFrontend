@@ -69,8 +69,6 @@ const EducationDetail = () => {
 
   return (
     <>
-    {education && (
-
        <MetaDetail
         title={education.title}
         description={education.metadesc}
@@ -79,7 +77,6 @@ const EducationDetail = () => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + education.image}
       /> 
-    )}
       <SideBar/>
       <StaticBanner />
       <Categories />
