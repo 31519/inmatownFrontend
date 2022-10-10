@@ -176,7 +176,7 @@ export const techDetailAction = (id, slug) => async (dispatch) => {
   try {
     dispatch({ type: TECH_DETAIL_REQUEST });
     const { data } = await axios.get(
-      `api/technology/list/${id}/${slug}/`
+      `${process.env.NEXT_PUBLIC_DEVELOPMENT_URL}/api/technology/list/${id}/${slug}`
     );
 
     dispatch({

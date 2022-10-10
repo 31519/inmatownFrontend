@@ -43,16 +43,16 @@ const EducationDetail = () => {
   } = jobList;
 
 
-  const techDetail = useSelector((state) => state.techDetail);
+  const techDet = useSelector((state) => state.techDetail);
 
   const {
     error: techListError,
     loading: techListLoading,
     tech: education,
-  } = techDetail;
+  } = techDet;
 
   useEffect(() => {
-    techDetailAction(slug,id)
+    dispatch(techDetailAction(id, slug));
   }, [dispatch, id, slug]);
 
   useEffect(() => {
@@ -69,14 +69,17 @@ const EducationDetail = () => {
 
   return (
     <>
-      <MetaDetail
+    {education && (
+
+       <MetaDetail
         title={education.title}
         description={education.metadesc}
         ogTitle={education.title}
         ogType="website"
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + education.image}
-      />
+      /> 
+    )}
       <SideBar/>
       <StaticBanner />
       <Categories />

@@ -1,21 +1,30 @@
 import mainDetailScreen from "../styles/MainScreenDetailComponent.module.css";
+import { useRouter } from "next/router";
 import moment from "moment";
 import SocialShare from "./SocialShare";
 import parse from "html-react-parser";
-import Image from "next/image"
+import Image from "next/image";
 import { RichTextRenderer } from "@webiny/react-rich-text-renderer";
+import MetaDetail from "./MetaDetail";
 
-const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
-  const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL
+const MainScreenDetailComponent = ({ url, link, datas, header }) => {
+  const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
+  const router = useRouter();
 
   function createMarkup(c) {
     return { __html: c };
-}  
-
-
+  }
 
   return (
     <div className={mainDetailScreen.mainContainer}>
+      {/* <MetaDetail
+        title={datas.title}
+        description={datas.metadesc}
+        ogTitle={datas.title}
+        ogType="website"
+        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+        ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + datas.image}
+      /> */}
       <div className={mainDetailScreen.header}>
         <h1 className={mainDetailScreen.header1}>{header}</h1>
       </div>
@@ -29,13 +38,13 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                 <div className={mainDetailScreen.containerOne}>
                   <div className={mainDetailScreen.stateBox}>
                     <h2 className={mainDetailScreen.brand} variant="p">
-                    CRfeeds
+                      CRfeeds
                     </h2>
                   </div>
                   <div className={mainDetailScreen.ImageContainer}>
                     {datas.image ? (
                       <Image
-                        layout='fill'
+                        layout="fill"
                         className={mainDetailScreen.image}
                         key={datas.id}
                         src={orig + datas.image}
@@ -44,7 +53,7 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                       />
                     ) : (
                       <Image
-                      layout='fill'
+                        layout="fill"
                         className={mainDetailScreen.image}
                         key={datas.id}
                         src="/placeholder.png"
@@ -52,7 +61,6 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                       />
                     )}
                   </div>
-                  
                 </div>
                 <div>
                   <h2 className={mainDetailScreen.state}>MEGHALAYA</h2>
@@ -68,13 +76,13 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
                       .fromNow()}
                   </p>
 
-                  <h3
-                    className={mainDetailScreen.title}
-                  >
-                    {datas.title}
-                  </h3>
+                  <h3 className={mainDetailScreen.title}>{datas.title}</h3>
                   <hr />
-                  {datas.content && <div dangerouslySetInnerHTML={createMarkup(datas.content)} />}
+                  {datas.content && (
+                    <div
+                      dangerouslySetInnerHTML={createMarkup(datas.content)}
+                    />
+                  )}
                   {/* {datas.content && (
                     <pre className={mainDetailScreen.preTag} >{parse(datas.content)}</pre>
                   )} */}
@@ -82,12 +90,11 @@ const MainScreenDetailComponent = ({ url, link, datas, header, }) => {
 
                   <div className={mainDetailScreen.Buttom}>
                     <div className={mainDetailScreen.socialShare}>
-                      <SocialShare  url={link} datas={datas}/>
+                      <SocialShare url={link} datas={datas} />
                     </div>
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         )}
