@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  background-color: #f2f0f0;
+  text-align: center;
+  /* position: fixed; */
+  z-index: 111;
+  cursor: pointer;
+  width: 100%;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.text {
+  font-family: var(---poppins);
+  font-size: 15px;
+  margin: 10px auto;
+  color: white;
+  padding: 5px;
+}
+.content {
+  height: 20px;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  background-color: #2d2b2b;
+  justify-content: center;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.content:hover {
+  background-color: rgb(10, 32, 126);
+}
+.text:hover {
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .text {
+    font-size: 18px;
+  }
+}

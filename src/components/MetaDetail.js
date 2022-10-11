@@ -8,7 +8,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
         
     return(
         <>
-        {/* <Head>
+        <Head>
             <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
             <meta property="og:type" content={ogType}/>
             <meta charSet="utf-8"></meta>
@@ -32,8 +32,8 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta name="twitter:label1" content="Written by" />
             <meta name="twitter:data1" content="CRfeeds | Rise to the fullness"  />
 
-        </Head> */}
-        <Helmet>
+        </Head>
+        {/* <Helmet>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
             <meta property="og:type" content={ogType}/>
             <meta charSet="utf-8"></meta>
@@ -56,7 +56,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:label1" content="Written by" />
             <meta name="twitter:data1" content="CRfeeds | Rise to the fullness"  />
-        </Helmet>
+        </Helmet> */}
         </>
     )
 }

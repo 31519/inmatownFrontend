@@ -1,0 +1,33 @@
+
+/* SLIDER CAROUSEL */
+
+.sliderContainer{
+    position: relative;
+    /* box-shadow: 0 0 30px rgba(0,0,0, 0.3); */
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-top: 10px;
+    width: 80%;
+    margin: 10px auto;
+  }
+  
+  .sliderContent {
+    /* width: 30%; */
+    position: relative;
+    transition: all 750ms ease;
+    border-left: 1px solid #d7cdcd;
+  
+  }
+  
+  
+  
+  @media screen and (max-width: 600px) {
+  
+    .sliderContainer{
+  
+      width: 90%;
+    }
+  }
+  

@@ -1,0 +1,8 @@
+.text {
+  font-family: var(---poppins);
+  color: #748493;
+  letter-spacing: 1px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  font-size: 12px;
+}

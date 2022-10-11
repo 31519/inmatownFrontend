@@ -34,18 +34,23 @@ export default function Document() {
           rel="stylesheet"
         /> */}
 
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
           rel="stylesheet"
-        ></link>
+        ></link> */}
 
-        <link
+        {/* <link
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
           rel="stylesheet"
-        ></link>
+        ></link> */}
 
         <link
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap"
+          rel="stylesheet"
+        ></link>
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@700&display=swap"
           rel="stylesheet"
         ></link>
 

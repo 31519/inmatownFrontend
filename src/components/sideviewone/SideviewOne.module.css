@@ -1,0 +1,45 @@
+.container {
+  padding: 10px;
+}
+
+.contentDiv {
+  display: flex;
+  border-bottom: 1px solid rgba(226, 222, 222, 0.808);
+}
+.titleDiv {
+  /* width: 60%; */
+  margin: 0 10px;
+}
+
+.imageDiv1 {
+  /* width: 40%; */
+  margin: 10px;
+}
+
+.contentDiv1 {
+  border-bottom: 1px solid rgba(226, 222, 222, 0.808);
+}
+.titleDiv1 {
+  margin: 0 10px;
+}
+
+.headerDiv {
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+  width: 95%;
+}
+
+.header {
+  font-size: 20px;
+  font-family: var(--inter);
+}
+
+@media screen and (max-width: 600px) {
+  .description {
+    /* display: none; */
+  }
+
+  .container {
+    margin: 10px;
+  }
+}

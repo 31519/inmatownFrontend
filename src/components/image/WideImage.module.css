@@ -1,0 +1,21 @@
+.imageDiv {
+    width: 100%;
+    height: 250px;
+    margin: 10px auto;
+    position: relative;
+  }
+  
+  .image {
+    object-fit: cover;
+    width: 100%;
+  
+    /* height: 180px; */
+  }
+
+  @media screen and (max-width: 600px) {
+    .imageDiv {
+        height: 180px;
+      }
+
+
+  }
