@@ -139,6 +139,7 @@
 .mainContainer {
   box-shadow: 1px 5px 10px #c6c8c6;
   border: 0.5px 0.5px 0px 0.5px solid rgb(197, 190, 190);
+  padding: 100px;
 }
 
 @media screen and (max-width: 600px) {
@@ -241,6 +242,9 @@
 
   .brand {
     color: rgb(63, 58, 58);
+  }
+  .mainContainer{
+    padding: 20px;
   }
 
   /* @media screen and (min-width: 600px) {

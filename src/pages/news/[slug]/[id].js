@@ -13,7 +13,7 @@ import StaticBanner from "../../../components/StaticBanner";
 // import BbcComponent from "../../../components/BbcComponent";
 // import BbcText from "../../../components/BbcText";
 import { getNewsDetail } from "../../../../lib/backendLink";
-// import MainScreenComponent from "../../../components/MainScreenComponent";
+import MainScreenComponent from "../../../components/MainScreenComponent";
 // import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import Categories from "../../../components/Categories";
 import { getNews } from "../../../../lib/backendLink";
@@ -102,9 +102,19 @@ const NewsDetail = () => {
       <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
 
       <Banners />
+      <
 
       <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" /> */}
-      <SliderFramework />
+      <Grid container>
+        <Grid items lg={8} md={8} sm={12} xs={12}>
+          <MainScreenComponent
+            datas={listJob}
+            header="Recent Jobs"
+            link="jobs"
+          />
+        </Grid>
+      </Grid>
+      {/* <SliderFramework /> */}
       <FooterLayout />
     </>
   );
