@@ -18,7 +18,7 @@ const MetaDetail = ({title, description, ogTitle, ogType, ogUrl, ogImage}) => {
             <meta property="og:locale" content="en_US" />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={ogTitle} />
-            <meta property="og:description" content={des} />
+            <meta property="og:description" content={description} />
             <meta property="og:url" content={ogUrl} />
             <meta property="og:site_name" content="CRfeeds" />
             <meta property="og:image"  itemprop="image" content={ogImage}/>
