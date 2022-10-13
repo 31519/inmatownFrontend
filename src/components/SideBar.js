@@ -273,7 +273,7 @@ const SideBar = () => {
           </Link>
         </div>
       </nav>
-      <div className={style.containerNav} style={{ marginTop: "50px" }}></div>
+      {/* <div className={style.containerNav} style={{ marginTop: "50px" }}></div> */}
     </>
   );
 };
