@@ -3,24 +3,37 @@ import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../../redux/actions/advertiseActions";
 import { localListAction } from "../../../redux/actions/advertiseActions";
-import { jobListAction, jobDetailAction } from "../../../redux/actions/advertiseActions2";
+import {
+  jobListAction,
+  jobDetailAction,
+} from "../../../redux/actions/advertiseActions2";
 import SideBar from "../../../components/SideBar";
 import { getJobs } from "../../../../lib/backendLink";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import Categories from "../../../components/Categories";
-import MainScreenComponent from "../../../components/MainScreenComponent"
+import MainScreenComponent from "../../../components/MainScreenComponent";
 import MainscreenJobsDetailComponent from "../../../components/MainscreenJobsDetailComponent";
 // COMPONENT ALL
+import { Grid } from "@mui/material";
 import Banners from "../../../components/Banners";
 import StaticBanner from "../../../components/StaticBanner";
 import BbcComponent from "../../../components/BbcComponent";
 import BbcText from "../../../components/BbcText";
+import { listTechs } from "../../../redux/actions/techActions";
 import { getJobsDetail } from "../../../../lib/backendLink";
+import SideviewOne from "../../../components/sideviewone/SideviewOne";
+import Detail from "../../../components/detailpage/Detail";
+
+
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
 
 const AdvertiseDetail = () => {
   const router = useRouter();
-  const {slug, id} = router.query
+  const { slug, id } = router.query;
   const dispatch = useDispatch();
 
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
@@ -59,6 +72,18 @@ const AdvertiseDetail = () => {
     job: jobs,
   } = jobDetail;
 
+  const techList = useSelector((state) => state.techList);
+
+  const {
+    error: techListError,
+    loading: techListLoading,
+    techs: education,
+  } = techList;
+
+  useEffect(() => {
+    dispatch(listTechs());
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(jobDetailAction(id, slug));
   }, [dispatch, id, slug]);
@@ -77,40 +102,47 @@ const AdvertiseDetail = () => {
 
   return (
     <>
-      <MetaDetail
-        title={jobs.title}
-        description={jobs.metadesc}
-        ogTitle={jobs.title}
-        ogType="website"
-        ogUrl={mainUrl + router.asPath}
-        ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}
-      />
-      {/* <link
-        itemprop="thumbnailUrl"
-        href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}
-      />
-
-      <span itemprop="image" itemscope itemtype="image/jpeg">
-        <link
-          itemprop="url"
-          href={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}
+      {jobs && (
+        <MetaDetail
+          title={jobs.title}
+          description={jobs.metadesc}
+          ogTitle={jobs.title}
+          ogType="website"
+          ogUrl={mainUrl + router.asPath}
+          ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + jobs.image}
         />
-      </span> */}
-      <SideBar/>
+      )}
+
+      <SideBar />
       <StaticBanner />
       <Categories />
-      <MainscreenJobsDetailComponent url="jobs" datas={jobs} header="Jobs" />
+
+      {/* # 2ND HEADER */}
+      <Grid container>
+        <Grid items lg={8} md={12} sm={12} xs={12}>
+          <Detail datas={jobs} header="Jobs" link="jobs" url={mainUrl} defaultImage={jobsImage}/>
+        </Grid>
+        <Grid items lg={4} md={12} sm={12} xs={12}>
+          <SideviewOne datas={listLocal} header="News" link="news" />
+        </Grid>
+      </Grid>
+      {/* END OF 2ND HEADER */}
+      {/* <MainscreenJobsDetailComponent url="jobs" datas={jobs} header="Jobs" />
 
       <BbcText datas={listLocal} link="news" header="Recent News" />
-      
-      {/* <BbcComponent
-        datas={listJob}
-        link="jobs"
-        header="Must View"
-        loading={listJobLoading}
-      /> */}
+
       <Banners />
-      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs"/>
+      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" /> */}
+      <Grid container>
+        <Grid items lg={8} md={8} sm={12} xs={12}>
+          <MainScreenComponent
+            datas={education}
+            header="Recent Education"
+            link="educations"
+            staticImg={educationImage}
+          />
+        </Grid>
+      </Grid>
       <FooterLayout />
     </>
   );
@@ -137,8 +169,7 @@ export default AdvertiseDetail;
 //       paths: jobs.map((job) => ({
 //         params: { slug:job.slug, id:job.id.toString() }
 //       })),
-       
+
 //       fallback: 'blocking'
 //   }
 // }
-

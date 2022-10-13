@@ -16,6 +16,10 @@ import BbcText from "../../components/BbcText";
 import SideBar from "../../components/SideBar";
 // COMPONENT ALL
 
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
+
 const Education = () => {
   const router = useRouter();
   const keywords = router.query.keyword || "";
@@ -81,6 +85,7 @@ const Education = () => {
         link="educations"
         count={count}
         resPerPage={resPerPage}
+        defaultImage={educationImage}
       />
       <BbcText datas={listJob} link="jobs" header="Jobs" />
 {/*       
@@ -90,7 +95,7 @@ const Education = () => {
         header="Must View"
         loading={listJobLoading}
       /> */}
-      <Banners />
+      {/* <Banners /> */}
       <FooterLayout />
     </>
   );

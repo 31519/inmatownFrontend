@@ -17,6 +17,10 @@ import BbcComponent from "../../components/BbcComponent";
 import BbcText from "../../components/BbcText";
 
 // COMPONENT ALL
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
 
 const Jobs = () => {
   const router = useRouter();
@@ -87,6 +91,7 @@ const Jobs = () => {
         link="jobs"
         count={count}
         resPerPage={resPerPage}
+        defaultImage={jobsImage}
       />
       <BbcText datas={listLocal} link="news" header="Recent News" />
       
@@ -96,7 +101,7 @@ const Jobs = () => {
         header="Must View"
         loading={mainJobsListLoading}
       /> */}
-      <Banners />
+      {/* <Banners /> */}
       <FooterLayout />
     </>
   );

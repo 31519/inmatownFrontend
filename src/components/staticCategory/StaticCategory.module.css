@@ -10,14 +10,17 @@
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+
+  position: sticky;
+  top:0
 }
 
 .text {
   font-family: var(---poppins);
-  font-size: 15px;
+  font-size: 12px;
   margin: 10px auto;
   color: white;
-  padding: 5px;
+  padding: 10px;
 }
 .content {
   height: 20px;
@@ -27,7 +30,7 @@
   background-color: #2d2b2b;
   justify-content: center;
   margin: 10px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 
 .content:hover {
@@ -39,6 +42,6 @@
 
 @media screen and (max-width: 600px) {
   .text {
-    font-size: 18px;
+    font-size: 16px;
   }
 }

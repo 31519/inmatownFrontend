@@ -23,8 +23,6 @@ const BBCscreens = ({
 }) => {
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   const router = useRouter();
-  
-
 
   return (
     <>
@@ -46,50 +44,50 @@ const BBCscreens = ({
                   </h2>
                 </div>
                 <div className={mainScreen1.imageContainer}>
-                  {data.image ? (
-                    <Image
-                      className={
-                        index == 0 ? mainScreen1.image0 : mainScreen1.image
-                      }
-                      src={orig + data.image}
-                      key={data.id}
-                      alt=""
-                      layout="fill"
-                    />
-                  ) : (
-                    <Image
-                      className={
-                        index == 0 ? mainScreen1.image0 : mainScreen1.image
-                      }
-                      src={staticImg}
-                      alt=""
-                      layout="fill"
-                    />
-                  )}
+                  
+                    {data.image ? (
+                      <Image
+                        className={
+                          index == 0 ? mainScreen1.image0 : mainScreen1.image
+                        }
+                        src={orig + data.image}
+                        key={data.id}
+                        alt=""
+                        layout="fill"
+                      />
+                    ) : (
+                      <Image
+                        className={
+                          index == 0 ? mainScreen1.image0 : mainScreen1.image
+                        }
+                        src={staticImg}
+                        alt=""
+                        layout="fill"
+                      />
+                    )}
+                    <p className={mainScreen1.posted}>
+                      Posted{" "}
+                      {moment
+                        .utc(data.createdAt)
+                        .local()
+                        .startOf("second")
+                        .fromNow()}
+                    </p>
+                  
                 </div>
-                
-                
-                
+
                 {/*  */}
                 <div className={mainScreen1.textContainer}>
-                  <p className={mainScreen1.posted}>
-                    Posted{" "}
-                    {moment
-                      .utc(data.createdAt)
-                      .local()
-                      .startOf("second")
-                      .fromNow()}
-                  </p>
                   {/* <h4 className={mainScreen1.state}>Meghalaya </h4> */}
-                  <h2 className={mainScreen1.title}>{data.title.slice(0, 100)}...</h2>
+                  <h2 className={mainScreen1.title}>
+                    {data.title.slice(0, 100)}...
+                  </h2>
                   {/* {data.content && (
                     <pre  className={mainScreen1.content}>
                       {parse(data.content.slice(0, 70))}<span>...</span>
                       </pre>
                   )} */}
-                  <h2 className={mainScreen1.content}>
-                    {data.metadesc}
-                  </h2>
+                  <h2 className={mainScreen1.content}>{data.metadesc}</h2>
 
                   <button className={mainScreen1.button}>Read More</button>
                 </div>

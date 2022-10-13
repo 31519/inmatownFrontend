@@ -28,15 +28,15 @@ const SideviewOne = ({ datas, header, link }) => {
           datas.map((data, index) => (
             <Link href={`/${link}/${data.slug}/${data.id}`}  key={data.id}>
               <div
-                className={index === 1 ? style.contentDiv1 : style.contentDiv}
+                className={index === 0 ? style.contentDiv1 : style.contentDiv}
               >
                 <div
-                  className={index === 1 ? style.imageDiv1 : style.imageDiv}
+                  className={index === 0 ? style.imageDiv1 : style.imageDiv}
                 >
-                  {index === 1 && <WideImage image={data.image} />}
+                  {index === 0 && <WideImage image={data.image} />}
                 </div>
                 <div
-                  className={index === 1 ? style.titleDiv1 : style.titleDiv}
+                  className={index === 0 ? style.titleDiv1 : style.titleDiv}
                 >
                   <TitleSmall title={data.title} />
                   <div className={style.description}>

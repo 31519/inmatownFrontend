@@ -8,6 +8,7 @@ import { getEducations } from "../../../../lib/backendLink";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
 import { techDetailAction } from "../../../redux/actions/techActions";
+import { Grid } from "@mui/material";
 // COMPONENT ALL
 
 import Categories from "../../../components/Categories";
@@ -20,11 +21,27 @@ import { getEducationDetail } from "../../../../lib/backendLink";
 import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
 import SideBar from "../../../components/SideBar";
 
+import SideviewOne from "../../../components/sideviewone/SideviewOne";
+import Detail from "../../../components/detailpage/Detail";
+
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
+
 const EducationDetail = () => {
   const router = useRouter();
-  const {slug, id} = router.query
+  const { slug, id } = router.query;
   const dispatch = useDispatch();
-  const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL
+  const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
+
+  const localList = useSelector((state) => state.localList);
+
+  const {
+    error: listLocalError,
+    loading: listLocalLoading,
+    locals: listLocal,
+  } = localList;
 
   const advertiseList = useSelector((state) => state.advertiseList);
 
@@ -41,7 +58,6 @@ const EducationDetail = () => {
     loading: listJobLoading,
     jobs: listJob,
   } = jobList;
-
 
   const techDet = useSelector((state) => state.techDetail);
 
@@ -69,30 +85,54 @@ const EducationDetail = () => {
 
   return (
     <>
-       <MetaDetail
-        title={education.title}
-        description={education.metadesc}
-        ogTitle={education.title}
-        ogType="website"
-        ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
-        ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + education.image}
-      /> 
-      <SideBar/>
+      {education && (
+        <MetaDetail
+          title={education.title}
+          description={education.metadesc}
+          ogTitle={education.title}
+          ogType="website"
+          ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
+          ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + education.image}
+        />
+      )}
+      <SideBar />
       <StaticBanner />
       <Categories />
-      <MainScreenDetailComponent url={mainUrl} link="educations" datas={education} header="Education" />
+
+      {/* # 2ND HEADER */}
+      <Grid container>
+        <Grid items lg={8} md={12} sm={12} xs={12}>
+          <Detail datas={education} url={mainUrl} header="Education" link="educations" defaultImage={educationImage} />
+        </Grid>
+        <Grid items lg={4} md={12} sm={12} xs={12}>
+          <SideviewOne datas={listJob} header="Recent Jobs" link="jobs" />
+        </Grid>
+      </Grid>
+      {/* END OF 2ND HEADER */}
+
+      {/* <MainScreenDetailComponent
+        url={mainUrl}
+        link="educations"
+        datas={education}
+        header="Education"
+      />
 
       <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
-      
-      {/* <BbcComponent
-        datas={listJob}
-        link="jobs"
-        header="Must View"
-        loading={listJobLoading}
-      /> */}
+
       <Banners />
 
-      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" />
+      <MainScreenComponent datas={listJob} header="Recent Jobs" link="jobs" /> */}
+
+      <Grid container>
+        <Grid items lg={8} md={8} sm={12} xs={12}>
+          <MainScreenComponent
+            datas={listLocal}
+            header="Recent News"
+            link="news"
+            staticImg={newsImage}
+          />
+        </Grid>
+      </Grid>
 
       <FooterLayout />
     </>
@@ -113,7 +153,6 @@ export default EducationDetail;
 //   };
 // }
 
-
 // export async function getStaticProps({ params }) {
 //   const educationApi = await getEducationDetail(params);
 
@@ -125,9 +164,6 @@ export default EducationDetail;
 //   };
 // }
 
-
-
-
 // export const  getStaticPaths = async() => {
 //   const educationApi = await getEducations();
 //   const { pages, page, technology } = educationApi;
@@ -136,7 +172,7 @@ export default EducationDetail;
 //       paths: technology.map((education) => ({
 //         params: { slug:education.slug, id:education.id.toString() }
 //       })),
-       
+
 //       fallback: 'blocking'
 //   }
 // }

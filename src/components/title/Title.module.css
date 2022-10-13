@@ -1,12 +1,12 @@
 .title {
-    font-family: var(---poppins);
-    font-size: 24px;
-    color: black
+  font-family: var(---poppins);
+  font-size: 24px;
+  color: #4a4949;
 }
 
-
 @media screen and (max-width: 600px) {
-    .title {
-        font-size: 18px;
-    }
+  .title {
+    font-size: 16px;
+    color: #4a4949;
   }
+}

@@ -41,13 +41,13 @@ const aboutUs = () => {
             <p className={AboutusStyle.title}>About Us</p>
             <p className={AboutusStyle.title}>- Our Mission -</p>
             <p className={AboutusStyle.title}>
-              To provide the people with latest news and information related to
+              CRfeeds is created by Cos Rumut to provide the people with latest news and information related to
               education, jobs, schemes, tourisms, event and many other usefull
               information which benefits the people
             </p>
             <hr />
             <p className={AboutusStyle.aboutContent}>
-              At inmatown.com we area group entrepreneur base at Jowai who work
+              At crfeeds.in we area group entrepreneur base at Jowai who work
               hard every day to improve and provide updated informations to the
               people related to news, event , schemes, tourisms, jobs. We also
               except partnership with our brand . We are quick to work with you

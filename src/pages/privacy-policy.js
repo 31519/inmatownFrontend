@@ -43,10 +43,10 @@ const PrivacyPolicy = () => {
           <Grid spacing={1} item xs={12} sm={12} lg={12} md={12}>
             <Grid style={{ margin: "10px" }} item>
               <p className={PrivacyStyle.text}>
-                At inmatown, accessible from www.inmatown.com, one of our main
+                At crfeeds, accessible from www.crfeeds.in, one of our main
                 priorities is the privacy of our visitors. This Privacy Policy
                 document contains types of information that is collected and
-                recorded by inmatown and how we use it.
+                recorded by crfeeds and how we use it.
               </p>
 
               <p className={PrivacyStyle.text}>
@@ -57,7 +57,7 @@ const PrivacyPolicy = () => {
               <p className={PrivacyStyle.text}>
                 This Privacy Policy applies only to our online activities and is
                 valid for visitors to our website with regards to the
-                information that they shared and/or collect in inmatown. This
+                information that they shared and/or collect in crfeeds. This
                 policy is not applicable to any information collected offline or
                 via channels other than this website.
               </p>
@@ -115,7 +115,7 @@ const PrivacyPolicy = () => {
               <h2 className={PrivacyStyle.text}>Log Files</h2>
 
               <p className={PrivacyStyle.text}>
-                inmatown follows a standard procedure of using log files. These
+                crfeeds follows a standard procedure of using log files. These
                 files log visitors when they visit websites. All hosting
                 companies do this and a part of hosting services' analytics. The
                 information collected by log files include internet protocol
@@ -154,13 +154,13 @@ const PrivacyPolicy = () => {
 
               <p className={PrivacyStyle.text}>
                 You may consult this list to find the Privacy Policy for each of
-                the advertising partners of inmatown.
+                the advertising partners of crfeeds.
               </p>
 
               <p className={PrivacyStyle.text}>
                 Third-party ad servers or ad networks uses technologies like
                 cookies, JavaScript, or Web Beacons that are used in their
-                respective advertisements and links that appear on inmatown,
+                respective advertisements and links that appear on crfeeds,
                 which are sent directly to users' browser. They automatically
                 receive your IP address when this occurs. These technologies are
                 used to measure the effectiveness of their advertising campaigns
@@ -169,7 +169,7 @@ const PrivacyPolicy = () => {
               </p>
 
               <p className={PrivacyStyle.text}>
-                Note that inmatown has no access to or control over these
+                Note that crfeeds has no access to or control over these
                 cookies that are used by third-party advertisers.
               </p>
 
@@ -178,7 +178,7 @@ const PrivacyPolicy = () => {
               </h2>
 
               <p className={PrivacyStyle.text}>
-                inmatown's Privacy Policy does not apply to other advertisers or
+                crfeeds's Privacy Policy does not apply to other advertisers or
                 websites. Thus, we are advising you to consult the respective
                 Privacy Policies of these third-party ad servers for more
                 detailed information. It may include their practices and
@@ -271,7 +271,7 @@ const PrivacyPolicy = () => {
               </p>
 
               <p className={PrivacyStyle.text}>
-                inmatown does not knowingly collect any Personal Identifiable
+                crfeeds does not knowingly collect any Personal Identifiable
                 Information from children under the age of 13. If you think that
                 your child provided this kind of information on our website, we
                 strongly encourage you to contact us immediately and we will do

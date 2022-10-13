@@ -3,7 +3,32 @@ import Link from "next/link";
 import footerStyles from "../styles/Footers.module.css";
 import { Grid } from "@mui/material";
 
-import MediaIcon from "./MediaIcon"
+import MediaIcon from "./MediaIcon";
+
+const listCategory = [
+
+  {
+    title: "Jobs",
+    link: "/jobs",
+  },
+
+  {
+    title: "Education",
+    link: "/educations",
+  },
+  {
+    title: "News",
+    link: "/news",
+  },
+  {
+    title: "Advertise",
+    link: "/advertise",
+  },
+  {
+    title: "Terms and Conditions",
+    link: "/termsandcondition",
+  },
+];
 
 const BottomFooters = () => {
   return (
@@ -27,7 +52,7 @@ const BottomFooters = () => {
               <h2 className={footerStyles.list}>About Us</h2>
             </Link>
             <h2 className={footerStyles.list}>Connect with us on</h2>
-            <MediaIcon/>
+            <MediaIcon />
           </div>
         </div>
 
@@ -38,11 +63,16 @@ const BottomFooters = () => {
             <h2 className={footerStyles.list} variant="h2">
               STARDUST
             </h2>
-            <Link className={footerStyles.textLink} href="/inmatown.com">
+            <Link className={footerStyles.textLink} href="/">
               <h2 className={footerStyles.list} variant="h2">
-                INMATOWN
+                crfeeds
               </h2>
             </Link>
+            <Link className={footerStyles.textLink} href="/">
+              <h2 className={footerStyles.list}>www.crfeeds.in</h2>
+            </Link>
+            <h2 className={footerStyles.list}>All Right Reserved</h2>
+            <h2 className={footerStyles.list}>Created by: Stardust</h2>
           </div>
         </div>
 
@@ -50,14 +80,14 @@ const BottomFooters = () => {
           <h2 className={footerStyles.title}>LINKS</h2>
           <hr className={footerStyles.breakLine} />
           <div className={footerStyles.itemList}>
-            <h2 className={footerStyles.list} variant="h2">
-              STARDUST
-            </h2>
-            <Link className={footerStyles.textLink} href="/">
-              <h2 className={footerStyles.list}>www.inmatown.com</h2>
-            </Link>
-            <h2 className={footerStyles.list}>All Right Reserved</h2>
-            <h2 className={footerStyles.list}>Created by: Stardust</h2>
+            {listCategory &&
+              listCategory.map((list) => (
+                <Link key={list.title} className={footerStyles.textLink} href={list.link}>
+                  <h4 className={footerStyles.list}>{list.title}</h4>
+                </Link>
+              ))}
+
+
           </div>
         </div>
       </div>

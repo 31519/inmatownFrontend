@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { advertiseListAction } from "../../../redux/actions/advertiseActions";
@@ -20,8 +21,15 @@ import Categories from "../../../components/Categories";
 import SideBar from "../../../components/SideBar";
 import { getAdvertise } from "../../../../lib/backendLink";
 import { advertiseDetailAction } from "../../../redux/actions/advertiseActions";
+import SideviewOne from "../../../components/sideviewone/SideviewOne";
+import Detail from "../../../components/detailpage/Detail";
 
 // COMPONENT ALL
+
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
 
 const AdvertiseDetail = () => {
   const router = useRouter();
@@ -77,10 +85,12 @@ const AdvertiseDetail = () => {
 
   useEffect(() => {
     dispatch(jobListAction());
-  }, [dispatch]);
+  }, [dispatch, id, slug]);
 
   return (
     <>
+    {advertise && (
+
       <MetaDetail
         title={advertise.title}
         description={advertise.metadesc}
@@ -89,22 +99,39 @@ const AdvertiseDetail = () => {
         ogUrl={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + router.asPath}
         ogImage={process.env.NEXT_PUBLIC_DEVELOPMENT_URL + advertise.image}
       />
+    )}
       <SideBar/>
       <StaticBanner />
       <Categories />
-      <MainScreenDetailComponent url={mainUrl} link="advertise" datas={advertise} header="Advertise" />
+      {/* # 2ND HEADER */}
+      <Grid container>
+        <Grid items lg={8} md={12} sm={12} xs={12}>
+          <Detail datas={advertise} header="Advertisement" link="advertise" url={mainUrl} defaultImage={advetiseImage} />
+        </Grid>
+        <Grid items lg={4} md={12} sm={12} xs={12}>
+          <SideviewOne datas={listLocal} header="News" link="news" />
+        </Grid>
+      </Grid>
+      {/* END OF 2ND HEADER */}
+
+      <Grid container>
+        <Grid items lg={8} md={8} sm={12} xs={12}>
+          <MainScreenComponent
+            datas={listJob}
+            header="Recent Jobs"
+            link="jobs"
+            staticImg={jobsImage}
+          />
+        </Grid>
+      </Grid>
+
+      {/* <MainScreenDetailComponent url={mainUrl} link="advertise" datas={advertise} header="Advertise" />
 
       <BbcText datas={listJob} link="jobs" header="Recent Jobs" />
-      
-      {/* <BbcComponent
-        datas={listJob}
-        link="jobs"
-        header="Must View"
-        loading={listJobLoading}
-      /> */}
+
       <Banners />
 
-      <MainScreenComponent datas={listLocal} header="Recent News" link="news" />
+      <MainScreenComponent datas={listLocal} header="Recent News" link="news" /> */}
       <FooterLayout />
     </>
   );

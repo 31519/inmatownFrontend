@@ -7,8 +7,10 @@ const MainScreenComponent = ({
   datas,
   header,
   link,
-  staticImg = "/jobs.jpg",
+  staticImg
+  
 }) => {
+
   const orig = process.env.NEXT_PUBLIC_DEVELOPMENT_URL;
   return (
     <div className={mainScreen.mainContainer}>
@@ -17,7 +19,7 @@ const MainScreenComponent = ({
       </div>
       <hr />
       {datas &&
-        datas.map((data) => (
+        datas.slice(3, 7).map((data) => (
           <Link href={`/${link}/${data.slug}/${data.id}`}>
             <div className={mainScreen.container}>
               <div className={mainScreen.imageContainer}>

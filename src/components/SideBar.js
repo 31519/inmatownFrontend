@@ -58,11 +58,6 @@ const listCategory = [
     link: "/privacy-policy",
     icon: <LandscapeIcon />,
   },
-  {
-    title: "Terms and Conditions",
-    link: "/termsandcondition",
-    icon: <LandscapeIcon />,
-  },
   // {
   //   title: "Resell",
   //   link: "/resell",

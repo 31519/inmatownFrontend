@@ -24,6 +24,11 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
 // COMPONENT ALL
 
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
+
 const News = () => {
   const router = useRouter();
   const keywords = router.query.keyword || "";
@@ -97,7 +102,7 @@ const News = () => {
       <StaticBanner />
       <Categories />
 
-      <BBCscreens datas={news} resPerPage={resPerPage} count={count} header="Recent News" link="news" />
+      <BBCscreens datas={news} resPerPage={resPerPage} count={count} header="Recent News" link="news" defaultImage={newsImage} />
       <BbcText datas={listJob} link="jobs" header="Jobs" />
 {/* 
       <BbcComponent
@@ -106,7 +111,7 @@ const News = () => {
         header="Must View"
         loading={listJobLoading}
       /> */}
-      <Banners />
+      {/* <Banners /> */}
 
       <FooterLayout />
     </>

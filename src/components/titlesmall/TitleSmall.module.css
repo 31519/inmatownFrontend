@@ -3,12 +3,12 @@
     font-size: 18px;
     word-wrap: break-word;
     white-space: pre-wrap;
-    color:black
+    color:#4f4c4c;
 }
 
 
 @media screen and (max-width: 600px) {
     .title {
-        font-size: 18px;
+        font-size: 16px;
     }
   }

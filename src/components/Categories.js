@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import categoriesStyle from "../styles/Categories.module.css";
+import StaticCategory from "./staticCategory/StaticCategory"
 
 // import randomColor from "randomcolor"
 
@@ -91,6 +92,7 @@ const Categories = ({category=listCategory}) => {
             </div>
           ))}
       </div>
+    <StaticCategory />
     </>
   );
 };

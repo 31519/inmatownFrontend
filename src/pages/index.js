@@ -150,7 +150,7 @@ export default function HomePage() {
       />
       <BbcText datas={listLocal} link="news" header="News" />
       
-      <Banners />
+      {/* <Banners /> */}
       <BbcComponent
         datas={listTech}
         link="educations"
@@ -158,9 +158,9 @@ export default function HomePage() {
         loading={listTech}
       />
       <BbcText datas={listJob} link="jobs" header="Jobs" />
-      <Banners />
+      {/* <Banners /> */}
 
-      <IndexAdvertiseBanner index={1} />
+      {/* <IndexAdvertiseBanner index={1} /> */}
 
       {/* <ScreenLayout header1='News' header2="Advertise" datas={listLocal} datas2={listAdvertise} /> */}
       <FooterLayout />

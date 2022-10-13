@@ -4,32 +4,33 @@ import Link from "next/link";
 
 const category = [
   {
-    title: "News",
-    link: "/news",
+    title: "Home",
+    link: "/",
   },
   {
     title: "Jobs",
-    link: "/news",
+    link: "/jobs",
   },
+
   {
     title: "Education",
-    link: "/news",
-  },
-  {
-    title: "Notification",
-    link: "/news",
+    link: "/educations",
   },
   {
     title: "News",
     link: "/news",
   },
   {
-    title: "News",
-    link: "/news",
+    title: "Advertise",
+    link: "/advertise",
   },
   {
-    title: "News",
-    link: "/news",
+    title: "About us",
+    link: "/aboutUs",
+  },
+  {
+    title: "Privacy",
+    link: "/privacy-policy",
   },
 ];
 

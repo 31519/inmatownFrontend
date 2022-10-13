@@ -8,26 +8,31 @@ import { jobListAction } from "../../../redux/actions/advertiseActions2";
 import SideBar from "../../../components/SideBar";
 import FooterLayout from "../../../components/FooterLayout";
 import MetaDetail from "../../../components/MetaDetail";
-// import Banners from "../../../components/Banners";
 import StaticBanner from "../../../components/StaticBanner";
-// import BbcComponent from "../../../components/BbcComponent";
-// import BbcText from "../../../components/BbcText";
 import { getNewsDetail } from "../../../../lib/backendLink";
 import MainScreenComponent from "../../../components/MainScreenComponent";
+// import Banners from "../../../components/Banners";
+// import BbcComponent from "../../../components/BbcComponent";
+// import BbcText from "../../../components/BbcText";
 // import MainScreenDetailComponent from "../../../components/MainscreenDetailComponent";
+// import SliderFramework from "../../../components/sliderframework/SliderFramework";
 import Categories from "../../../components/Categories";
+import { listTechs } from "../../../redux/actions/techActions";
 import { getNews } from "../../../../lib/backendLink";
 import { localDetailAction } from "../../../redux/actions/advertiseActions";
 import SideviewOne from "../../../components/sideviewone/SideviewOne";
 import Detail from "../../../components/detailpage/Detail";
-import SliderFramework from "../../../components/sliderframework/SliderFramework";
 
 // COMPONENT ALL
+
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
 
 const NewsDetail = () => {
   const router = useRouter();
   const { slug, id } = router.query;
-  console.log("query", router.query);
   const dispatch = useDispatch();
   const mainUrl = process.env.NEXT_PUBLIC_PRODUCTION_URL;
 
@@ -55,6 +60,14 @@ const NewsDetail = () => {
     jobs: listJob,
   } = jobList;
 
+  const techList = useSelector((state) => state.techList);
+
+  const {
+    error: techListError,
+    loading: techListLoading,
+    techs: education,
+  } = techList;
+
   useEffect(() => {
     dispatch(localDetailAction(id, slug));
   }, [dispatch, id, slug]);
@@ -69,6 +82,10 @@ const NewsDetail = () => {
 
   useEffect(() => {
     dispatch(jobListAction());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(listTechs());
   }, [dispatch]);
 
   return (
@@ -90,7 +107,7 @@ const NewsDetail = () => {
       {/* # 2ND HEADER */}
       <Grid container>
         <Grid items lg={8} md={12} sm={12} xs={12}>
-          <Detail datas={news} url={mainUrl} header="News" link="news" />
+          <Detail datas={news} url={mainUrl} header="News" link="news"  defaultImage={newsImage} />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12}>
           <SideviewOne datas={listJob} header="Recent Jobs" link="jobs" />
@@ -108,9 +125,10 @@ const NewsDetail = () => {
       <Grid container>
         <Grid items lg={8} md={8} sm={12} xs={12}>
           <MainScreenComponent
-            datas={listJob}
-            header="Recent Jobs"
-            link="jobs"
+            datas={education}
+            header="Recent Education"
+            link="educations"
+            staticImg={educationImage}
           />
         </Grid>
       </Grid>

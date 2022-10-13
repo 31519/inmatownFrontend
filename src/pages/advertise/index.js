@@ -15,6 +15,11 @@ import Categories from "../../components/Categories";
 import SideBar from "../../components/SideBar";
 import { getAdvertise } from "../../../lib/backendLink";
 
+const jobsImage = "/static/jobs.jpg"
+const newsImage = "/static/news.jpg"
+const advetiseImage = "/static/advertisement.jpg"
+const educationImage = "/static/education.jpg"
+
 const Advertise = () => {
   const router = useRouter();
   const keywords = router.query.keyword || "";
@@ -82,6 +87,7 @@ const Advertise = () => {
         link="advertise"
         count={count}
         resPerPage={resPerPage}
+        defaultImage={advetiseImage}
       />
       <BbcText datas={listLocal} link="news" header="News" />
       
@@ -91,7 +97,7 @@ const Advertise = () => {
         header="Must View"
         loading={listJobLoading}
       /> */}
-      <Banners />
+      {/* <Banners /> */}
 
       <FooterLayout />
     </>
